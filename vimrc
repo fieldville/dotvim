@@ -99,3 +99,17 @@ endif
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+set sw=4
+set ts=4
+set nobackup
+set nu
+set nows
+
+" ウィンドウサイズの変更
+nmap <Up>    2<C-w>-
+nmap <Down>  2<C-w>+
+nmap <Left>  5<C-w><
+nmap <Right> 5<C-w>>
+
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
