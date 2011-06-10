@@ -27,3 +27,6 @@
 [submodule "bundle/snipmate.vim"]
 	path = bundle/snipmate.vim
 	url = git://github.com/msanders/snipmate.vim.git
+[submodule "bundle/SQLUtilities"]
+	path = bundle/SQLUtilities
+	url = git://github.com/vim-scripts/SQLUtilities.git
