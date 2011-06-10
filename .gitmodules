@@ -48,3 +48,6 @@
 [submodule "bundle/vim-align"]
 	path = bundle/vim-align
 	url = git://github.com/tsaleh/vim-align.git
+[submodule "bundle/EnhancedCommentify"]
+	path = bundle/EnhancedCommentify
+	url = git://github.com/hrp/EnhancedCommentify.git
