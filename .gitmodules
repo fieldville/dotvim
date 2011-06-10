@@ -51,3 +51,6 @@
 [submodule "bundle/EnhancedCommentify"]
 	path = bundle/EnhancedCommentify
 	url = git://github.com/hrp/EnhancedCommentify.git
+[submodule "bundle/neocomplcache"]
+	path = bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git
