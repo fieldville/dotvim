@@ -42,3 +42,6 @@
 [submodule "bundle/vim-matchit"]
 	path = bundle/vim-matchit
 	url = git://github.com/tsaleh/vim-matchit.git
+[submodule "bundle/svn-diff.vim"]
+	path = bundle/svn-diff.vim
+	url = git://github.com/vim-scripts/svn-diff.vim.git
