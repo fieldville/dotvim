@@ -113,6 +113,11 @@ nmap <Right> 5<C-w>>
 
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
+" コマンドライン補完するときに強化されたものを使う
+set wildmenu
+" コマンドライン補完をシェルっぽく
+set wildmode=list:longest
+
 
 "----------------------------------------
 "カーソル位置の単語検索
