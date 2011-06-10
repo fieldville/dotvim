@@ -114,7 +114,7 @@ nmap <Right> 5<C-w>>
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
-"---------------------------------------- 
+"----------------------------------------
 "カーソル位置の単語検索
 " 外部grep
 set grepprg=find\ .\ -type\ f\ -name\ '*.*'\ -a\ -not\ -regex\ '.*\\\.svn.*'\ -a\ -not\ -regex\ '.*\\\.git.*'\ -a\ -not\ -regex\ '.*\.swp$'\ -a\ -not\ -regex\ '^\\\./\\\..*'\ -a\ -not\ -regex\ '^\\\./work.*'\ -a\ -not\ -regex\ '^\\\./cpan.*'\ -a\ -not\ -regex\ '^\\\./etc.*'\ -a\ -not\ -regex\ '.*\\\.bak$\ '\ -a\ -not\ -regex\ '.*\\\.bk$'\ -a\ -not\ -regex\ '.*_$'\ -a\ -not\ -regex\ '.*\\\.gz$'\ -a\ -not\ -regex\ '.*\\\.gif$'\ -a\ -not\ -regex\ '.*\\\.png$'\ -a\ -not\ -regex\ '.*_latest$'\ -a\ -not\ -regex\ '.*gomi.*'\ -a\ -not\ -regex\ '.*/eigyo/.*'\ -a\ -not\ -regex\ '.*/alias/.*'\ -a\ -not\ -regex\ '.*hoge$'\ -a\ -not\ -regex\ '.*/ext/js/.*'\ -a\ -not\ -regex\ '.*log$'\ -a\ -not\ -regex\ '.*schema.rb$'\ -a\ -not\ -regex\ '.*/images/.*'\ -a\ -not\ -regex\ '.*\\\.class$'\ -a\ -not\ -regex\ './tmp/.*'\ -a\ -not\ -regex\ './coverage/.*'\ -print0\\\|\ xargs\ -0\ grep\ -nH
@@ -130,7 +130,7 @@ nmap <C-n> :cn<CR>
 nmap <C-p> :cp<CR>
 
 
-"---------------------------------------- 
+"----------------------------------------
 " FuzzyFinder.vim
 let g:fuf_modesDisable = ['mrucmd']
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|bak|swp|gif|jpg|png)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
@@ -146,7 +146,7 @@ let g:fuf_previewHeight = 0
 "nmap br :FufMruFile<CR>
 "nmap bq :FufQuickfix<CR>
 "nmap bl :FufLine<CR>
-"nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR> 
+"nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
 nmap <leader>fb :FufBuffer<CR>
 nmap <leader>fF :FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
 nmap <leader>ff :FufFile **/<CR>
@@ -154,3 +154,8 @@ nmap <leader>fr :FufMruFile<CR>
 nmap <leader>fq :FufQuickfix<CR>
 nmap <leader>fl :FufLine<CR>
 
+
+"----------------------------------------
+" minibufexpl.vim
+nmap <Space> :MBEbn<CR>
+nmap ,<Space> :MBEbp<CR>
