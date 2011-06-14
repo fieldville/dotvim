@@ -54,3 +54,27 @@
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule "bundle/bufexplorer.git"]
+	path = bundle/bufexplorer.git
+	url = git://github.com/corntrace/bufexplorer.git
+	ignore = untracked
+[submodule "bundle/nerdtree.git"]
+	path = bundle/nerdtree.git
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "bundle/taglist.vim.git"]
+	path = bundle/taglist.vim.git
+	url = git://github.com/rgo/taglist.vim.git
+	ignore = untracked
+[submodule "bundle/vim-endwise.git"]
+	path = bundle/vim-endwise.git
+	url = git://github.com/tpope/vim-endwise.git
+[submodule "bundle/vim-markdown.git"]
+	path = bundle/vim-markdown.git
+	url = git://github.com/plasticboy/vim-markdown.git
+[submodule "bundle/vim-quickrun.git"]
+	path = bundle/vim-quickrun.git
+	url = git://github.com/thinca/vim-quickrun.git
+	ignore = untracked
+[submodule "bundle/yanktmp.vim.git"]
+	path = bundle/yanktmp.vim.git
+	url = git://github.com/vim-scripts/yanktmp.vim.git

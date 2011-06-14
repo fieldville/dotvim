@@ -95,15 +95,86 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" pathogen.vim
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
-set sw=4
-set ts=4
+set noautoindent
 set nobackup
-set nu
-set nows
+
+" <Esc>連打で、強調表示を一時的に消す
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+" 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
+set nowrapscan
+
+" 行番号を非表示 (number:表示)
+set number
+" ルーラーを表示 (noruler:非表示)
+set ruler
+" 常にステータス行を表示 (詳細は:he laststatus)
+set laststatus=2
+" コマンドラインの高さ (Windows用gvim使用時はgvimrcを編集すること)
+set cmdheight=2
+" コマンドをステータス行に表示
+set showcmd
+" タイトルを表示
+set title
+" バックスペースでインデントや改行を削除できるようにする
+set backspace=2
+
+"set tags
+if has("autochdir")
+	set autochdir
+	set tags=tags;
+else
+	set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
+endif
+
+" leaderを,に変更
+let mapleader=","
+
+" 検索などで飛んだらそこを真ん中に
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+nmap G Gzz
+
+" escape automatically / ?
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
+" fileencoding
+nmap <Leader>U :set fileencoding=utf-8<CR>
+nmap <Leader>E :set fileencoding=euc-jp<CR>
+nmap <Leader>S :set fileencoding=cp932<CR>
+
+nmap <Leader>u :e ++enc=utf-8 %<CR>
+nmap <Leader>e :e ++enc=euc-jp %<CR>
+nmap <Leader>s :e ++enc=cp932 %<CR>
+
+" 大文字小文字の両方が含まれている場合は大文字小文字を区別
+set smartcase
+
+" コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
+set wildmenu
+" コマンドライン補間をシェルっぽく
+set wildmode=list:longest
+
+"検索後のスクロールから下の行がわかる
+"set scrolloff=30
+set scrolloff=5
+
+"set background=dark
+set background=light
+
+" cf http://vimwiki.net/
+"colorscheme elflord
+"colorscheme torte
+colorscheme desert
 
 " ウィンドウサイズの変更
 nmap <Up>    2<C-w>-
@@ -111,12 +182,46 @@ nmap <Down>  2<C-w>+
 nmap <Left>  5<C-w><
 nmap <Right> 5<C-w>>
 
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+"set wrap のときに便利
+"折れ曲がった行にも移動
+nmap j gj
+nmap k gk
+vmap j gj
+vmap k gk
+"set showbreak=…
 
-" コマンドライン補完するときに強化されたものを使う
-set wildmenu
-" コマンドライン補完をシェルっぽく
-set wildmode=list:longest
+"set wrap linebreak nolist
+" cf http://vimcasts.org/episodes/soft-wrapping-text/
+command! -nargs=* Wrap set wrap linebreak nolist
+
+
+" Indent
+autocmd FileType apache setlocal sw=4 sts=4 ts=4 et
+autocmd FileType aspvbs setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType c setlocal sw=4 sts=4 ts=4 et
+autocmd FileType cpp setlocal sw=4 sts=4 ts=4 et
+autocmd FileType cs setlocal sw=4 sts=4 ts=4 et
+autocmd FileType css setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType diff setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType eruby setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType html setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType java setlocal sw=4 sts=4 ts=4 et
+autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType perl setlocal sw=4 sts=4 ts=4 et
+autocmd FileType php setlocal sw=4 sts=4 ts=4 et
+autocmd FileType python setlocal sw=4 sts=4 ts=4 et
+autocmd FileType ruby setlocal sw=2 sts=2 ts=2 et
+autocmd FileType haml setlocal sw=2 sts=2 ts=2 et
+autocmd FileType sh setlocal sw=4 sts=4 ts=4 et
+autocmd FileType sql setlocal sw=4 sts=4 ts=4 et
+autocmd FileType vb setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType vim setlocal sw=2 sts=2 ts=2 et
+autocmd FileType wsh setlocal sw=4 sts=4 ts=4 et
+autocmd FileType xhtml setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType xml setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType yaml setlocal sw=2 sts=2 ts=2 et
+autocmd FileType zsh setlocal sw=4 sts=4 ts=4 et
+autocmd FileType scala setlocal sw=2 sts=2 ts=2 et
 
 
 "----------------------------------------
@@ -133,6 +238,97 @@ nmap <C-g><C-h> :grep "<C-R>/" \| cw<CR>
 
 nmap <C-n> :cn<CR>
 nmap <C-p> :cp<CR>
+
+
+"----------------------------------------
+" pathogen.vim
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+
+"----------------------------------------
+" taglist.vim
+nmap <Leader>t :TlistToggle<CR>
+nnoremap <silent> <F7> :TlistToggle<CR>
+let Tlist_WinWidth = 40
+
+
+"----------------------------------------
+" neocomplcache.vim
+"Setting examples:
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underbar completion.
+let g:neocomplcache_enable_underbar_completion = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+  let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+"" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y>  neocomplcache#close_popup()
+"inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" AutoComplPop like behavior.
+"let g:neocomplcache_enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplcache_disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
+"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 
 "----------------------------------------
@@ -160,7 +356,23 @@ nmap <leader>fq :FufQuickfix<CR>
 nmap <leader>fl :FufLine<CR>
 
 
+
+
 "----------------------------------------
-" minibufexpl.vim
-nmap <Space> :MBEbn<CR>
-nmap ,<Space> :MBEbp<CR>
+" yanktmp.vim
+map <silent> sy :call YanktmpYank()<CR>
+map <silent> sp :call YanktmpPaste_p()<CR>
+map <silent> sP :call YanktmpPaste_P()<CR>
+
+
+"----------------------------------------
+" MiniBufExplorer
+nnoremap <Space> :MBEbn<CR>
+nnoremap <Leader><Space> :MBEbp<CR>
+
+
+"----------------------------------------
+"rails.vim + nerdtree.vim
+nnoremap <Leader>p :Rtree<CR>
+nnoremap <silent> <F8> :Rtree<CR>
+
