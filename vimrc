@@ -305,9 +305,20 @@ call pathogen#helptags()
 
 
 "----------------------------------------
+" NERDTree.vim
+nnoremap <silent> <F7> :NERDTreeToggle<CR>
+"let g:NERDTreeWinPos = "right"
+"let g:NERDTreeWinSize = 40
+" always on but not focused
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+
+"----------------------------------------
 " taglist.vim
 nmap <Leader>t :TlistToggle<CR>
-nnoremap <silent> <F7> :TlistToggle<CR>
+nnoremap <silent> <F8> :TlistToggle<CR>
+let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 40
 
 
@@ -406,14 +417,12 @@ let g:fuf_previewHeight = 0
 "nmap bq :FufQuickfix<CR>
 "nmap bl :FufLine<CR>
 "nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
-nmap <leader>fb :FufBuffer<CR>
-nmap <leader>fF :FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-nmap <leader>ff :FufFile **/<CR>
-nmap <leader>fr :FufMruFile<CR>
-nmap <leader>fq :FufQuickfix<CR>
-nmap <leader>fl :FufLine<CR>
-
-
+nnoremap <silent> <leader>fb :FufBuffer<CR>
+nnoremap <silent> <leader>fF :FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
+nnoremap <silent> <leader>ff :FufFile **/<CR>
+nnoremap <silent> <leader>fr :FufMruFile<CR>
+nnoremap <silent> <leader>fq :FufQuickfix<CR>
+nnoremap <silent> <leader>fl :FufLine<CR>
 
 
 "----------------------------------------
@@ -433,5 +442,3 @@ nnoremap <Leader><Space> :MBEbp<CR>
 "rails.vim + nerdtree.vim
 nnoremap <Leader>p :Rtree<CR>
 
-" NERDTree.vim
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
