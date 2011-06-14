@@ -432,5 +432,6 @@ nnoremap <Leader><Space> :MBEbp<CR>
 "----------------------------------------
 "rails.vim + nerdtree.vim
 nnoremap <Leader>p :Rtree<CR>
-nnoremap <silent> <F8> :Rtree<CR>
 
+" NERDTree.vim
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
