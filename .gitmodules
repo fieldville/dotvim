@@ -75,3 +75,6 @@
 [submodule "bundle/yanktmp.vim.git"]
 	path = bundle/yanktmp.vim.git
 	url = git://github.com/vim-scripts/yanktmp.vim.git
+[submodule "bundle/vim-fugitive.git"]
+	path = bundle/vim-fugitive.git
+	url = git://github.com/tpope/vim-fugitive.git
