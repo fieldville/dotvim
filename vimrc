@@ -234,6 +234,12 @@ set background=light
 "colorscheme torte
 colorscheme desert
 
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
 " ウィンドウサイズの変更
 nmap <Up>    2<C-w>-
 nmap <Down>  2<C-w>+
