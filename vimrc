@@ -254,6 +254,13 @@ vmap j gj
 vmap k gk
 "set showbreak=…
 
+" Shortcut to rapidly toggle `set list`
+nmap <leader>ls :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+set list
+
 "set wrap linebreak nolist
 " cf http://vimcasts.org/episodes/soft-wrapping-text/
 command! -nargs=* Wrap set wrap linebreak nolist
