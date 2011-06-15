@@ -92,7 +92,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+      \ | wincmd p | diffthis
 endif
 
 set tabstop=4
@@ -299,30 +299,30 @@ autocmd FileType scala setlocal sw=2 sts=2 ts=2 et
 "カーソル位置の単語検索
 " 外部grep
 let &grepprg="find . -type f -name '*.*'
- \ -a -not -regex '.*\\.swp$'
- \ -a -not -regex '.*\\.gz$'
- \ -a -not -regex '.*\\.gif$'
- \ -a -not -regex '.*\\.png$'
- \ -a -not -regex '.*\\.svn.*'
- \ -a -not -regex '.*\\.git.*'
- \ -a -not -regex '.*\\.bak$'
- \ -a -not -regex '.*\\.bk$'
- \ -a -not -regex '.*\\.class$'
- \ -a -not -regex '.*_$'
- \ -a -not -regex '.*log$'
- \ -a -not -regex '.*gomi.*'
- \ -a -not -regex '.*hoge.*'
- \ -a -not -regex './tmp/.*'
- \ -a -not -regex '.*/images/.*'
- \ -a -not -regex '.*/alias/.*'
- \ -a -not -regex '.*/ext/js/.*'
- \ -a -not -regex '^\\./\\..*'
- \ -a -not -regex '^\\./work.*'
- \ -a -not -regex '^\\./cpan.*'
- \ -a -not -regex '^\\./etc.*'
- \ -a -not -regex '.*schema.rb$'
- \ -a -not -regex './coverage/.*'
- \ -print0 \\| xargs -0 grep -nH"
+              \ -a -not -regex '.*\\.swp$'
+              \ -a -not -regex '.*\\.gz$'
+              \ -a -not -regex '.*\\.gif$'
+              \ -a -not -regex '.*\\.png$'
+              \ -a -not -regex '.*\\.svn.*'
+              \ -a -not -regex '.*\\.git.*'
+              \ -a -not -regex '.*\\.bak$'
+              \ -a -not -regex '.*\\.bk$'
+              \ -a -not -regex '.*\\.class$'
+              \ -a -not -regex '.*_$'
+              \ -a -not -regex '.*log$'
+              \ -a -not -regex '.*gomi.*'
+              \ -a -not -regex '.*hoge.*'
+              \ -a -not -regex './tmp/.*'
+              \ -a -not -regex '.*/images/.*'
+              \ -a -not -regex '.*/alias/.*'
+              \ -a -not -regex '.*/ext/js/.*'
+              \ -a -not -regex '^\\./\\..*'
+              \ -a -not -regex '^\\./work.*'
+              \ -a -not -regex '^\\./cpan.*'
+              \ -a -not -regex '^\\./etc.*'
+              \ -a -not -regex '.*schema.rb$'
+              \ -a -not -regex './coverage/.*'
+              \ -print0 \\| xargs -0 grep -nH"
 
 " カーソル直下の単語(Word)
 nmap <C-g><C-w> :grep "<C-R><C-W>" \| cw<CR>
