@@ -343,8 +343,10 @@ nmap <C-p> :cp<CR>
 
 "----------------------------------------
 " pathogen.vim
+filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+filetype on
 
 
 "----------------------------------------
