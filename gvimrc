@@ -57,3 +57,26 @@ if version >= 500
   highlight Special gui=NONE guibg=grey95
 
 endif
+
+colorscheme darkblue
+
+set columns=178
+set lines=50
+winpos 0 0
+be mswin
+
+"ツールバーを非表示にしたい場合
+set guioptions-=T
+
+" メニューを英語に戻す
+source $VIMRUNTIME/delmenu.vim
+set langmenu=none
+source $VIMRUNTIME/menu.vim
+
+" no beep
+set visualbell
+
+"Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
