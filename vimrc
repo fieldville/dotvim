@@ -332,11 +332,11 @@ let &grepprg="find . -type f -name '*.*'
               \ -print0 \\| xargs -0 grep -nH"
 
 " カーソル直下の単語(Word)
-nmap <C-g><C-w> :grep "<C-R><C-W>" \| cw<CR>
+nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
 " カーソル直下の単語(WORD)(C-aはscreenとバッティングするためC-eに)
-nmap <C-g><C-e> :grep "<C-R><C-A>" \| cw<CR>
+nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
 " 最後に検索した単語
-nmap <C-g><C-h> :grep "<C-R>/" \| cw<CR>
+nmap <C-g><C-h> :grep "<C-R>/" \| bot cw<CR>
 
 nmap <C-n> :cn<CR>
 nmap <C-p> :cp<CR>
