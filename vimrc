@@ -341,6 +341,17 @@ nmap <C-g><C-h> :grep "<C-R>/" \| bot cw<CR>
 nmap <C-n> :cn<CR>
 nmap <C-p> :cp<CR>
 
+" 文字エンコーディング＆改行コード取得
+function! GetStatusEx()
+    let str = &fileformat
+    if has('multi_byte') && &fileencoding != ''
+        let str = &fileencoding . ':' . str
+    endif
+    return '[' . str . ']'
+endfunction
+set statusline=%y%{GetStatusEx()}%F%m%r%=<%c:%l>
+
+
 
 "----------------------------------------
 " pathogen.vim
