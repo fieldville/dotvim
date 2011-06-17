@@ -352,6 +352,11 @@ endfunction
 set statusline=%y%{GetStatusEx()}%F%m%r%=<%c:%l>
 
 
+" コマンドを実行
+"nnoremap <Leader>e :execute '!' &ft ' %'<CR>
+nnoremap <silent> <Leader>e :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| bot cw \| if len(getqflist()) != 0 \| copen \| endif<CR>
+
+
 
 "----------------------------------------
 " pathogen.vim
