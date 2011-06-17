@@ -357,6 +357,12 @@ set statusline=%y%{GetStatusEx()}%F%m%r%=<%c:%l>
 nnoremap <silent> <Leader>e :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| bot cw \| if len(getqflist()) != 0 \| copen \| endif<CR>
 
 
+" Ctrl+Nでコマンドライン履歴を一つ進む(前方一致)
+cnoremap <C-P> <UP>
+" Ctrl+Pでコマンドライン履歴を一つ戻る(前方一致)
+cnoremap <C-N> <DOWN>
+
+
 
 "----------------------------------------
 " pathogen.vim
