@@ -555,3 +555,9 @@ nnoremap <Leader>p :Rtree<CR>
 let g:quicklaunch_no_default_key_mappings = 1
 
 
+"----------------------------------------
+" rubytest.vim
+let g:rubytest_cmd_spec = "spec %p"
+let g:rubytest_cmd_example = "spec %p -l %c"
+let g:rubytest_in_quickfix = 1
+
