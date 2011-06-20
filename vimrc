@@ -269,10 +269,11 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 
 " Source the vimrc file after saving it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
-nnoremap <Leader>v :sp $MYVIMRC<CR>
+"if has("autocmd")
+"  autocmd bufwritepost .vimrc source $MYVIMRC
+"endif
+nnoremap <Leader>v :split $MYVIMRC<CR>
+nnoremap <Leader>so :source $MYVIMRC<CR>
 
 
 
