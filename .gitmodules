@@ -82,3 +82,6 @@
 [submodule "bundle/JavaDecompiler.vim.git"]
 	path = bundle/JavaDecompiler.vim.git
 	url = git://github.com/vim-scripts/JavaDecompiler.vim.git
+[submodule "bundle/vim-unimpaired.git"]
+	path = bundle/vim-unimpaired.git
+	url = git://github.com/tpope/vim-unimpaired.git
