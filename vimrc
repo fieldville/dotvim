@@ -363,6 +363,9 @@ cnoremap <C-P> <UP>
 cnoremap <C-N> <DOWN>
 
 
+" 全選択
+nnoremap <Leader>a ggVG
+
 
 " color
 " 色番号	:help ctermbg(NR-8)
