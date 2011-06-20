@@ -364,6 +364,14 @@ cnoremap <C-N> <DOWN>
 
 
 
+" color
+" 色番号	:help ctermbg(NR-8)
+hi Pmenu ctermbg=4
+hi PmenuSel ctermbg=5
+hi PmenuSbar ctermbg=0
+
+
+
 "----------------------------------------
 " pathogen.vim
 filetype off
