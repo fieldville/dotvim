@@ -422,6 +422,12 @@ vmap <C-S-j> ]egv
 nmap gV `[v`]
 
 
+" Ctrl-iでヘルプ
+nnoremap <C-i>  :<C-u>help<Space>
+" カーソル下のキーワードをヘルプでひく
+nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
+
+
 
 "----------------------------------------
 " pathogen.vim
