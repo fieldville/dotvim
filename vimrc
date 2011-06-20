@@ -403,21 +403,6 @@ augroup END
 highlight CursorLine ctermbg=black guibg=black
 
 
-"" Bubble single lines
-"nmap <C-S-k> ddkP
-"nmap <C-S-j> ddp
-"" Bubble multiple lines
-"vmap <C-S-k> xkP`[V`]
-"vmap <C-S-j> xp`[V`]
-
-" with unimpaired.vim
-" Bubble single lines
-nmap <C-S-k> [e
-nmap <C-S-j> ]e
-" Bubble multiple lines
-vmap <C-S-k> [egv
-vmap <C-S-j> ]egv
-
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
