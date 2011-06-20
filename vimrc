@@ -349,7 +349,7 @@ function! GetStatusEx()
     endif
     return '[' . str . ']'
 endfunction
-set statusline=%y%{GetStatusEx()}%F%m%r%=<%c:%l>
+set statusline=%y%{GetStatusEx()}%F%m%r\ [%c,%l](%P)%=%{strftime(\"%Y/%m/%d(%a)\ %H:%M\")}
 
 
 " コマンドを実行
