@@ -314,8 +314,6 @@ let &grepprg="find . -type f -name '*.*'
               \ -a -not -regex '.*\\.gif$'
               \ -a -not -regex '.*\\.png$'
               \ -a -not -regex '.*\\.jpg$'
-              \ -a -not -regex '.*\\.svn.*'
-              \ -a -not -regex '.*\\.git.*'
               \ -a -not -regex '.*\\.bak$'
               \ -a -not -regex '.*\\.bk$'
               \ -a -not -regex '.*\\.class$'
@@ -325,6 +323,8 @@ let &grepprg="find . -type f -name '*.*'
               \ -a -not -regex '.*log$'
               \ -a -not -regex '.*gomi.*'
               \ -a -not -regex '.*hoge.*'
+              \ -a -not -regex '.*/\\.svn/.*'
+              \ -a -not -regex '.*/\\.git/.*'
               \ -a -not -regex '.*/tmp/.*'
               \ -a -not -regex '.*/resources/.*'
               \ -a -not -regex '.*/images/.*'
@@ -424,7 +424,6 @@ autocmd VimEnter * wincmd p
 
 "----------------------------------------
 " taglist.vim
-nmap <Leader>t :TlistToggle<CR>
 nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 40
@@ -549,4 +548,10 @@ nnoremap <Leader><Space> :MBEbp<CR>
 "----------------------------------------
 "rails.vim + nerdtree.vim
 nnoremap <Leader>p :Rtree<CR>
+
+
+"----------------------------------------
+" vim-quickrun
+let g:quicklaunch_no_default_key_mappings = 1
+
 

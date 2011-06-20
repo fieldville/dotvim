@@ -86,3 +86,6 @@
 [submodule "bundle/vim-unimpaired.git"]
 	path = bundle/vim-unimpaired.git
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-rubytest.git"]
+	path = bundle/vim-rubytest.git
+	url = git://github.com/janx/vim-rubytest.git
