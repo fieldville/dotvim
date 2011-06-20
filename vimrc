@@ -407,10 +407,10 @@ highlight CursorLine ctermbg=black guibg=black
 nmap gV `[v`]
 
 
-" Ctrl-iでヘルプ
-nnoremap <C-i>  :<C-u>help<Space>
+" <F1>でヘルプ
+nnoremap <F1>  :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
-nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
+nnoremap <F1><F1> :<C-u>help<Space><C-r><C-w><Enter>
 
 
 
