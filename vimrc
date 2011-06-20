@@ -268,6 +268,14 @@ set list
 command! -nargs=* Wrap set wrap linebreak nolist
 
 
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+nnoremap <Leader>v :sp $MYVIMRC<CR>
+
+
+
 " Indent
 autocmd FileType apache setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs setlocal sw=4 sts=4 ts=4 noet
