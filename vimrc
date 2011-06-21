@@ -379,9 +379,9 @@ nnoremap <Leader>a ggVG
 
 " color
 " 色番号	:help ctermbg(NR-8)
-hi Pmenu ctermbg=4
-hi PmenuSel ctermbg=5
-hi PmenuSbar ctermbg=0
+highlight Pmenu ctermbg=4
+highlight PmenuSel ctermbg=5
+highlight PmenuSbar ctermbg=0
 
 
 " 全角スペースの表示
@@ -398,9 +398,14 @@ augroup cch
   autocmd WinEnter,BufRead * set cursorline
 augroup END
 
-:hi clear CursorLine
-:hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
+highlight clear CursorLine
+highlight CursorLine gui=underline
+highlight CursorLine ctermfg=7 ctermbg=4
+
+" コマンド実行中は再描画しない
+set lazyredraw
+" 高速ターミナル接続を行う
+set ttyfast
 
 
 " Visually select the text that was last edited/pasted
