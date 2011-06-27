@@ -385,7 +385,7 @@ highlight PmenuSbar ctermbg=0
 
 
 " 全角スペースの表示
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+highlight ZenkakuSpace cterm=underline ctermfg=White
 match ZenkakuSpace /　/
 
 
