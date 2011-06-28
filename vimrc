@@ -575,3 +575,6 @@ let g:rubytest_cmd_spec = "spec %p"
 let g:rubytest_cmd_example = "spec %p -l %c"
 let g:rubytest_in_quickfix = 1
 
+"----------------------------------------
+" Align.vim
+let g:Align_xstrlen=3
