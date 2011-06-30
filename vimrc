@@ -418,6 +418,10 @@ nnoremap <F1>  :<C-u>help<Space>
 nnoremap <F1><F1> :<C-u>help<Space><C-r><C-w><Enter>
 
 
+nnoremap <Space> :bn<CR>
+nnoremap <Leader><Space> :bp<CR>
+
+
 
 "----------------------------------------
 " pathogen.vim
@@ -565,12 +569,6 @@ nnoremap <silent> <leader>fl :FufLine<CR>
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
-
-
-"----------------------------------------
-" MiniBufExplorer
-nnoremap <Space> :MBEbn<CR>
-nnoremap <Leader><Space> :MBEbp<CR>
 
 
 "----------------------------------------
