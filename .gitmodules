@@ -100,3 +100,6 @@
 [submodule "bundle/webapi-vim.git"]
 	path = bundle/webapi-vim.git
 	url = git://github.com/mattn/webapi-vim.git
+[submodule "bundle/ack.vim.git"]
+	path = bundle/ack.vim.git
+	url = git://github.com/mileszs/ack.vim.git
