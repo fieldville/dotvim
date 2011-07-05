@@ -262,8 +262,8 @@ nmap <leader>ls :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 set list
-highlight NonText ctermfg=Black
-highlight SpecialKey ctermfg=Black
+highlight NonText ctermfg=DarkBlue
+highlight SpecialKey ctermfg=DarkBlue
 
 "set wrap linebreak nolist
 " cf http://vimcasts.org/episodes/soft-wrapping-text/
