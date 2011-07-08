@@ -64,6 +64,7 @@
 [submodule "bundle/nerdtree.git"]
 	path = bundle/nerdtree.git
 	url = git://github.com/scrooloose/nerdtree.git
+	ignore = untracked
 [submodule "bundle/taglist.vim.git"]
 	path = bundle/taglist.vim.git
 	url = git://github.com/rgo/taglist.vim.git
