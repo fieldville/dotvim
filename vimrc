@@ -424,8 +424,8 @@ nnoremap <Space> :bn<CR>
 nnoremap <Leader><Space> :bp<CR>
 
 
-nmap <Leader>na :%!native2ascii -reverse<CR>
-vmap <Leader>na :!native2ascii -reverse<CR>
+nmap <Leader>na :%!native2ascii -encoding utf8 -reverse<CR>
+vmap <Leader>na :!native2ascii -encoding utf8 -reverse<CR>
 
 
 
