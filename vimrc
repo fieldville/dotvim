@@ -386,6 +386,9 @@ highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=5
 highlight PmenuSbar ctermbg=0
 
+highlight clear Folded
+highlight clear FoldColumn
+
 
 " 全角スペースの表示
 highlight ZenkakuSpace cterm=underline ctermfg=White
