@@ -104,3 +104,6 @@
 [submodule "bundle/ack.vim.git"]
 	path = bundle/ack.vim.git
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "bundle/SQLUtilities.git"]
+	path = bundle/SQLUtilities.git
+	url = git://github.com/vim-scripts/SQLUtilities.git
