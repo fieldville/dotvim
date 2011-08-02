@@ -62,7 +62,7 @@ colorscheme darkblue
 
 set columns=178
 set lines=50
-winpos 0 0
+"winpos 0 0
 be mswin
 
 "ツールバーを非表示にしたい場合
