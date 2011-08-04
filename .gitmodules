@@ -110,3 +110,7 @@
 [submodule "bundle/cocoa.vim.git"]
 	path = bundle/cocoa.vim.git
 	url = git://github.com/msanders/cocoa.vim.git
+	ignore = untracked
+[submodule "bundle/wombat256.vim.git"]
+	path = bundle/wombat256.vim.git
+	url = git://github.com/vim-scripts/wombat256.vim.git

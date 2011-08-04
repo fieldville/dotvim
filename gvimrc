@@ -58,7 +58,9 @@ if version >= 500
 
 endif
 
-colorscheme darkblue
+"colorscheme darkblue
+colorscheme wombat256mod
+set nolist
 
 set columns=178
 set lines=50
@@ -80,3 +82,20 @@ set visualbell
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 highlight ZenkakuSpace gui=underline
+
+if has('gui_macvim')
+  set transparency=40 " 透明度を指定
+  set antialias
+  set guioptions-=t " ツールバー非表示
+  set guioptions-=r " 右スクロールバー非表示
+  set guioptions-=R
+  set guioptions-=l " 左スクロールバー非表示
+  set guioptions-=L
+  set guifont=Osaka-Mono:h14
+
+  set imdisable   " IMを無効化
+
+  "フルスクリーンモード
+  set fuoptions=maxvert,maxhorz
+  autocmd GUIEnter * set fullscreen
+endif
