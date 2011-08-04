@@ -107,3 +107,6 @@
 [submodule "bundle/SQLUtilities.git"]
 	path = bundle/SQLUtilities.git
 	url = git://github.com/vim-scripts/SQLUtilities.git
+[submodule "bundle/cocoa.vim.git"]
+	path = bundle/cocoa.vim.git
+	url = git://github.com/msanders/cocoa.vim.git
