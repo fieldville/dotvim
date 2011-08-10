@@ -99,3 +99,5 @@ if has('gui_macvim')
   set fuoptions=maxvert,maxhorz
   autocmd GUIEnter * set fullscreen
 endif
+" for clipboard¬
+set clipboard=unnamed,autoselect

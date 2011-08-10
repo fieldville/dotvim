@@ -380,7 +380,7 @@ cnoremap <C-N> <DOWN>
 nnoremap <Leader>a ggVG
 
 " for clipboard
-set clipboard=unnamed,autoselect
+"set clipboard=unnamed,autoselect
 
 " color
 " 色番号	:help ctermbg(NR-8)
