@@ -435,6 +435,9 @@ vmap <Leader>na :!native2ascii -encoding utf8 -reverse<CR>
 " Ctrl + jでescape
 inoremap <C-j> <ESC>
 
+"カーソル上の言葉をヤンク
+nmap tt yiw
+
 "----------------------------------------
 " pathogen.vim
 filetype off
