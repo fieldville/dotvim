@@ -114,3 +114,6 @@
 [submodule "bundle/wombat256.vim.git"]
 	path = bundle/wombat256.vim.git
 	url = git://github.com/vim-scripts/wombat256.vim.git
+[submodule "bundle/vim-coffee-script.git"]
+	path = bundle/vim-coffee-script.git
+	url = git://github.com/kchmck/vim-coffee-script.git

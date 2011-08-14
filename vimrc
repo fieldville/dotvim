@@ -599,6 +599,9 @@ nnoremap <Leader>p :Rtree<CR>
 " vim-quickrun
 let g:quicklaunch_no_default_key_mappings = 1
 
+let g:quickrun_config = {}
+let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+
 
 "----------------------------------------
 " rubytest.vim
@@ -606,6 +609,13 @@ let g:rubytest_cmd_spec = "spec %p"
 let g:rubytest_cmd_example = "spec %p -l %c"
 let g:rubytest_in_quickfix = 1
 
+
 "----------------------------------------
 " Align.vim
 let g:Align_xstrlen=3
+
+
+"----------------------------------------
+" vim-coffee-script.vim
+autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
+
