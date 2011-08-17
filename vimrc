@@ -410,7 +410,7 @@ highlight clear CursorLine
 highlight CursorLine cterm=underline gui=underline
 
 " コマンド実行中は再描画しない
-set lazyredraw
+"set lazyredraw
 " 高速ターミナル接続を行う
 set ttyfast
 
