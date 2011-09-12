@@ -439,11 +439,66 @@ inoremap <C-j> <ESC>
 nmap tt yiw
 
 "----------------------------------------
-" pathogen.vim
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype on
+
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'mattn/zencoding-vim'
+Bundle 'tpope/vim-surround'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-cucumber'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'tsaleh/vim-align'
+Bundle 'hrp/EnhancedCommentify'
+Bundle 'Shougo/neocomplcache'
+Bundle 'corntrace/bufexplorer'
+Bundle 'scrooloose/nerdtree'
+Bundle 'rgo/taglist.vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'thinca/vim-quickrun'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'janx/vim-rubytest'
+Bundle 'tpope/vim-haml'
+Bundle 'mattn/webapi-vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'msanders/cocoa.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-rails'
+
+" vim-scripts repos
+Bundle 'wombat256.vim'
+Bundle 'yanktmp.vim'
+Bundle 'JavaDecompiler.vim'
+Bundle 'SQLUtilities'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'SQLUtilities'
+Bundle 'svn-diff.vim'
+
+" non github repos
+Bundle 'git://repo.or.cz/vcscommand'
+
+filetype plugin indent on     " required! 
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
 
 
 "----------------------------------------
