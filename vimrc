@@ -475,6 +475,7 @@ Bundle 'git://github.com/tpope/vim-unimpaired'
 Bundle 'git://github.com/tsaleh/vim-align'
 Bundle 'git://github.com/tsaleh/vim-matchit'
 Bundle 'git://github.com/vim-ruby/vim-ruby'
+Bundle 'git://github.com/taku-o/vim-toggle'
 
 " vim-scripts repos
 Bundle 'git://github.com/vim-scripts/FuzzyFinder'
