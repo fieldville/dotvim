@@ -486,6 +486,7 @@ Bundle 'git://github.com/vim-scripts/SQLUtilities'
 Bundle 'git://github.com/vim-scripts/svn-diff.vim'
 Bundle 'git://github.com/vim-scripts/wombat256.vim'
 Bundle 'git://github.com/vim-scripts/yanktmp.vim'
+Bundle 'git://github.com/vim-scripts/sudo.vim'
 
 " non github repos
 Bundle 'git://repo.or.cz/vcscommand'
