@@ -512,9 +512,9 @@ nnoremap <silent> <F7> :NERDTreeToggle<CR>
 "let g:NERDTreeWinPos = "right"
 "let g:NERDTreeWinSize = 40
 " always on but not focused
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
+" autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
