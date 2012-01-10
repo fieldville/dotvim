@@ -453,6 +453,8 @@ call vundle#rc()
 " original repos on github
 Bundle 'git://github.com/Shougo/neocomplcache'
 Bundle 'git://github.com/Shougo/unite.vim'
+Bundle 'git://github.com/Shougo/vimshell'
+Bundle 'git://github.com/Shougo/vimproc'
 Bundle 'git://github.com/basyura/unite-rails'
 Bundle 'git://github.com/corntrace/bufexplorer'
 Bundle 'git://github.com/hrp/EnhancedCommentify'
@@ -686,4 +688,22 @@ function! s:unite_my_settings()
   nmap <silent><buffer> <ESC><ESC> q
   imap <silent><buffer> <ESC><ESC> <ESC>q
 endfunction
+
+"----------------------------------------
+" vimshell
+let g:vimshell_interactive_update_time = 10
+let g:vimshell_prompt = $USERNAME."% "
+
+" map
+nnoremap <silent> vs :VimShell<CR>
+nnoremap <silent> vsc :VimShellCreate<CR>
+nnoremap <silent> vp :VimShellPop<CR>
+
+" alias
+autocmd FileType vimshell
+\ call vimshell#altercmd#define('g', 'git')
+\| call vimshell#altercmd#define('l', 'll')
+\| call vimshell#altercmd#define('ll', 'ls -ltr')
+\| call vimshell#altercmd#define('la', 'ls -ltra')
+
 
