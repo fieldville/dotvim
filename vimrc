@@ -452,6 +452,8 @@ call vundle#rc()
 "
 " original repos on github
 Bundle 'git://github.com/Shougo/neocomplcache'
+Bundle 'git://github.com/Shougo/unite.vim'
+Bundle 'git://github.com/basyura/unite-rails'
 Bundle 'git://github.com/corntrace/bufexplorer'
 Bundle 'git://github.com/hrp/EnhancedCommentify'
 Bundle 'git://github.com/janx/vim-rubytest'
@@ -479,9 +481,7 @@ Bundle 'git://github.com/vim-ruby/vim-ruby'
 Bundle 'git://github.com/taku-o/vim-toggle'
 
 " vim-scripts repos
-Bundle 'git://github.com/vim-scripts/FuzzyFinder'
 Bundle 'git://github.com/vim-scripts/JavaDecompiler.vim'
-Bundle 'git://github.com/vim-scripts/L9'
 Bundle 'git://github.com/vim-scripts/SQLUtilities'
 Bundle 'git://github.com/vim-scripts/svn-diff.vim'
 Bundle 'git://github.com/vim-scripts/wombat256.vim'
@@ -616,31 +616,6 @@ nnoremap <Leader>nt :NeoComplCacheToggle<CR>
 
 
 "----------------------------------------
-" FuzzyFinder.vim
-let g:fuf_modesDisable = ['mrucmd']
-let g:fuf_file_exclude = '\v\~$|\.(o|exe|bak|swp|gif|jpg|png)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-let g:fuf_mrufile_exclude = '\v\~$|\.bak$|\.swp|\.howm$|\.(gif|jpg|png)$'
-let g:fuf_mrufile_maxItem = 10000
-"let g:fuf_enumeratingLimit = 20
-let g:fuf_keyPreview = '<C-]>'
-let g:fuf_previewHeight = 0
-
-"nmap bg :FufBuffer<CR>
-"nmap bG :FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-"nmap gb :FufFile **/<CR>
-"nmap br :FufMruFile<CR>
-"nmap bq :FufQuickfix<CR>
-"nmap bl :FufLine<CR>
-"nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
-nnoremap <silent> <leader>fb :FufBuffer<CR>
-nnoremap <silent> <leader>fF :FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-nnoremap <silent> <leader>ff :FufFile **/<CR>
-nnoremap <silent> <leader>fr :FufMruFile<CR>
-nnoremap <silent> <leader>fq :FufQuickfix<CR>
-nnoremap <silent> <leader>fl :FufLine<CR>
-
-
-"----------------------------------------
 " yanktmp.vim
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
@@ -676,3 +651,20 @@ let g:Align_xstrlen=3
 " vim-coffee-script.vim
 autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 
+
+"----------------------------------------
+" unite.vim
+" 入力モードで開始する
+let g:unite_enable_start_insert=1
+" バッファ一覧
+nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> <Leader>uu :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> <Leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
