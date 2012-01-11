@@ -482,6 +482,7 @@ Bundle 'tsaleh/vim-align'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'taku-o/vim-toggle'
+Bundle 'ecomba/vim-ruby-refactoring'
 
 " vim-scripts repos
 Bundle 'vim-scripts/JavaDecompiler.vim'
