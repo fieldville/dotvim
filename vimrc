@@ -441,71 +441,58 @@ nmap tt yiw
 "----------------------------------------
 filetype off
 
-set rtp+=~/.vim/vundle_/
-call vundle#rc()
+set rtp+=~/.vim/neobundle/
+if has('vim_starting')
+  set runtimepath+=~/.vim/neobundle/
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
 
-" let Vundle manage Vundle
-" required! 
-"Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
 " original repos on github
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimshell'
-Bundle 'Shougo/vimproc'
-Bundle 'basyura/unite-rails'
-Bundle 'corntrace/bufexplorer'
-Bundle 'hrp/EnhancedCommentify'
-Bundle 'janx/vim-rubytest'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/zencoding-vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'msanders/cocoa.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'rgo/taglist.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'thinca/vim-quickrun'
-Bundle 'thinca/vim-ref'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-abolish'
-Bundle 'tsaleh/vim-align'
-Bundle 'tsaleh/vim-matchit'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'taku-o/vim-toggle'
-Bundle 'ecomba/vim-ruby-refactoring'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'corntrace/bufexplorer'
+NeoBundle 'hrp/EnhancedCommentify'
+NeoBundle 'janx/vim-rubytest'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'msanders/cocoa.vim'
+NeoBundle 'msanders/snipmate.vim'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'rgo/taglist.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tsaleh/vim-align'
+NeoBundle 'tsaleh/vim-matchit'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'taku-o/vim-toggle'
+NeoBundle 'ecomba/vim-ruby-refactoring'
 
 " vim-scripts repos
-Bundle 'JavaDecompiler.vim'
-Bundle 'SQLUtilities'
-Bundle 'svn-diff.vim'
-Bundle 'wombat256.vim'
-Bundle 'yanktmp.vim'
-Bundle 'sudo.vim'
+NeoBundle 'JavaDecompiler.vim'
+NeoBundle 'SQLUtilities'
+NeoBundle 'svn-diff.vim'
+NeoBundle 'wombat256.vim'
+NeoBundle 'yanktmp.vim'
+NeoBundle 'sudo.vim'
 
 " non github repos
-Bundle 'http://repo.or.cz/r/vcscommand.git'
+NeoBundle 'http://repo.or.cz/r/vcscommand.git'
 
 filetype plugin indent on     " required! 
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-
 
 "----------------------------------------
 " NERDTree.vim
