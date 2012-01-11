@@ -441,7 +441,7 @@ nmap tt yiw
 "----------------------------------------
 filetype off
 
-set rtp+=~/.vim/vundle/
+set rtp+=~/.vim/vundle_/
 call vundle#rc()
 
 " let Vundle manage Vundle
