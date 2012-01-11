@@ -485,12 +485,12 @@ Bundle 'taku-o/vim-toggle'
 Bundle 'ecomba/vim-ruby-refactoring'
 
 " vim-scripts repos
-Bundle 'vim-scripts/JavaDecompiler.vim'
-Bundle 'vim-scripts/SQLUtilities'
-Bundle 'vim-scripts/svn-diff.vim'
-Bundle 'vim-scripts/wombat256.vim'
-Bundle 'vim-scripts/yanktmp.vim'
-Bundle 'vim-scripts/sudo.vim'
+Bundle 'JavaDecompiler.vim'
+Bundle 'SQLUtilities'
+Bundle 'svn-diff.vim'
+Bundle 'wombat256.vim'
+Bundle 'yanktmp.vim'
+Bundle 'sudo.vim'
 
 " non github repos
 Bundle 'http://repo.or.cz/r/vcscommand.git'
