@@ -673,8 +673,8 @@ function! s:unite_my_settings()
   " 単語単位からパス単位で削除するように変更
   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
   " ESCキーを2回押すと終了する
-  nmap <silent><buffer> <ESC><ESC> q
-  imap <silent><buffer> <ESC><ESC> <ESC>q
+  "nmap <silent><buffer> <ESC><ESC> q
+  "imap <silent><buffer> <ESC><ESC> <ESC>q
 endfunction
 
 "----------------------------------------
