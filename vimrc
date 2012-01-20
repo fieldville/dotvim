@@ -438,6 +438,9 @@ inoremap <C-j> <ESC>
 "カーソル上の言葉をヤンク
 nmap tt yiw
 
+" 単語境界に-を追加
+setlocal iskeyword+=-
+
 "----------------------------------------
 filetype off
 
