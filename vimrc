@@ -484,6 +484,8 @@ NeoBundle 'https://github.com/tsaleh/vim-matchit'
 NeoBundle 'https://github.com/vim-ruby/vim-ruby'
 NeoBundle 'https://github.com/taku-o/vim-toggle'
 NeoBundle 'https://github.com/ecomba/vim-ruby-refactoring'
+NeoBundle 'https://github.com/Sixeight/unite-grep'
+NeoBundle 'https://github.com/h1mesuke/unite-outline'
 
 " vim-scripts repos
 NeoBundle 'https://github.com/vim-scripts/JavaDecompiler.vim'
@@ -658,22 +660,35 @@ inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR
 nnoremap <silent> <C-b> :<C-u>Unite buffer file_mru<CR>
 inoremap <silent> <C-b> <ESC>:<C-u>Unite buffer file_mru<CR>
 
+nnoremap [unite] <Nop>
+nmap ,u [unite]
+
 " バッファ一覧
-nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 " 常用セット
-nnoremap <silent> <Leader>uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
-nnoremap <silent> <Leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 " NeoBundle
-nnoremap <silent> <Leader>nbi :<C-u>Unite neobundle/install:!<CR>
-nnoremap <silent> <Leader>nb :<C-u>Unite neobundle<CR>
+nnoremap <silent> [unite]nbi :<C-u>Unite neobundle/install:!<CR>
+nnoremap <silent> [unite]nb :<C-u>Unite neobundle<CR>
+
+" unite-grep
+nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
+
+" unite-outline
+nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline outline<CR>
+
+call unite#set_buffer_name_option('outline', 'ignorecase', 1)
+call unite#set_buffer_name_option('outline', 'smartcase',  1)
+
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
