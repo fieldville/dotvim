@@ -441,6 +441,9 @@ nmap tt yiw
 " 単語境界に-を追加
 setlocal iskeyword+=-
 
+" 自動で末尾空白削除
+autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 "----------------------------------------
 filetype off
 
