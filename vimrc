@@ -494,6 +494,7 @@ NeoBundle 'https://github.com/ujihisa/unite-gem'
 NeoBundle 'https://github.com/tacroe/unite-mark'
 NeoBundle 'https://github.com/sgur/unite-qf'
 NeoBundle 'https://github.com/choplin/unite-vim_hacks'
+NeoBundle 'https://github.com/koron/chalice'
 
 " vim-scripts repos
 NeoBundle 'https://github.com/vim-scripts/JavaDecompiler.vim'
@@ -730,3 +731,7 @@ autocmd FileType vimshell
 \| call vimshell#altercmd#define('la', 'ls -ltra')
 
 
+"----------------------------------------
+" Chalice
+set fencs=usc-bom,usc-21e,usc-2,iso-2022-jp-3,utf-8
+set fencs+=cp932
