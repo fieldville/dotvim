@@ -1,3 +1,4 @@
+" vim: foldmethod=marker
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -48,12 +49,15 @@ inoremap <C-U> <C-G>u<C-U>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
+"{{{
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+"}}}
 
 " Only do this part when compiled with support for autocommands.
+"{{{
 if has("autocmd")
 
   " Enable file type detection.
@@ -86,6 +90,7 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
+"}}}
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -149,6 +154,7 @@ cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 " fileencoding
+"{{{
 nmap <Leader>U :set fileencoding=utf-8<CR>
 nmap <Leader>E :set fileencoding=euc-jp<CR>
 nmap <Leader>S :set fileencoding=cp932<CR>
@@ -156,9 +162,10 @@ nmap <Leader>S :set fileencoding=cp932<CR>
 nmap <Leader>u :e ++enc=utf-8 %<CR>
 nmap <Leader>e :e ++enc=euc-jp %<CR>
 nmap <Leader>s :e ++enc=cp932 %<CR>
-
+"}}}
 
 " 文字コードの自動認識
+"{{{
 if &encoding !=# 'utf-8'
   set encoding=japan
   set fileencoding=japan
@@ -200,7 +207,9 @@ if has('iconv')
   unlet s:enc_euc
   unlet s:enc_jis
 endif
+"}}}
 " 日本語を含まない場合は fileencoding に encoding を使うようにする
+"{{{
 if has('autocmd')
   function! AU_ReCheck_FENC()
     if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
@@ -209,6 +218,7 @@ if has('autocmd')
   endfunction
   autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
+"}}}
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
 " □とか○の文字があってもカーソル位置がずれないようにする
@@ -237,16 +247,20 @@ set background=light
 colorscheme desert
 
 " CTRL-hjklでウィンドウ移動
+"{{{
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+"}}}
 
 " ウィンドウサイズの変更
+"{{{
 nmap <Up>    2<C-w>-
 nmap <Down>  2<C-w>+
 nmap <Left>  5<C-w><
 nmap <Right> 5<C-w>>
+"}}}
 
 "set wrap のときに便利
 "折れ曲がった行にも移動
@@ -280,6 +294,7 @@ nnoremap <Leader>so :source $MYVIMRC<CR>
 
 
 " Indent
+"{{{
 autocmd FileType apache setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType c setlocal sw=4 sts=4 ts=4 et
@@ -307,11 +322,12 @@ autocmd FileType xml setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType yaml setlocal sw=2 sts=2 ts=2 et
 autocmd FileType zsh setlocal sw=4 sts=4 ts=4 et
 autocmd FileType scala setlocal sw=2 sts=2 ts=2 et
-
+"}}}
 
 "----------------------------------------
 "カーソル位置の単語検索
 " 外部grep
+"{{{
 let &grepprg="find . -type f -name '*.*'
               \ -a -not -regex '.*\\.swp$'
               \ -a -not -regex '.*\\.gz$'
@@ -343,6 +359,7 @@ let &grepprg="find . -type f -name '*.*'
               \ -a -not -regex '^\\./etc.*'
               \ -a -not -regex '.*schema.rb$'
               \ -print0 \\| xargs -0 grep -nH"
+"}}}
 
 " カーソル直下の単語(Word)
 nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
@@ -454,6 +471,7 @@ if has('vim_starting')
 endif
 
 " original repos on github
+"{{{
 NeoBundle 'https://github.com/Shougo/neocomplcache'
 NeoBundle 'https://github.com/Shougo/unite.vim'
 NeoBundle 'https://github.com/Shougo/vimshell'
@@ -495,22 +513,29 @@ NeoBundle 'https://github.com/tacroe/unite-mark'
 NeoBundle 'https://github.com/sgur/unite-qf'
 NeoBundle 'https://github.com/choplin/unite-vim_hacks'
 NeoBundle 'https://github.com/koron/chalice'
+NeoBundle 'https://github.com/zhaocai/unite-scriptnames'
+"}}}
 
 " vim-scripts repos
+"{{{
 NeoBundle 'https://github.com/vim-scripts/JavaDecompiler.vim'
 NeoBundle 'https://github.com/vim-scripts/SQLUtilities'
 NeoBundle 'https://github.com/vim-scripts/svn-diff.vim'
 NeoBundle 'https://github.com/vim-scripts/wombat256.vim'
 NeoBundle 'https://github.com/vim-scripts/yanktmp.vim'
 NeoBundle 'https://github.com/vim-scripts/sudo.vim'
+"}}}
 
 " non github repos
+"{{{
 NeoBundle 'http://repo.or.cz/r/vcscommand.git'
+"}}}
 
 filetype plugin indent on     " required! 
 
 "----------------------------------------
 " NERDTree.vim
+"{{{
 nnoremap <silent> <F7> :NERDTreeToggle<CR>
 "let g:NERDTreeWinPos = "right"
 "let g:NERDTreeWinSize = 40
@@ -530,14 +555,15 @@ function! s:CloseIfOnlyNerdTreeLeft()
     endif
   endif
 endfunction
-
+"}}}
 
 "----------------------------------------
 " taglist.vim
+"{{{
 nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 40
-
+"}}}
 
 "----------------------------------------
 " neocomplcache.vim
@@ -623,43 +649,50 @@ nnoremap <Leader>nt :NeoComplCacheToggle<CR>
 
 "----------------------------------------
 " yanktmp.vim
+"{{{
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
-
+"}}}
 
 "----------------------------------------
 "rails.vim + nerdtree.vim
+"{{{
 nnoremap <Leader>p :Rtree<CR>
-
+"}}}
 
 "----------------------------------------
 " vim-quickrun
+"{{{
 let g:quicklaunch_no_default_key_mappings = 1
 
 let g:quickrun_config = {}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
-
+"}}}
 
 "----------------------------------------
 " rubytest.vim
+"{{{
 let g:rubytest_cmd_spec = "spec %p"
 let g:rubytest_cmd_example = "spec %p -l %c"
 let g:rubytest_in_quickfix = 1
-
+"}}}
 
 "----------------------------------------
 " Align.vim
+"{{{
 let g:Align_xstrlen=3
-
+"}}}
 
 "----------------------------------------
 " vim-coffee-script.vim
+"{{{
 autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
-
+"}}}
 
 "----------------------------------------
 " unite.vim
+"{{{
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
 
@@ -678,10 +711,11 @@ nmap ,u [unite]
 nnoremap <silent> [unite]u :<C-u>Unite mark buffer file_mru<CR>
 " ファイル一覧
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" レジスタ一覧
-nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 " 全部乗せ
-nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
+" レジスタ一覧
+"nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]r :<C-u>UniteResume<CR>
 
 " unite-grep(unite.vim)
 nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
@@ -712,9 +746,11 @@ function! s:unite_my_settings()
   " 単語単位からパス単位で削除するように変更
   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 endfunction
+"}}}
 
 "----------------------------------------
 " vimshell
+"{{{
 let g:vimshell_interactive_update_time = 10
 let g:vimshell_prompt = $USERNAME."% "
 
@@ -729,9 +765,16 @@ autocmd FileType vimshell
 \| call vimshell#altercmd#define('l', 'll')
 \| call vimshell#altercmd#define('ll', 'ls -ltr')
 \| call vimshell#altercmd#define('la', 'ls -ltra')
-
+"}}}
 
 "----------------------------------------
 " Chalice
+"{{{
 set fencs=usc-bom,usc-21e,usc-2,iso-2022-jp-3,utf-8
 set fencs+=cp932
+"}}}
+
+"----------------------------------------
+" migemo割り当て
+noremap  g/ :<C-u>Migemo<CR>
+
