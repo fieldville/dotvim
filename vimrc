@@ -684,7 +684,7 @@ nnoremap <silent> [unite]nb :<C-u>Unite neobundle<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
 
 " unite-outline
-nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline outline<CR>
+nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
 
 call unite#set_buffer_name_option('outline', 'ignorecase', 1)
 call unite#set_buffer_name_option('outline', 'smartcase',  1)
