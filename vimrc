@@ -455,7 +455,6 @@ NeoBundle 'https://github.com/Shougo/neocomplcache'
 NeoBundle 'https://github.com/Shougo/unite.vim'
 NeoBundle 'https://github.com/Shougo/vimshell'
 NeoBundle 'https://github.com/Shougo/vimproc'
-NeoBundle 'https://github.com/basyura/unite-rails'
 NeoBundle 'https://github.com/corntrace/bufexplorer'
 NeoBundle 'https://github.com/hrp/EnhancedCommentify'
 NeoBundle 'https://github.com/janx/vim-rubytest'
@@ -471,6 +470,8 @@ NeoBundle 'https://github.com/scrooloose/nerdtree'
 NeoBundle 'https://github.com/thinca/vim-quickrun'
 NeoBundle 'https://github.com/thinca/vim-ref'
 NeoBundle 'https://github.com/thinca/vim-qfreplace'
+NeoBundle 'https://github.com/thinca/vim-unite-history'
+NeoBundle 'https://github.com/thinca/vim-openbuf'
 NeoBundle 'https://github.com/tpope/vim-cucumber'
 NeoBundle 'https://github.com/tpope/vim-endwise'
 NeoBundle 'https://github.com/tpope/vim-fugitive'
@@ -484,8 +485,12 @@ NeoBundle 'https://github.com/tsaleh/vim-matchit'
 NeoBundle 'https://github.com/vim-ruby/vim-ruby'
 NeoBundle 'https://github.com/taku-o/vim-toggle'
 NeoBundle 'https://github.com/ecomba/vim-ruby-refactoring'
-NeoBundle 'https://github.com/Sixeight/unite-grep'
 NeoBundle 'https://github.com/h1mesuke/unite-outline'
+NeoBundle 'https://github.com/ujihisa/unite-locate'
+NeoBundle 'https://github.com/ujihisa/unite-gem'
+NeoBundle 'https://github.com/tacroe/unite-mark'
+NeoBundle 'https://github.com/sgur/unite-qf'
+NeoBundle 'https://github.com/choplin/unite-vim_hacks'
 
 " vim-scripts repos
 NeoBundle 'https://github.com/vim-scripts/JavaDecompiler.vim'
@@ -657,31 +662,30 @@ let g:unite_enable_start_insert=1
 " インサート／ノーマルどちらからでも呼び出せるようにキーマップ
 nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> <C-b> :<C-u>Unite buffer file_mru<CR>
-inoremap <silent> <C-b> <ESC>:<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> <C-b> :<C-u>Unite mark buffer file_mru<CR>
+inoremap <silent> <C-b> <ESC>:<C-u>Unite mark buffer file_mru<CR>
 
 nnoremap [unite] <Nop>
 nmap ,u [unite]
 
+" mark一覧
 " バッファ一覧
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> [unite]u :<C-u>Unite mark buffer file_mru<CR>
 " ファイル一覧
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-" 最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-" 常用セット
-nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
-" NeoBundle
-nnoremap <silent> [unite]nbi :<C-u>Unite neobundle/install:!<CR>
-nnoremap <silent> [unite]nb :<C-u>Unite neobundle<CR>
-
-" unite-grep
+" unite-grep(unite.vim)
 nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
+
+" NeoBundle
+nnoremap <silent> [unite]b :<C-u>Unite neobundle<CR>
+nnoremap <silent> [unite]bi :<C-u>Unite neobundle/install:!<CR>
+nnoremap <silent> [unite]bn :<C-u>Unite neobundle -input=Not<CR>
 
 " unite-outline
 nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
@@ -689,6 +693,14 @@ nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline -auto-preview outlin
 call unite#set_buffer_name_option('outline', 'ignorecase', 1)
 call unite#set_buffer_name_option('outline', 'smartcase',  1)
 
+" unite-mark
+nnoremap <silent> [unite]m :<C-u>Unite mark<CR>
+
+" unite-history
+nnoremap <silent> [unite]h :<C-u>Unite history/command<CR>
+nnoremap <silent> [unite]hc :<C-u>Unite history/command<CR>
+nnoremap <silent> [unite]hs :<C-u>Unite history/search<CR>
+nnoremap <silent> [unite]hy :<C-u>Unite history/yank<CR>
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
