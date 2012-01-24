@@ -776,5 +776,5 @@ set fencs+=cp932
 
 "----------------------------------------
 " migemo割り当て
-noremap  g/ :<C-u>Migemo<CR>
+noremap  // :<C-u>Migemo<CR>
 
