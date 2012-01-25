@@ -456,7 +456,17 @@ inoremap <C-j> <ESC>
 nmap tt yiw
 
 " 単語境界に-を追加
-setlocal iskeyword+=-
+setlocal iskeyword +=-
+function! ToggleIsKeyWordHyPhen() "{{{
+  if &iskeyword =~# ',-'
+    set iskeyword -=-
+  else
+    set iskeyword +=-
+  endif
+  echo &iskeyword
+endfunction "}}}
+nnoremap <Leader>isk :call ToggleIsKeyWordHyPhen()<CR>
+
 
 " 自動で末尾空白削除
 autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
