@@ -730,6 +730,7 @@ nnoremap <silent> [unite]r :<C-u>UniteResume<CR>
 
 " unite-grep(unite.vim)
 nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
+let g:unite_source_grep_default_opts = '--color=never -Hn'
 
 " NeoBundle
 nnoremap <silent> [unite]b :<C-u>Unite neobundle<CR>
