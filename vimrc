@@ -287,7 +287,8 @@ command! -nargs=* Wrap set wrap linebreak nolist
 if has("autocmd")
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 endif
-nnoremap <Leader>v :e $MYVIMRC<CR>
+nnoremap <Leader>v :split $MYVIMRC<CR>
+nnoremap <Leader>ev :e $MYVIMRC<CR>
 nnoremap <Leader>so :source $MYVIMRC<CR>
 
 
