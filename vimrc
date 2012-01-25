@@ -514,6 +514,7 @@ NeoBundle 'https://github.com/sgur/unite-qf'
 NeoBundle 'https://github.com/choplin/unite-vim_hacks'
 NeoBundle 'https://github.com/koron/chalice'
 NeoBundle 'https://github.com/zhaocai/unite-scriptnames'
+NeoBundle 'https://github.com/tyru/open-browser.vim'
 "}}}
 
 " vim-scripts repos
@@ -778,3 +779,10 @@ set fencs+=cp932
 " migemo割り当て
 noremap  // :<C-u>Migemo<CR>
 
+"----------------------------------------
+" open-browser
+"{{{
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+"}}}
