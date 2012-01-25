@@ -135,7 +135,7 @@ if has("autochdir")
 else
 	set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
-nnoremap <C-]> g]
+"nnoremap <C-]> g]
 
 " leaderを,に変更
 let mapleader=","
