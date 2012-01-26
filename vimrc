@@ -100,9 +100,9 @@ if !exists(":DiffOrig")
       \ | wincmd p | diffthis
 endif
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+"set tabstop=4
+"set softtabstop=4
+"set shiftwidth=4
 
 set noautoindent
 set nobackup
@@ -270,8 +270,12 @@ vmap j gj
 vmap k gk
 "set showbreak=…
 
-" Shortcut to rapidly toggle `set list`
-nmap <leader>ls :set list!<CR>
+command! ToggleNumber  set number!
+nmap <leader>nm :ToggleNumber<CR>
+command! ToggleList  set list!
+nmap <leader>ls :ToggleList<CR>
+command! ToggleCursorLine  set cursorline!
+nmap <leader>cur :ToggleCursorLine<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -281,16 +285,29 @@ highlight SpecialKey ctermfg=DarkBlue
 
 "set wrap linebreak nolist
 " cf http://vimcasts.org/episodes/soft-wrapping-text/
-command! -nargs=* Wrap set wrap linebreak nolist
+command! Wrap set wrap linebreak nolist
 
 " Source the vimrc file after saving it
 if has("autocmd")
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  if has("gui_running")
+    "autocmd BufWritePost *vimrc source $MYVIMRC | source $MYGVIMRC
+    "autocmd BufWritePost *gvimrc source $MYVIMRC | source $MYGVIMRC
+  else
+    autocmd BufWritePost *vimrc source $MYVIMRC
+  endif
 endif
-nnoremap <Leader>v :split $MYVIMRC<CR>
-nnoremap <Leader>ev :e $MYVIMRC<CR>
-nnoremap <Leader>so :source $MYVIMRC<CR>
 
+nnoremap <Leader>v :split $MYVIMRC<CR>
+nnoremap <Leader>gv :split $MYGVIMRC<CR>
+
+nnoremap <Leader>ev :e $MYVIMRC<CR>
+nnoremap <Leader>egv :e $MYGVIMRC<CR>
+
+if has("gui_running")
+  nnoremap <Leader>so :source $MYVIMRC \| source $MYGVIMRC<CR>
+else
+  nnoremap <Leader>so :source $MYVIMRC<CR>
+endif
 
 
 " Indent
@@ -413,9 +430,10 @@ highlight clear FoldColumn
 highlight ZenkakuSpace cterm=underline ctermfg=White
 match ZenkakuSpace /　/
 
-
 " カーソル行をハイライト
 set cursorline
+
+
 " カレントウィンドウにのみ罫線を引く
 augroup cch
   autocmd! cch
@@ -465,6 +483,7 @@ function! ToggleIsKeyWordHyPhen() "{{{
   endif
   echo &iskeyword
 endfunction "}}}
+command! ToggleIsKeyWordHyPhen  call ToggleIsKeyWordHyPhen()
 nnoremap <Leader>isk :call ToggleIsKeyWordHyPhen()<CR>
 
 
@@ -474,7 +493,6 @@ autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+
 "----------------------------------------
 filetype off
 
-set rtp+=~/.vim/neobundle/
 if has('vim_starting')
   set runtimepath+=~/.vim/neobundle/
   call neobundle#rc(expand('~/.vim/bundle/'))
@@ -788,7 +806,11 @@ set fencs+=cp932
 
 "----------------------------------------
 " migemo割り当て
-noremap  // :<C-u>Migemo<CR>
+"{{{
+if !has("gui_running")
+  noremap  g/ :<C-u>Migemo<CR>
+endif
+"}}}
 
 "----------------------------------------
 " open-browser

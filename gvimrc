@@ -16,7 +16,7 @@
 " set the X11 font to use
 " set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
 
-set ch=2		" Make command line two lines high
+set cmdheight=2		" Make command line two lines high
 
 set mousehide		" Hide the mouse when typing text
 
@@ -65,10 +65,15 @@ set nolist
 set columns=178
 set lines=50
 "winpos 0 0
-be mswin
+"behave mswin
 
-"ツールバーを非表示にしたい場合
-set guioptions-=T
+set guioptions -=T " ツールバー非表示
+set guioptions -=t " メニュー項目の切り離し無効
+set guioptions -=r " 右スクロールバー非表示
+set guioptions -=R
+set guioptions -=l " 左スクロールバー非表示
+set guioptions -=L
+set guioptions +=a
 
 " メニューを英語に戻す
 source $VIMRUNTIME/delmenu.vim
@@ -86,18 +91,17 @@ highlight ZenkakuSpace gui=underline
 if has('gui_macvim')
   set transparency=5 " 透明度を指定
   set antialias
-  set guioptions-=t " ツールバー非表示
-  set guioptions-=r " 右スクロールバー非表示
-  set guioptions-=R
-  set guioptions-=l " 左スクロールバー非表示
-  set guioptions-=L
   set guifont=Osaka-Mono:h15
-
   set imdisable   " IMを無効化
 
   "フルスクリーンモード
   set fuoptions=maxvert,maxhorz
   autocmd GUIEnter * set fullscreen
 endif
-" for clipboard¬
-set clipboard=unnamed,autoselect
+
+command! ToggleFullscreen  set fullscreen!
+nnoremap <D-CR> :ToggleFullscreen<CR>
+
+" for clipboard
+"set clipboard=unnamed,autoselect
+set clipboard=autoselect
