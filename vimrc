@@ -504,6 +504,7 @@ NeoBundle 'https://github.com/Shougo/neocomplcache'
 NeoBundle 'https://github.com/Shougo/unite.vim'
 NeoBundle 'https://github.com/Shougo/vimshell'
 NeoBundle 'https://github.com/Shougo/vimproc'
+NeoBundle 'https://github.com/Shougo/vimfiler'
 NeoBundle 'https://github.com/corntrace/bufexplorer'
 NeoBundle 'https://github.com/hrp/EnhancedCommentify'
 NeoBundle 'https://github.com/janx/vim-rubytest'
@@ -818,4 +819,11 @@ endif
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+"}}}
+
+"----------------------------------------
+" vimfiler
+"{{{
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
 "}}}
