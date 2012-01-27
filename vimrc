@@ -161,9 +161,17 @@ nmap <Leader>U :set fileencoding=utf-8<CR>
 nmap <Leader>E :set fileencoding=euc-jp<CR>
 nmap <Leader>S :set fileencoding=cp932<CR>
 
+" 文字コードを指定して開き直す
 nmap <Leader>u :e ++enc=utf-8 %<CR>
 nmap <Leader>e :e ++enc=euc-jp %<CR>
 nmap <Leader>s :e ++enc=cp932 %<CR>
+
+command! Cp932     edit ++enc=cp932<CR>
+command! Utf8      edit ++enc=utf-8<CR>
+command! Eucjp     edit ++enc=euc-jp<CR>
+command! Iso2022jp edit ++enc=iso2022jp<CR>
+command! Jis       Iso2022jp
+command! Sjis      Cp932
 "}}}
 
 " 文字コードの自動認識
@@ -404,7 +412,7 @@ set statusline=%y%{GetStatusEx()}%F%m%r\ [%c,%l](%P)%=%{strftime(\"%Y/%m/%d(%a)\
 
 " コマンドを実行
 "nnoremap <Leader>e :execute '!' &ft ' %'<CR>
-nnoremap <silent> <Leader>e :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| cw \| if len(getqflist()) != 0 \| bot copen \| endif<CR>
+"nnoremap <silent> <Leader>e :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| cw \| if len(getqflist()) != 0 \| bot copen \| endif<CR>
 
 
 " Ctrl+Nでコマンドライン履歴を一つ進む(前方一致)
@@ -814,8 +822,8 @@ autocmd FileType vimshell
 "----------------------------------------
 " Chalice
 "{{{
-set fencs=usc-bom,usc-21e,usc-2,iso-2022-jp-3,utf-8
-set fencs+=cp932
+set fileencodings=usc-bom,usc-21e,usc-2,iso-2022-jp-3,utf-8
+set fileencodings+=cp932
 "}}}
 
 "----------------------------------------
