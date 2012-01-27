@@ -567,7 +567,7 @@ NeoBundle 'https://github.com/tyru/open-browser.vim'
 NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
 NeoBundle 'https://github.com/cakebaker/scss-syntax.vim'
 NeoBundle 'https://github.com/othree/html5.vim'
-NeoBundle 'https://github.com/hallettj/jslint.vim'
+NeoBundle 'https://github.com/basyura/jslint.vim'
 "}}}
 
 " vim-scripts repos
@@ -856,13 +856,11 @@ let g:vimfiler_safe_mode_by_default = 0
 "----------------------------------------
 " jslint
 "{{{
-let $JS_CMD='node'
-
 "http://blog.monoweb.info/article/2011042918.html
-"function! s:javascript_filetype_settings()
-"  autocmd BufLeave     <buffer> call jslint#clear()
-"  autocmd BufWritePost <buffer> call jslint#check()
-"  autocmd CursorMoved  <buffer> call jslint#message()
-"endfunction
-"autocmd FileType javascript call s:javascript_filetype_settings()
+function! s:javascript_filetype_settings()
+  autocmd BufLeave     <buffer> call jslint#clear()
+  autocmd BufWritePost <buffer> call jslint#check()
+  autocmd CursorMoved  <buffer> call jslint#message()
+endfunction
+autocmd FileType javascript call s:javascript_filetype_settings()
 "}}}
