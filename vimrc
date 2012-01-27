@@ -476,6 +476,9 @@ nnoremap <F1><F1> :<C-u>help<Space><C-r><C-w><Enter>
 nnoremap <Leader>bp :bprevious<CR>
 nnoremap <Leader>bn :bnext<CR>
 nnoremap <Leader>bd :bdelete<CR>
+nmap <silent> <C-b><C-n> :<C-u>bnext<CR>
+nmap <silent> <C-b><C-p> :<C-u>bprevious<CR>
+
 
 nmap <Leader>na :%!native2ascii -encoding utf8 -reverse<CR>
 vmap <Leader>na :!native2ascii -encoding utf8 -reverse<CR>
