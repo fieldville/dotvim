@@ -566,7 +566,7 @@ filetype plugin indent on     " required!
 "----------------------------------------
 " NERDTree.vim
 "{{{
-nnoremap <silent> <F7> :NERDTreeToggle<CR>
+"nnoremap <silent> <F7> :NERDTreeToggle<CR>
 "let g:NERDTreeWinPos = "right"
 "let g:NERDTreeWinSize = 40
 " always on but not focused
@@ -824,6 +824,7 @@ vmap gx <Plug>(openbrowser-smart-search)
 "----------------------------------------
 " vimfiler
 "{{{
+nnoremap <silent> <F7> :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 "}}}
