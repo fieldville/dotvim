@@ -89,7 +89,7 @@ highlight SpecialKey guifg=#4a4a59
 highlight ZenkakuSpace gui=underline
 
 if has('gui_macvim')
-  set transparency=5 " 透明度を指定
+  set transparency=0 " 透明度を指定
   set antialias
   set guifont=Osaka-Mono:h15
   set imdisable   " IMを無効化
