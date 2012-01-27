@@ -460,9 +460,11 @@ nnoremap <F1>  :<C-u>help<Space>
 nnoremap <F1><F1> :<C-u>help<Space><C-r><C-w><Enter>
 
 
-nnoremap <Space> :bn<CR>
-nnoremap <Leader><Space> :bp<CR>
-
+"nnoremap <Space> :bnext<CR>
+"nnoremap <Leader><Space> :bprevious<CR>
+nnoremap bp :bprevious<CR>
+nnoremap bn :bnext<CR>
+nnoremap <Leader>bd :bdelete<CR>
 
 nmap <Leader>na :%!native2ascii -encoding utf8 -reverse<CR>
 vmap <Leader>na :!native2ascii -encoding utf8 -reverse<CR>
@@ -489,6 +491,10 @@ nnoremap <Leader>isk :call ToggleIsKeyWordHyPhen()<CR>
 
 " 自動で末尾空白削除
 autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" タブ移動
+noremap gh gT
+noremap gl gt
 
 "----------------------------------------
 filetype off
