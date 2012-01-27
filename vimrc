@@ -550,12 +550,12 @@ NeoBundle 'https://github.com/tpope/vim-rails'
 NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/tpope/vim-unimpaired'
 NeoBundle 'https://github.com/tpope/vim-abolish'
-NeoBundle 'https://github.com/tsaleh/vim-align'
 NeoBundle 'https://github.com/tsaleh/vim-matchit'
 NeoBundle 'https://github.com/vim-ruby/vim-ruby'
 NeoBundle 'https://github.com/taku-o/vim-toggle'
 NeoBundle 'https://github.com/ecomba/vim-ruby-refactoring'
 NeoBundle 'https://github.com/h1mesuke/unite-outline'
+NeoBundle 'https://github.com/h1mesuke/vim-alignta'
 NeoBundle 'https://github.com/ujihisa/unite-locate'
 NeoBundle 'https://github.com/ujihisa/unite-gem'
 NeoBundle 'https://github.com/tacroe/unite-mark'
@@ -730,12 +730,6 @@ let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']
 let g:rubytest_cmd_spec = "spec %p"
 let g:rubytest_cmd_example = "spec %p -l %c"
 let g:rubytest_in_quickfix = 1
-"}}}
-
-"----------------------------------------
-" Align.vim
-"{{{
-let g:Align_xstrlen=3
 "}}}
 
 "----------------------------------------
