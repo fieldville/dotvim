@@ -96,7 +96,7 @@ if has('gui_macvim')
 
   "フルスクリーンモード
   set fuoptions=maxvert,maxhorz
-  autocmd GUIEnter * set fullscreen
+  "autocmd GUIEnter * set fullscreen
 endif
 
 command! ToggleFullscreen  set fullscreen!
