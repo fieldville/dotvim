@@ -622,6 +622,8 @@ NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
 NeoBundle 'https://github.com/cakebaker/scss-syntax.vim'
 NeoBundle 'https://github.com/othree/html5.vim'
 NeoBundle 'https://github.com/basyura/jslint.vim'
+NeoBundle 'https://github.com/kana/vim-textobj-user'
+NeoBundle 'https://github.com/kana/vim-textobj-indent'
 "}}}
 
 " vim-scripts repos
