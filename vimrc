@@ -258,18 +258,18 @@ colorscheme desert
 
 " CTRL-hjklでウィンドウ移動
 "{{{
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
 "}}}
 
 " ウィンドウサイズの変更
 "{{{
-nmap <Up>    2<C-w>-
-nmap <Down>  2<C-w>+
-nmap <Left>  5<C-w><
-nmap <Right> 5<C-w>>
+nnoremap <silent> <Up>    :2 wincmd -<CR>
+nnoremap <silent> <Down>  :2 wincmd +<CR>
+nnoremap <silent> <Left>  :5 wincmd <<CR>
+nnoremap <silent> <Right> :5 wincmd ><CR>
 "}}}
 
 "set wrap のときに便利
