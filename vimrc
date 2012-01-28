@@ -801,7 +801,8 @@ autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
 
-nnoremap [unite] <Nop>
+"nnoremap [unite] <Nop>
+nnoremap [unite] :<C-u>Unite<Space>
 "nmap ,u [unite]
 nmap f [unite]
 
