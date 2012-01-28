@@ -280,12 +280,12 @@ vmap j gj
 vmap k gk
 "set showbreak=…
 
-command! ToggleNumber  set number!
-nmap <leader>nm :ToggleNumber<CR>
-command! ToggleList  set list!
-nmap <leader>ls :ToggleList<CR>
-command! ToggleCursorLine  set cursorline!
-nmap <leader>cur :ToggleCursorLine<CR>
+command! ToggleNumber  setlocal number!
+nmap <Space>N :ToggleNumber<CR>
+command! ToggleList  setlocal list!
+nmap <Space>L :ToggleList<CR>
+command! ToggleCursorLine  setlocal cursorline!
+nmap <Space>C :ToggleCursorLine<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -500,7 +500,7 @@ function! ToggleIsKeyWordHyPhen() "{{{
   echo &iskeyword
 endfunction "}}}
 command! ToggleIsKeyWordHyPhen  call ToggleIsKeyWordHyPhen()
-nnoremap <Leader>isk :call ToggleIsKeyWordHyPhen()<CR>
+nnoremap <Space>K :call ToggleIsKeyWordHyPhen()<CR>
 
 
 " 自動で末尾空白削除
