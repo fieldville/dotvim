@@ -798,50 +798,50 @@ autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
 
-" インサート／ノーマルどちらからでも呼び出せるようにキーマップ
-nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> <C-b> :<C-u>Unite mark buffer file_mru<CR>
-inoremap <silent> <C-b> <ESC>:<C-u>Unite mark buffer file_mru<CR>
-
 nnoremap [unite] <Nop>
-nmap ,u [unite]
+"nmap ,u [unite]
+nmap f [unite]
 
 " mark一覧
 " バッファ一覧
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]u :<C-u>Unite mark buffer file_mru<CR>
+nnoremap [unite]b :<C-u>Unite mark buffer file_mru<CR>
+"nnoremap <C-b> :<C-u>Unite mark buffer file_mru<CR>
+"inoremap <C-b> <ESC>:<C-u>Unite mark buffer file_mru<CR>
 " ファイル一覧
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+inoremap <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " 全部乗せ
-nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
+nnoremap [unite]a :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
 " レジスタ一覧
-"nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> [unite]r :<C-u>UniteResume<CR>
+"nnoremap [unite]r :<C-u>Unite -buffer-name=register register<CR>
+
+nnoremap [unite]r :<C-u>UniteResume<CR>
 
 " unite-grep(unite.vim)
 nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
 let g:unite_source_grep_default_opts = '--color=never -Hn'
 
 " NeoBundle
-nnoremap <silent> [unite]b :<C-u>Unite neobundle<CR>
-nnoremap <silent> [unite]bi :<C-u>Unite neobundle/install:!<CR>
-nnoremap <silent> [unite]bn :<C-u>Unite neobundle -input=Not<CR>
+nnoremap [unite]nb :<C-u>Unite neobundle<CR>
+nnoremap [unite]nbi :<C-u>Unite neobundle/install:!<CR>
+nnoremap [unite]nbn :<C-u>Unite neobundle -input=Not<CR>
 
 " unite-outline
-nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
+nnoremap [unite]o :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
 
 call unite#set_buffer_name_option('outline', 'ignorecase', 1)
 call unite#set_buffer_name_option('outline', 'smartcase',  1)
 
 " unite-mark
-nnoremap <silent> [unite]m :<C-u>Unite mark<CR>
+nnoremap [unite]m :<C-u>Unite mark<CR>
 
 " unite-history
-nnoremap <silent> [unite]h :<C-u>Unite history/command<CR>
-nnoremap <silent> [unite]hc :<C-u>Unite history/command<CR>
-nnoremap <silent> [unite]hs :<C-u>Unite history/search<CR>
-nnoremap <silent> [unite]hy :<C-u>Unite history/yank<CR>
+nnoremap [unite]h :<C-u>Unite history/command<CR>
+nnoremap [unite]hc :<C-u>Unite history/command<CR>
+nnoremap [unite]hs :<C-u>Unite history/search<CR>
+nnoremap [unite]hy :<C-u>Unite history/yank<CR>
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
@@ -858,9 +858,9 @@ let g:vimshell_interactive_update_time = 10
 let g:vimshell_prompt = $USERNAME."% "
 
 " map
-nnoremap <silent> vs :VimShell<CR>
-nnoremap <silent> vsc :VimShellCreate<CR>
-nnoremap <silent> vp :VimShellPop<CR>
+nnoremap vs :VimShell<CR>
+nnoremap vsc :VimShellCreate<CR>
+nnoremap vp :VimShellPop<CR>
 
 " alias
 autocmd FileType vimshell
