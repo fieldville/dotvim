@@ -510,6 +510,60 @@ autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+
 noremap gh gT
 noremap gl gt
 
+" -----------------------------------------------------------------------
+" HTML Key Mappings for Typing Character Codes: {{{
+"
+" |--------------------------------------------------------------------
+" |Keys    |Insert   |For  |Comment
+" |--------|---------|-----|-------------------------------------------
+" |\&      |&amp;    |&    |ampersand
+" |\<      |&lt;     |<    |less-than sign
+" |\>      |&gt;     |>    |greater-than sign
+" |\.      |&middot; |・   |middle dot (decimal point)
+" |\?      |&#8212;  |?    |em-dash
+" |\2      |&#8220;  |“   |open curved double quote
+" |\"      |&#8221;  |”   |close curved double quote
+" |\`      |&#8216;  |‘   |open curved single quote
+" |\'      |&#8217;  |’   |close curved single quote (apostrophe)
+" |\`      |`        |`    |OS-dependent open single quote
+" |\'      |'        |'    |OS-dependent close or vertical single quote
+" |\<Space>|&nbsp;   |     |non-breaking space
+" |---------------------------------------------------------------------
+"
+" > http://www.stripey.com/vim/html.html
+"
+"
+autocmd BufEnter * if &filetype == "html" | call MapHTMLKeys() | endif
+function! MapHTMLKeys(...)
+  if a:0 == 0 || a:1 != 0
+    inoremap \\ \
+    inoremap \& &amp;
+    inoremap \< &lt;
+    inoremap \> &gt;
+    inoremap \. ・
+    inoremap \- &#8212;
+    inoremap \<Space> &nbsp;
+    inoremap \` &#8216;
+    inoremap \' &#8217;
+    inoremap \2 &#8220;
+    inoremap \" &#8221;
+    autocmd! BufLeave * call MapHTMLKeys(0)
+  else
+    iunmap \\
+    iunmap \&
+    iunmap \<
+    iunmap \>
+    iunmap \-
+    iunmap \<Space>
+    iunmap \`
+    iunmap \'
+    iunmap \2
+    iunmap \"
+    autocmd! BufLeave *
+  endif " test for mapping/unmapping
+endfunction " MapHTMLKeys()
+"}}}
+
 "----------------------------------------
 filetype off
 
