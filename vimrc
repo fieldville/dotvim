@@ -624,6 +624,7 @@ NeoBundle 'https://github.com/othree/html5.vim'
 NeoBundle 'https://github.com/basyura/jslint.vim'
 NeoBundle 'https://github.com/kana/vim-textobj-user'
 NeoBundle 'https://github.com/kana/vim-textobj-indent'
+NeoBundle 'https://github.com/tsukkee/unite-tag.git'
 "}}}
 
 " vim-scripts repos
