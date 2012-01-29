@@ -649,6 +649,7 @@ NeoBundle 'https://github.com/basyura/jslint.vim'
 NeoBundle 'https://github.com/kana/vim-textobj-user'
 NeoBundle 'https://github.com/kana/vim-textobj-indent'
 NeoBundle 'https://github.com/tsukkee/unite-tag.git'
+NeoBundle 'https://github.com/sjl/gundo.vim'
 "}}}
 
 " vim-scripts repos
@@ -929,4 +930,10 @@ function! s:javascript_filetype_settings()
   autocmd CursorMoved  <buffer> call jslint#message()
 endfunction
 autocmd FileType javascript call s:javascript_filetype_settings()
+"}}}
+
+"----------------------------------------
+" Gundo
+"{{{
+nnoremap <F5> :GundoToggle<CR>
 "}}}
