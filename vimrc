@@ -564,6 +564,17 @@ function! MapHTMLKeys(...)
 endfunction " MapHTMLKeys()
 "}}}
 
+" QuickFixToggle {{{
+function! QuickFixToggle()
+    let _ = winnr('$')
+    cclose
+    if _ == winnr('$')
+        cwindow
+    endif
+endfunction
+nnoremap <Space>: :call QuickFixToggle()<CR>
+"}}}
+
 "----------------------------------------
 filetype off
 
