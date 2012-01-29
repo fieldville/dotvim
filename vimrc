@@ -651,6 +651,7 @@ NeoBundle 'https://github.com/kana/vim-textobj-user'
 NeoBundle 'https://github.com/kana/vim-textobj-indent'
 NeoBundle 'https://github.com/tsukkee/unite-tag.git'
 NeoBundle 'https://github.com/sjl/gundo.vim'
+NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
 "}}}
 
 " vim-scripts repos
@@ -668,7 +669,7 @@ NeoBundle 'https://github.com/vim-scripts/sudo.vim'
 NeoBundle 'http://repo.or.cz/r/vcscommand.git'
 "}}}
 
-filetype plugin indent on     " required! 
+filetype plugin indent on     " required!
 
 "----------------------------------------
 " NERDTree.vim
