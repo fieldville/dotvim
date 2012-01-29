@@ -798,7 +798,7 @@ autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 " unite.vim
 "{{{
 " 入力モードで開始する
-let g:unite_enable_start_insert=1
+"let g:unite_enable_start_insert=1
 
 "nnoremap [unite] <Nop>
 nnoremap [unite] :<C-u>Unite<Space>
