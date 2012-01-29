@@ -502,6 +502,19 @@ endfunction "}}}
 command! ToggleIsKeyWordHyPhen  call ToggleIsKeyWordHyPhen()
 nnoremap <Space>K :call ToggleIsKeyWordHyPhen()<CR>
 
+" 折り畳み列幅
+"{{{
+function! ToggleFoldColumn()
+  if &foldcolumn
+    setlocal foldcolumn=0
+  else
+    setlocal foldcolumn=4
+  endif
+endfunction
+command! ToggleFoldColumn  call ToggleFoldColumn()
+nnoremap <Space>G :call ToggleFoldColumn()<CR>
+"}}}
+
 
 " 自動で末尾空白削除
 autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
