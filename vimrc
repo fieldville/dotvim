@@ -683,6 +683,7 @@ NeoBundle 'https://github.com/vim-scripts/svn-diff.vim'
 NeoBundle 'https://github.com/vim-scripts/wombat256.vim'
 NeoBundle 'https://github.com/vim-scripts/yanktmp.vim'
 NeoBundle 'https://github.com/vim-scripts/sudo.vim'
+NeoBundle 'https://github.com/vim-scripts/perlcritic-compiler-script'
 "}}}
 
 " non github repos
