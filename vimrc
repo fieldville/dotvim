@@ -607,6 +607,9 @@ endfunction
 nnoremap <silent> <Space>cd :<C-u>CD<CR>
 "}}}
 
+nnoremap ,pt :%!perltidy<CR>
+vnoremap ,ptv !perltidy<CR>
+
 "----------------------------------------
 filetype off
 
