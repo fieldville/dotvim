@@ -297,15 +297,16 @@ highlight SpecialKey ctermfg=DarkBlue
 " cf http://vimcasts.org/episodes/soft-wrapping-text/
 command! Wrap set wrap linebreak nolist
 
-" Source the vimrc file after saving it
-if has("autocmd")
-  if has("gui_running")
-    "autocmd BufWritePost *vimrc source $MYVIMRC | source $MYGVIMRC
-    "autocmd BufWritePost *gvimrc source $MYVIMRC | source $MYGVIMRC
-  else
-    autocmd BufWritePost *vimrc source $MYVIMRC
-  endif
-endif
+" Source the vimrc file after saving it {{{
+"if has("autocmd")
+"  if has("gui_running")
+"    "autocmd BufWritePost *vimrc source $MYVIMRC | source $MYGVIMRC
+"    "autocmd BufWritePost *gvimrc source $MYVIMRC | source $MYGVIMRC
+"  else
+"    autocmd BufWritePost *vimrc source $MYVIMRC
+"  endif
+"endif
+"}}}
 
 nnoremap <Leader>v :split $MYVIMRC<CR>
 nnoremap <Leader>gv :split $MYGVIMRC<CR>
@@ -823,52 +824,11 @@ autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 "{{{
 " 入力モードで開始する
 "let g:unite_enable_start_insert=1
-
-"nnoremap [unite] <Nop>
-nnoremap [unite] :<C-u>Unite<Space>
-"nmap ,u [unite]
-nmap f [unite]
-
-" mark一覧
-" バッファ一覧
-" 最近使用したファイル一覧
-nnoremap [unite]b :<C-u>Unite mark buffer file_mru<CR>
-"nnoremap <C-b> :<C-u>Unite mark buffer file_mru<CR>
-"inoremap <C-b> <ESC>:<C-u>Unite mark buffer file_mru<CR>
-" ファイル一覧
-nnoremap [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-inoremap <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" 全部乗せ
-nnoremap [unite]a :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
-" レジスタ一覧
-"nnoremap [unite]r :<C-u>Unite -buffer-name=register register<CR>
-
-nnoremap [unite]r :<C-u>UniteResume<CR>
-
-" unite-grep(unite.vim)
-nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
 let g:unite_source_grep_default_opts = '--color=never -Hn'
 
-" NeoBundle
-nnoremap [unite]nb :<C-u>Unite neobundle<CR>
-nnoremap [unite]nbi :<C-u>Unite neobundle/install:!<CR>
-nnoremap [unite]nbn :<C-u>Unite neobundle -input=Not<CR>
-
 " unite-outline
-nnoremap [unite]o :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
-
 call unite#set_buffer_name_option('outline', 'ignorecase', 1)
 call unite#set_buffer_name_option('outline', 'smartcase',  1)
-
-" unite-mark
-nnoremap [unite]m :<C-u>Unite mark<CR>
-
-" unite-history
-nnoremap [unite]h :<C-u>Unite history/command<CR>
-nnoremap [unite]hc :<C-u>Unite history/command<CR>
-nnoremap [unite]hs :<C-u>Unite history/search<CR>
-nnoremap [unite]hy :<C-u>Unite history/yank<CR>
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
@@ -876,6 +836,37 @@ function! s:unite_my_settings()
   " 単語単位からパス単位で削除するように変更
   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 endfunction
+
+"nnoremap [unite] <Nop>
+nnoremap [unite] :<C-u>Unite<Space>
+"nmap ,u [unite]
+nmap f [unite]
+
+nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+inoremap <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+
+nnoremap [unite]a   :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
+nnoremap [unite]b   :<C-u>Unite mark buffer file_mru<CR>
+nnoremap [unite]c   :<C-u>Unite change<CR>
+nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap [unite]g   :<C-u>Unite grep<CR>
+nnoremap [unite]h   :<C-u>Unite history/command<CR>
+nnoremap [unite]hc  :<C-u>Unite history/command<CR>
+nnoremap [unite]hs  :<C-u>Unite history/search<CR>
+nnoremap [unite]hy  :<C-u>Unite history/yank<CR>
+nnoremap [unite]j   :<C-u>Unite jump<CR>
+nnoremap [unite]l   :<C-u>Unite locate -start-insert<CR>
+"nnoremap [unite]l   :<C-u>Unite launcher<CR>
+nnoremap [unite]m   :<C-u>Unite mapping -start-insert<CR>
+"nnoremap [unite]mk  :<C-u>Unite mark<CR>
+nnoremap [unite]n   :<C-u>Unite neobundle<CR>
+nnoremap [unite]nbi :<C-u>Unite neobundle/install:!<CR>
+nnoremap [unite]nbn :<C-u>Unite neobundle -input=Not<CR>
+nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
+nnoremap [unite]p   :<C-u>Unite process -start-insert<CR>
+"nnoremap [unite]r   :<C-u>Unite -buffer-name=register register<CR>
+nnoremap [unite]r   :<C-u>UniteResume<CR>
+nnoremap [unite]s   :<C-u>Unite history/search<CR>
 "}}}
 
 "----------------------------------------
