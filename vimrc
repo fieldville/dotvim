@@ -517,8 +517,12 @@ nnoremap <Space>G :call ToggleFoldColumn()<CR>
 "}}}
 
 
-" 自動で末尾空白削除
-autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+" 末尾空白削除
+" {{{
+"autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+nnoremap ,tr  :%s/\s\+$//e<CR>
+vnoremap ,trv :s/\s\+$//e<CR>
+"}}}
 
 " タブ移動
 noremap gh gT
