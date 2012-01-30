@@ -614,6 +614,15 @@ nnoremap <silent> <Space>cd :<C-u>CD<CR>
 nnoremap ,pt :%!perltidy<CR>
 vnoremap ,ptv !perltidy<CR>
 
+" 括弧までを消したり置き換えたりする
+"{{{
+" http://vim-users.jp/2011/04/hack214/
+onoremap ) t)
+onoremap ( t(
+vnoremap ) t)
+vnoremap ( t(
+"}}}
+
 "----------------------------------------
 filetype off
 
