@@ -308,6 +308,8 @@ command! Wrap set wrap linebreak nolist
 "endif
 "}}}
 
+
+" for VIMRC {{{
 nnoremap <Leader>v :split $MYVIMRC<CR>
 nnoremap <Leader>gv :split $MYGVIMRC<CR>
 
@@ -319,10 +321,9 @@ if has("gui_running")
 else
   nnoremap <Leader>so :source $MYVIMRC<CR>
 endif
+"}}}
 
-
-" Indent
-"{{{
+" FileType Indent "{{{
 autocmd FileType apache setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType c setlocal sw=4 sts=4 ts=4 et
@@ -421,14 +422,14 @@ cnoremap <C-P> <UP>
 " Ctrl+Pでコマンドライン履歴を一つ戻る(前方一致)
 cnoremap <C-N> <DOWN>
 
-
 " 全選択
 nnoremap <Leader>a ggVG
 
-" for clipboard
+" for clipboard {{{
 "set clipboard=unnamed,autoselect
+"}}}
 
-" color
+" color {{{
 " 色番号	:help ctermbg(NR-8)
 highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=5
@@ -436,13 +437,14 @@ highlight PmenuSbar ctermbg=0
 
 highlight clear Folded
 highlight clear FoldColumn
+"}}}
 
-
-" 全角スペースの表示
+" 全角スペースの表示 {{{
 highlight ZenkakuSpace cterm=underline ctermfg=White
 match ZenkakuSpace /　/
+"}}}
 
-" カーソル行
+" カーソル行 {{{
 "{{{
 if has("gui_running")
   " カーソル行をハイライト
@@ -459,23 +461,24 @@ end
 
 highlight clear CursorLine
 highlight CursorLine cterm=underline gui=underline
+"}}}
 
 " コマンド実行中は再描画しない
 "set lazyredraw
 " 高速ターミナル接続を行う
 set ttyfast
 
-
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
-
+" F1 for help {{{
 " <F1>でヘルプ
 nnoremap <F1>  :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
 nnoremap <F1><F1> :<C-u>help<Space><C-r><C-w><Enter>
+"}}}
 
-
+" map for buffer {{{
 "nnoremap <Space> :bnext<CR>
 "nnoremap <Leader><Space> :bprevious<CR>
 nnoremap <Leader>bp :bprevious<CR>
@@ -483,10 +486,12 @@ nnoremap <Leader>bn :bnext<CR>
 nnoremap <Leader>bd :bdelete<CR>
 nmap <silent> <C-b><C-n> :<C-u>bnext<CR>
 nmap <silent> <C-b><C-p> :<C-u>bprevious<CR>
+"}}}
 
-
+" native2ascii {{{
 nmap <Leader>na :%!native2ascii -encoding utf8 -reverse<CR>
 vmap <Leader>na :!native2ascii -encoding utf8 -reverse<CR>
+"}}}
 
 " Ctrl + jでescape
 inoremap <C-j> <ESC>
@@ -494,7 +499,7 @@ inoremap <C-j> <ESC>
 "カーソル上の言葉をヤンク
 nmap tt yiw
 
-" 単語境界に-を追加
+" 単語境界に-を追加 {{{
 setlocal iskeyword +=-
 function! ToggleIsKeyWordHyPhen() "{{{
   if &iskeyword =~# ',-'
@@ -506,9 +511,9 @@ function! ToggleIsKeyWordHyPhen() "{{{
 endfunction "}}}
 command! ToggleIsKeyWordHyPhen  call ToggleIsKeyWordHyPhen()
 nnoremap <Space>K :call ToggleIsKeyWordHyPhen()<CR>
+"}}}
 
-" 折り畳み列幅
-"{{{
+" 折り畳み列幅 "{{{
 function! ToggleFoldColumn()
   if &foldcolumn
     setlocal foldcolumn=0
@@ -520,19 +525,17 @@ command! ToggleFoldColumn  call ToggleFoldColumn()
 nnoremap <Space>G :call ToggleFoldColumn()<CR>
 "}}}
 
-
-" 末尾空白削除
-" {{{
+" 末尾空白削除 " {{{
 "autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
 nnoremap ,tr  :%s/\s\+$//e<CR>
 vnoremap ,trv :s/\s\+$//e<CR>
 "}}}
 
-" タブ移動
+" タブ移動 {{{
 noremap gh gT
 noremap gl gt
+"}}}
 
-" -----------------------------------------------------------------------
 " HTML Key Mappings for Typing Character Codes: {{{
 "
 " |--------------------------------------------------------------------
@@ -615,11 +618,12 @@ endfunction
 nnoremap <silent> <Space>cd :<C-u>CD<CR>
 "}}}
 
+" perltidy {{{
 nnoremap ,pt :%!perltidy<CR>
 vnoremap ,ptv !perltidy<CR>
+"}}}
 
-" 括弧までを消したり置き換えたりする
-"{{{
+" 括弧までを消したり置き換えたりする "{{{
 " http://vim-users.jp/2011/04/hack214/
 onoremap ) t)
 onoremap ( t(
@@ -628,6 +632,7 @@ vnoremap ( t(
 "}}}
 
 "----------------------------------------
+" neobundle {{{
 filetype off
 
 if has('vim_starting')
@@ -635,8 +640,7 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-" original repos on github
-"{{{
+" original repos on github "{{{
 NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'https://github.com/Shougo/neocomplcache'
 NeoBundle 'https://github.com/Shougo/unite.vim'
@@ -692,8 +696,7 @@ NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
 "}}}
 
-" vim-scripts repos
-"{{{
+" vim-scripts repos "{{{
 NeoBundle 'https://github.com/vim-scripts/JavaDecompiler.vim'
 NeoBundle 'https://github.com/vim-scripts/SQLUtilities'
 NeoBundle 'https://github.com/vim-scripts/svn-diff.vim'
@@ -703,16 +706,15 @@ NeoBundle 'https://github.com/vim-scripts/sudo.vim'
 NeoBundle 'https://github.com/vim-scripts/perlcritic-compiler-script'
 "}}}
 
-" non github repos
-"{{{
+" non github repos "{{{
 NeoBundle 'http://repo.or.cz/r/vcscommand.git'
 "}}}
 
 filetype plugin indent on     " required!
+"}}}
 
 "----------------------------------------
-" NERDTree.vim
-"{{{
+" NERDTree.vim "{{{
 "nnoremap <silent> <F7> :NERDTreeToggle<CR>
 "let g:NERDTreeWinPos = "right"
 "let g:NERDTreeWinSize = 40
@@ -735,15 +737,14 @@ endfunction
 "}}}
 
 "----------------------------------------
-" taglist.vim
-"{{{
+" taglist.vim "{{{
 nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 40
 "}}}
 
 "----------------------------------------
-" neocomplcache.vim
+" neocomplcache.vim {{{
 "Setting examples:
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -822,25 +823,22 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 nnoremap <Leader>nce :NeoComplCacheEnable<CR>
 nnoremap <Leader>ncd :NeoComplCacheDisable<CR>
 nnoremap <Leader>nt :NeoComplCacheToggle<CR>
-
+"}}}
 
 "----------------------------------------
-" yanktmp.vim
-"{{{
+" yanktmp.vim "{{{
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
 "}}}
 
 "----------------------------------------
-"rails.vim + nerdtree.vim
-"{{{
+"rails.vim + nerdtree.vim "{{{
 nnoremap <Leader>p :Rtree<CR>
 "}}}
 
 "----------------------------------------
-" vim-quickrun
-"{{{
+" vim-quickrun "{{{
 let g:quicklaunch_no_default_key_mappings = 1
 
 let g:quickrun_config = {}
@@ -848,22 +846,19 @@ let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']
 "}}}
 
 "----------------------------------------
-" rubytest.vim
-"{{{
+" rubytest.vim "{{{
 let g:rubytest_cmd_spec = "spec %p"
 let g:rubytest_cmd_example = "spec %p -l %c"
 let g:rubytest_in_quickfix = 1
 "}}}
 
 "----------------------------------------
-" vim-coffee-script.vim
-"{{{
+" vim-coffee-script.vim "{{{
 autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 "}}}
 
 "----------------------------------------
-" unite.vim
-"{{{
+" unite.vim "{{{
 " 入力モードで開始する
 "let g:unite_enable_start_insert=1
 let g:unite_source_grep_default_opts = '--color=never -Hn'
@@ -912,8 +907,7 @@ nnoremap [unite]s   :<C-u>Unite history/search<CR>
 "}}}
 
 "----------------------------------------
-" vimshell
-"{{{
+" vimshell "{{{
 let g:vimshell_interactive_update_time = 10
 let g:vimshell_prompt = $USERNAME."% "
 
@@ -931,39 +925,34 @@ autocmd FileType vimshell
 "}}}
 
 "----------------------------------------
-" Chalice
-"{{{
+" Chalice "{{{
 "set fileencodings=usc-bom,usc-21e,usc-2,iso-2022-jp-3,utf-8
 "set fileencodings+=cp932
 "}}}
 
 "----------------------------------------
-" migemo割り当て
-"{{{
+" migemo割り当て "{{{
 if !has("gui_running")
   noremap  g/ :<C-u>Migemo<CR>
 endif
 "}}}
 
 "----------------------------------------
-" open-browser
-"{{{
+" open-browser "{{{
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 "}}}
 
 "----------------------------------------
-" vimfiler
-"{{{
+" vimfiler "{{{
 nnoremap <silent> <F7> :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 "}}}
 
 "----------------------------------------
-" jslint
-"{{{
+" jslint "{{{
 "http://blog.monoweb.info/article/2011042918.html
 function! s:javascript_filetype_settings()
   autocmd BufLeave     <buffer> call jslint#clear()
@@ -974,7 +963,6 @@ autocmd FileType javascript call s:javascript_filetype_settings()
 "}}}
 
 "----------------------------------------
-" Gundo
-"{{{
+" Gundo "{{{
 nnoremap <F5> :GundoToggle<CR>
 "}}}
