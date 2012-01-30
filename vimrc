@@ -272,21 +272,25 @@ nnoremap <silent> <Left>  :5 wincmd <<CR>
 nnoremap <silent> <Right> :5 wincmd ><CR>
 "}}}
 
+"折れ曲がった行にも移動 {{{
 "set wrap のときに便利
-"折れ曲がった行にも移動
 nmap j gj
 nmap k gk
 vmap j gj
 vmap k gk
 "set showbreak=…
+"}}}
 
+" toggle command {{{
 command! ToggleNumber  setlocal number!
 nmap <Space>N :ToggleNumber<CR>
 command! ToggleList  setlocal list!
 nmap <Space>L :ToggleList<CR>
 command! ToggleCursorLine  setlocal cursorline!
 nmap <Space>C :ToggleCursorLine<CR>
+"}}}
 
+" for set list {{{
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 set list
@@ -296,7 +300,9 @@ highlight SpecialKey ctermfg=DarkBlue
 "set wrap linebreak nolist
 " cf http://vimcasts.org/episodes/soft-wrapping-text/
 command! Wrap set wrap linebreak nolist
+"}}}
 
+" for VIMRC {{{
 " Source the vimrc file after saving it {{{
 "if has("autocmd")
 "  if has("gui_running")
@@ -308,8 +314,6 @@ command! Wrap set wrap linebreak nolist
 "endif
 "}}}
 
-
-" for VIMRC {{{
 nnoremap <Leader>v :split $MYVIMRC<CR>
 nnoremap <Leader>gv :split $MYGVIMRC<CR>
 
@@ -354,10 +358,8 @@ autocmd FileType zsh setlocal sw=4 sts=4 ts=4 et
 autocmd FileType scala setlocal sw=2 sts=2 ts=2 et
 "}}}
 
-"----------------------------------------
-"カーソル位置の単語検索
-" 外部grep
-"{{{
+" for grep {{{
+"{{{ 外部grep
 let &grepprg="find . -type f -name '*.*'
               \ -a -not -regex '.*\\.swp$'
               \ -a -not -regex '.*\\.gz$'
@@ -397,6 +399,8 @@ nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
 nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
 " 最後に検索した単語
 nmap <C-g><C-h> :grep "<C-R>/" \| bot cw<CR>
+
+"}}}
 
 nmap <C-n> :cn<CR>
 nmap <C-p> :cp<CR>
