@@ -442,16 +442,20 @@ highlight clear FoldColumn
 highlight ZenkakuSpace cterm=underline ctermfg=White
 match ZenkakuSpace /　/
 
-" カーソル行をハイライト
-set cursorline
+" カーソル行
+"{{{
+if has("gui_running")
+  " カーソル行をハイライト
+  set cursorline
 
-
-" カレントウィンドウにのみ罫線を引く
-augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
-augroup END
+  " カレントウィンドウにのみ罫線を引く
+  augroup cch
+    autocmd! cch
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter,BufRead * set cursorline
+  augroup END
+end
+"}}}
 
 highlight clear CursorLine
 highlight CursorLine cterm=underline gui=underline
