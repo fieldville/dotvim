@@ -92,6 +92,7 @@ else
 endif " has("autocmd")
 "}}}
 
+"DiffOrig {{{
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -99,50 +100,43 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
       \ | wincmd p | diffthis
 endif
+" }}}
 
+" 初回のみ読み込まれるデフォルト定義 {{{
 if has('vim_starting')
   set tabstop=4
   set softtabstop=4
   set shiftwidth=4
+  set noautoindent
+  set nobackup
+  set nowrapscan
+  set number
+  set ruler
+  set laststatus=2
+  set cmdheight=2
+  set showcmd
+  set title
+  " バックスペースでインデントや改行を削除できるようにする
+  set backspace=2
 endif
+"}}}
 
-set noautoindent
-set nobackup
-
-" <Esc>連打で、強調表示を一時的に消す
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
-" 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
-set nowrapscan
-
-" 行番号を非表示 (number:表示)
-set number
-" ルーラーを表示 (noruler:非表示)
-set ruler
-" 常にステータス行を表示 (詳細は:he laststatus)
-set laststatus=2
-" コマンドラインの高さ (Windows用gvim使用時はgvimrcを編集すること)
-set cmdheight=2
-" コマンドをステータス行に表示
-set showcmd
-" タイトルを表示
-set title
-" バックスペースでインデントや改行を削除できるようにする
-set backspace=2
-
-"set tags
+"set tags {{{
 if has("autochdir")
-	set autochdir
-	set tags=tags;
+  set autochdir
+  set tags=tags;
 else
-	set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
+  set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
-"nnoremap <C-]> g]
+nnoremap <C-]> g]
+"}}}
 
 " leaderを,に変更
 let mapleader=","
 
-" 検索などで飛んだらそこを真ん中に
+" 検索などで飛んだらそこを真ん中に {{{
 nmap n nzz
 nmap N Nzz
 nmap * *zz
@@ -150,13 +144,14 @@ nmap # #zz
 nmap g* g*zz
 nmap g# g#zz
 nmap G Gzz
+"}}}
 
-" escape automatically / ?
+" escape automatically / ? {{{
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+"}}}
 
-" fileencoding
-"{{{
+" fileencoding "{{{
 nmap <Leader>U :set fileencoding=utf-8<CR>
 nmap <Leader>E :set fileencoding=euc-jp<CR>
 nmap <Leader>S :set fileencoding=cp932<CR>
@@ -195,8 +190,8 @@ if has('iconv')
   " fileencodingsを構築
   if &encoding ==# 'utf-8'
     let s:fileencodings_default = &fileencodings
-    let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-    "let &fileencodings = s:enc_jis .','. s:enc_euc
+    "let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+    let &fileencodings = s:enc_jis .','. s:enc_euc
     let &fileencodings = &fileencodings .','. s:fileencodings_default
     unlet s:fileencodings_default
   else
@@ -229,32 +224,25 @@ if has('autocmd')
   autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
 "}}}
-" 改行コードの自動認識
+" 改行コードの自動認識 {{{
 set fileformats=unix,dos,mac
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
+"}}}
 
 " 大文字小文字の両方が含まれている場合は大文字小文字を区別
 set smartcase
 
-" コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
+" コマンドライン補完 {{{
 set wildmenu
-" コマンドライン補間をシェルっぽく
 set wildmode=list:longest
+"}}}
 
 "検索後のスクロールから下の行がわかる
 "set scrolloff=30
 set scrolloff=5
-
-"set background=dark
-set background=light
-
-" cf http://vimwiki.net/
-"colorscheme elflord
-"colorscheme torte
-colorscheme desert
 
 " CTRL-hjklでウィンドウ移動
 "{{{
@@ -405,6 +393,7 @@ nmap <C-g><C-h> :grep "<C-R>/" \| bot cw<CR>
 nmap <C-n> :cn<CR>
 nmap <C-p> :cp<CR>
 
+" for statusline {{{
 " 文字エンコーディング＆改行コード取得
 function! GetStatusEx()
     let str = &fileformat
@@ -414,12 +403,12 @@ function! GetStatusEx()
     return '[' . str . ']'
 endfunction
 set statusline=%y%{GetStatusEx()}%F%m%r\ [%c,%l](%P)%=%{strftime(\"%Y/%m/%d(%a)\ %H:%M\")}
+"}}}
 
-
-" コマンドを実行
-"nnoremap <Leader>e :execute '!' &ft ' %'<CR>
-"nnoremap <silent> <Leader>e :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| cw \| if len(getqflist()) != 0 \| bot copen \| endif<CR>
-
+" コマンドを実行 {{{
+"nnoremap <Leader>ex :execute '!' &ft ' %'<CR>
+nnoremap <silent> <Leader>ex :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| cw \| if len(getqflist()) != 0 \| bot copen \| endif<CR>
+"}}}
 
 " Ctrl+Nでコマンドライン履歴を一つ進む(前方一致)
 cnoremap <C-P> <UP>
@@ -434,6 +423,14 @@ nnoremap <Leader>a ggVG
 "}}}
 
 " color {{{
+"set background=dark
+set background=light
+
+" cf http://vimwiki.net/
+"colorscheme elflord
+"colorscheme torte
+colorscheme desert
+
 " 色番号	:help ctermbg(NR-8)
 highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=5
