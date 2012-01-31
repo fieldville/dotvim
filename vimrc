@@ -601,7 +601,7 @@ function! QuickFixToggle()
         cwindow
     endif
 endfunction
-nnoremap <Space>: :call QuickFixToggle()<CR>
+nnoremap <silent> <Space>: :call QuickFixToggle()<CR>
 "}}}
 
 " ChangeCurrentDir {{{
@@ -622,9 +622,30 @@ endfunction
 nnoremap <silent> <Space>cd :<C-u>CD<CR>
 "}}}
 
+" for perl {{{
+" perlcritic {{{
+function! CheckPerlCritic()
+  setlocal makeprg=perlcritic\ -verbose\ 1\ -1\ %
+  make
+  cwindow
+endfunction
+
+function! s:perl_filetype_settings()
+  augroup plc
+    autocmd! plc
+    compiler perlcritic
+    command! PerlCritic            call CheckPerlCritic()
+    autocmd BufWritePost <buffer>  call CheckPerlCritic()
+    nnoremap <silent> <Leader>pc   :call CheckPerlCritic()<CR>
+  augroup END
+endfunction
+autocmd FileType perl call s:perl_filetype_settings()
+"}}}
+
 " perltidy {{{
-nnoremap ,pt :%!perltidy<CR>
-vnoremap ,ptv !perltidy<CR>
+nnoremap <Leader>pt  :%!perltidy<CR>
+vnoremap <Leader>ptv !perltidy<CR>
+"}}}
 "}}}
 
 " 括弧までを消したり置き換えたりする "{{{
