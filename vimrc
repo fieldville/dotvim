@@ -1,11 +1,5 @@
 " vim: foldmethod=marker
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
 " allow backspacing over everything in insert mode
@@ -68,11 +62,8 @@ if has("autocmd")
     \ endif
 
   augroup END
-
 else
-
-  set autoindent		" always set autoindenting on
-
+  set autoindent    " always set autoindenting on
 endif " has("autocmd")
 "}}}
 
@@ -404,10 +395,6 @@ cnoremap <C-N> <DOWN>
 " 全選択
 nnoremap <Leader>a ggVG
 
-" for clipboard {{{
-"set clipboard=unnamed,autoselect
-"}}}
-
 " color {{{
 "set background=dark
 set background=light
@@ -417,9 +404,9 @@ set background=light
 "colorscheme torte
 colorscheme desert
 
-" 色番号	:help ctermbg(NR-8)
-highlight Pmenu ctermbg=4
-highlight PmenuSel ctermbg=5
+" 色番号  :help ctermbg(NR-8)
+highlight Pmenu     ctermbg=4
+highlight PmenuSel  ctermbg=5
 highlight PmenuSbar ctermbg=0
 
 highlight clear Folded
@@ -466,8 +453,6 @@ nnoremap <F1><F1> :<C-u>help<Space><C-r><C-w><Enter>
 "}}}
 
 " map for buffer {{{
-"nnoremap <Space> :bnext<CR>
-"nnoremap <Leader><Space> :bprevious<CR>
 nnoremap <Leader>bp :bprevious<CR>
 nnoremap <Leader>bn :bnext<CR>
 nnoremap <Leader>bd :bdelete<CR>
@@ -607,15 +592,15 @@ nnoremap <silent> <Space>: :call <SID>quick_fix_toggle()<CR>
 " ChangeCurrentDir {{{
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
-    if a:directory == ''
-        lcd %:p:h
-    else
-        execute 'lcd' . a:directory
-    endif
+  if a:directory == ''
+    lcd %:p:h
+  else
+    execute 'lcd' . a:directory
+  endif
 
-    if a:bang == ''
-        pwd
-    endif
+  if a:bang == ''
+    pwd
+  endif
 endfunction
 
 " Change current directory.
@@ -747,8 +732,6 @@ filetype plugin indent on     " required!
 "----------------------------------------
 " NERDTree.vim "{{{
 "nnoremap <silent> <F7> :NERDTreeToggle<CR>
-"let g:NERDTreeWinPos = "right"
-"let g:NERDTreeWinSize = 40
 " always on but not focused
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
@@ -890,8 +873,6 @@ autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 
 "----------------------------------------
 " unite.vim "{{{
-" 入力モードで開始する
-"let g:unite_enable_start_insert=1
 let g:unite_source_grep_default_opts = '--color=never -Hn'
 
 " unite-outline
@@ -953,12 +934,6 @@ autocmd FileType vimshell
 \| call vimshell#altercmd#define('l', 'll')
 \| call vimshell#altercmd#define('ll', 'ls -ltr')
 \| call vimshell#altercmd#define('la', 'ls -ltra')
-"}}}
-
-"----------------------------------------
-" Chalice "{{{
-"set fileencodings=usc-bom,usc-21e,usc-2,iso-2022-jp-3,utf-8
-"set fileencodings+=cp932
 "}}}
 
 "----------------------------------------
