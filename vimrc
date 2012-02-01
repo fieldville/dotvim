@@ -522,9 +522,9 @@ nnoremap <Space>G :call <SID>toggle_fold_column()<CR>
 
 " 末尾空白削除 " {{{
 "autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
-command! TrimGlobal :%s/\s\+$//e
+command! TrimGlobal :%Trim
 command! -range Trim :<line1>,<line2>s/\s\+$//e
-nnoremap <Leader>tr :TrimGlobal<CR>
+nnoremap <Leader>tr :%Trim<CR>
 vnoremap <Leader>tr :Trim<CR>
 "}}}
 
