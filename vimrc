@@ -507,15 +507,9 @@ nnoremap <Space>G :call <SID>toggle_fold_column()<CR>
 " 末尾空白削除 " {{{
 "autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
 function! s:trim_last_white_space() range
-  if a:firstline == a:lastline
-    let command = '%'
-  else
-    let command = a:firstline . ',' . a:lastline
-  endif
-  let command .= 's/\s\+$//e'
-  execute command
+  execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
 endfunction
-command! -range Trim :<line1>,<line2>call <SID>trim_last_white_space()
+command! -range=% Trim :<line1>,<line2>call <SID>trim_last_white_space()
 nnoremap <Leader>tr :%Trim<CR>
 vnoremap <Leader>tr :Trim<CR>
 "}}}
