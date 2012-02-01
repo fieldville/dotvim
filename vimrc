@@ -632,7 +632,8 @@ function! s:perl_filetype_settings()
     nnoremap <silent> <Leader>pc   :call CheckPerlCritic()<CR>
   augroup END
 endfunction
-autocmd FileType perl call s:perl_filetype_settings()
+autocmd! FileType perl call s:perl_filetype_settings()
+autocmd! BufNewFile,BufRead *.tmpl setf tt2html
 "}}}
 
 " perltidy {{{
@@ -712,6 +713,7 @@ NeoBundle 'https://github.com/kana/vim-textobj-indent'
 NeoBundle 'https://github.com/tsukkee/unite-tag.git'
 NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
+NeoBundle 'https://github.com/petdance/vim-perl'
 "}}}
 
 " vim-scripts repos "{{{
