@@ -616,31 +616,34 @@ nnoremap <silent> <Space>cd :<C-u>CD<CR>
 "}}}
 
 " for perl {{{
-" perlcritic {{{
-function! CheckPerlCritic()
-  setlocal makeprg=perlcritic\ -verbose\ 1\ -1\ %
+function! s:check_perl_critic()
+  setlocal makeprg=perlcritic\ -verbose\ 1\ -5\ %
   make
   cwindow
 endfunction
 
-function! s:perl_filetype_settings()
-  augroup perlsetting
-    autocmd! perlsetting
-    autocmd BufWritePost <buffer>  call CheckPerlCritic()
+function! s:perl_writing_mode_settings()
+  augroup perlwritingmode
+    autocmd! perlwritingmode
+    autocmd BufWritePost <buffer>  call s:check_perl_critic()
   augroup END
+endfunction
 
+function! s:perl_filetype_settings()
   compiler perlcritic
-  command! PerlCritic            call CheckPerlCritic()
-  nnoremap <silent> <Leader>pc   :call CheckPerlCritic()<CR>
+  command! PerlCritic           call s:check_perl_critic()
+  nnoremap <silent> <Leader>pc :call <SID>check_perl_critic()<CR>
+
+  command! SetPerlWritingMode  call s:perl_writing_mode_settings()
+  nnoremap <Space>P :call <SID>perl_writing_mode_settings()<CR>
 
   " perltidy
-  nnoremap <Leader>pt  :%!perltidy<CR>
-  vnoremap <Leader>ptv !perltidy<CR>
+  nnoremap <Leader>pt :%!perltidy<CR>
+  vnoremap <Leader>pt :!perltidy<CR>
 endfunction
+
 autocmd! FileType perl call s:perl_filetype_settings()
 autocmd! BufNewFile,BufRead *.tmpl setf tt2html
-"}}}
-
 "}}}
 
 " 括弧までを消したり置き換えたりする "{{{
