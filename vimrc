@@ -624,22 +624,23 @@ function! CheckPerlCritic()
 endfunction
 
 function! s:perl_filetype_settings()
-  augroup plc
-    autocmd! plc
-    compiler perlcritic
-    command! PerlCritic            call CheckPerlCritic()
+  augroup perlsetting
+    autocmd! perlsetting
     autocmd BufWritePost <buffer>  call CheckPerlCritic()
-    nnoremap <silent> <Leader>pc   :call CheckPerlCritic()<CR>
   augroup END
+
+  compiler perlcritic
+  command! PerlCritic            call CheckPerlCritic()
+  nnoremap <silent> <Leader>pc   :call CheckPerlCritic()<CR>
+
+  " perltidy
+  nnoremap <Leader>pt  :%!perltidy<CR>
+  vnoremap <Leader>ptv !perltidy<CR>
 endfunction
 autocmd! FileType perl call s:perl_filetype_settings()
 autocmd! BufNewFile,BufRead *.tmpl setf tt2html
 "}}}
 
-" perltidy {{{
-nnoremap <Leader>pt  :%!perltidy<CR>
-vnoremap <Leader>ptv !perltidy<CR>
-"}}}
 "}}}
 
 " 括弧までを消したり置き換えたりする "{{{
