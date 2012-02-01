@@ -496,7 +496,7 @@ nmap tt yiw
 
 " 単語境界に-を追加 {{{
 setlocal iskeyword +=-
-function! ToggleIsKeyWordHyPhen() "{{{
+function! s:toggle_is_key_word_hy_phen() "{{{
   if &iskeyword =~# ',-'
     set iskeyword -=-
   else
@@ -504,20 +504,20 @@ function! ToggleIsKeyWordHyPhen() "{{{
   endif
   echo &iskeyword
 endfunction "}}}
-command! ToggleIsKeyWordHyPhen  call ToggleIsKeyWordHyPhen()
-nnoremap <Space>K :call ToggleIsKeyWordHyPhen()<CR>
+command! ToggleIsKeyWordHyPhen  call s:toggle_is_key_word_hy_phen()
+nnoremap <Space>K :call <SID>toggle_is_key_word_hy_phen()<CR>
 "}}}
 
 " 折り畳み列幅 "{{{
-function! ToggleFoldColumn()
+function! s:toggle_fold_column()
   if &foldcolumn
     setlocal foldcolumn=0
   else
     setlocal foldcolumn=4
   endif
 endfunction
-command! ToggleFoldColumn  call ToggleFoldColumn()
-nnoremap <Space>G :call ToggleFoldColumn()<CR>
+command! ToggleFoldColumn  call s:toggle_fold_column()
+nnoremap <Space>G :call <SID>toggle_fold_column()<CR>
 "}}}
 
 " 末尾空白削除 " {{{
@@ -587,14 +587,14 @@ endfunction " MapHTMLKeys()
 "}}}
 
 " QuickFixToggle {{{
-function! QuickFixToggle()
-    let _ = winnr('$')
-    cclose
-    if _ == winnr('$')
-        cwindow
-    endif
+function! s:quick_fix_toggle()
+  let _ = winnr('$')
+  cclose
+  if _ == winnr('$')
+    cwindow
+  endif
 endfunction
-nnoremap <silent> <Space>: :call QuickFixToggle()<CR>
+nnoremap <silent> <Space>: :call <SID>quick_fix_toggle()<CR>
 "}}}
 
 " ChangeCurrentDir {{{
