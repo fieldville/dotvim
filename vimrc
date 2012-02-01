@@ -528,8 +528,10 @@ nnoremap <Space>G :call ToggleFoldColumn()<CR>
 
 " 末尾空白削除 " {{{
 "autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
-nnoremap ,tr  :%s/\s\+$//e<CR>
-vnoremap ,trv :s/\s\+$//e<CR>
+command! TrimGlobal :%s/\s\+$//e
+command! -range Trim :<line1>,<line2>s/\s\+$//e
+nnoremap <Leader>tr :TrimGlobal<CR>
+vnoremap <Leader>tr :Trim<CR>
 "}}}
 
 " タブ移動 {{{
