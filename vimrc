@@ -479,9 +479,8 @@ nmap <silent> <C-b><C-p> :<C-u>bprevious<CR>
 function! s:jproperties_filetype_settings()
   augroup jprop
     autocmd! jprop
-    command! Native2AsciiGlobal :%!native2ascii -encoding utf8 -reverse
     command! -range Native2Ascii :<line1>,<line2>!native2ascii -encoding utf8 -reverse
-    nnoremap <Leader>na :Native2AsciiGlobal<CR>
+    nnoremap <Leader>na :%Native2Ascii<CR>
     vnoremap <Leader>na :Native2Ascii<CR>
   augroup END
 endfunction
@@ -522,8 +521,16 @@ nnoremap <Space>G :call <SID>toggle_fold_column()<CR>
 
 " 末尾空白削除 " {{{
 "autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
-command! TrimGlobal :%Trim
-command! -range Trim :<line1>,<line2>s/\s\+$//e
+function! s:trim_last_white_space() range
+  if a:firstline == a:lastline
+    let command = '%'
+  else
+    let command = a:firstline . ',' . a:lastline
+  endif
+  let command .= 's/\s\+$//e'
+  execute command
+endfunction
+command! -range Trim :<line1>,<line2>call <SID>trim_last_white_space()
 nnoremap <Leader>tr :%Trim<CR>
 vnoremap <Leader>tr :Trim<CR>
 "}}}
