@@ -490,10 +490,16 @@ nmap <silent> <C-b><C-p> :<C-u>bprevious<CR>
 "}}}
 
 " native2ascii {{{
-command! Native2AsciiGlobal :%!native2ascii -encoding utf8 -reverse
-command! -range Native2Ascii :<line1>,<line2>!native2ascii -encoding utf8 -reverse
-nnoremap <Leader>na :Native2AsciiGlobal<CR>
-vnoremap <Leader>na :Native2Ascii<CR>
+function! s:jproperties_filetype_settings()
+  augroup jprop
+    autocmd! jprop
+    command! Native2AsciiGlobal :%!native2ascii -encoding utf8 -reverse
+    command! -range Native2Ascii :<line1>,<line2>!native2ascii -encoding utf8 -reverse
+    nnoremap <Leader>na :Native2AsciiGlobal<CR>
+    vnoremap <Leader>na :Native2Ascii<CR>
+  augroup END
+endfunction
+autocmd FileType jproperties call s:jproperties_filetype_settings()
 "}}}
 
 " Ctrl + jでescape
