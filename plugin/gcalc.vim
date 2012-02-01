@@ -3,7 +3,7 @@
 "
 scriptencoding utf-8
 function! GCalc(...)
-  let word = a:1 
+  let word = a:1
 
   let res = http#get('http://www.google.co.jp/complete/search?output=toolbar&q='.http#escape(word)).content
 
@@ -22,7 +22,7 @@ function! GCalcComp(ArgLead, CmdLine, CursorPos)
         \octal\n
         \decimal\n
         \hexdecimal\n
-        \" 
+        \"
 endfunction
 
 command! -nargs=+ -complete=custom,GCalcComp GCalc call GCalc(<q-args>)
