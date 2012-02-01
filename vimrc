@@ -223,6 +223,8 @@ if has('autocmd')
   endfunction
   autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
+set fileencodings -=latin1
+set fileencodings +=cp932
 "}}}
 " 改行コードの自動認識 {{{
 set fileformats=unix,dos,mac
