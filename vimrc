@@ -512,6 +512,7 @@ endfunction
 command! -range=% Trim :<line1>,<line2>call <SID>trim_last_white_space()
 nnoremap <Leader>tr :%Trim<CR>
 vnoremap <Leader>tr :Trim<CR>
+nnoremap <Space>Y :ToggleBadWhitespace<CR>
 "}}}
 
 " タブ移動 {{{
