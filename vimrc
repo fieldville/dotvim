@@ -852,6 +852,21 @@ let g:quicklaunch_no_default_key_mappings = 1
 
 let g:quickrun_config = {}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+
+" 出力先別にショートカットキーを設定する
+for [key, out] in items({
+  \   '<Leader>w' : '>buffer',
+  \   '<Leader>q' : '>>buffer',
+  \ })
+  execute 'nnoremap <silent>' key ':QuickRun' out '-mode n<CR>'
+  execute 'vnoremap <silent>' key ':QuickRun' out '-mode v<CR>'
+endfor
+nnoremap <silent> <Leader>j :QuickRun >quickfix -mode n<CR>:bot copen<CR>
+"}}}
+
+"----------------------------------------
+" rubyrefactoring "{{{
+let g:ruby_refactoring_map_keys=0
 "}}}
 
 "----------------------------------------
