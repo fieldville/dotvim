@@ -992,3 +992,8 @@ autocmd FileType javascript call s:javascript_filetype_settings()
 " Gundo "{{{
 nnoremap <F5> :GundoToggle<CR>
 "}}}
+
+"----------------------------------------
+" shadow "{{{
+let g:shadow_debug = 1
+"}}}
