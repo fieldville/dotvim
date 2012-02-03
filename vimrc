@@ -656,6 +656,16 @@ autocmd! FileType perl call s:perl_filetype_settings()
 autocmd! BufNewFile,BufRead *.tmpl setf tt2html
 "}}}
 
+" skelton {{{
+augroup SkeletonAu
+  autocmd!
+  autocmd BufNewFile *.pl   0r ~/.vim/skel/skel.pl
+  autocmd BufNewFile *.pm   0r ~/.vim/skel/skel.pm
+  autocmd BufNewFile *.t    0r ~/.vim/skel/skel.t
+  autocmd BufNewFile *.html 0r ~/.vim/skel/skel.html
+augroup END
+"}}}
+
 " 括弧までを消したり置き換えたりする "{{{
 " http://vim-users.jp/2011/04/hack214/
 onoremap ) t)
