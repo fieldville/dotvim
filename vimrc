@@ -480,7 +480,7 @@ nmap tt yiw
 
 " 単語境界に-を追加 {{{
 setlocal iskeyword +=-
-function! s:toggle_is_key_word_hy_phen() "{{{
+function! s:toggle_is_key_word_hyphen() "{{{
   if &iskeyword =~# ',-'
     set iskeyword -=-
   else
@@ -488,8 +488,8 @@ function! s:toggle_is_key_word_hy_phen() "{{{
   endif
   echo &iskeyword
 endfunction "}}}
-command! ToggleIsKeyWordHyPhen  call s:toggle_is_key_word_hy_phen()
-nnoremap <Space>K :call <SID>toggle_is_key_word_hy_phen()<CR>
+command! ToggleIsKeyWordHyPhen  call s:toggle_is_key_word_hyphen()
+nnoremap <Space>K :call <SID>toggle_is_key_word_hyphen()<CR>
 "}}}
 
 " 折り畳み列幅 "{{{
@@ -647,8 +647,10 @@ inoremap <expr> <Leader>dd strftime('%Y-%m-%d')
 inoremap <expr> <Leader>dt strftime('%H:%M:%S')
 "}}}
 
-"----------------------------------------
-" neobundle {{{
+"================================================================================
+" for plugin settings
+"================================================================================
+" neobundle
 filetype off
 
 if has('vim_starting')
@@ -656,7 +658,10 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-" original repos on github "{{{
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+" original repos on github
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"{{{
 NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'https://github.com/Shougo/neocomplcache'
 NeoBundle 'https://github.com/Shougo/unite.vim'
@@ -713,7 +718,10 @@ NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
 NeoBundle 'https://github.com/petdance/vim-perl'
 "}}}
 
-" vim-scripts repos "{{{
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+" vim-scripts repos
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"{{{
 NeoBundle 'https://github.com/vim-scripts/JavaDecompiler.vim'
 NeoBundle 'https://github.com/vim-scripts/SQLUtilities'
 NeoBundle 'https://github.com/vim-scripts/svn-diff.vim'
@@ -723,12 +731,14 @@ NeoBundle 'https://github.com/vim-scripts/sudo.vim'
 NeoBundle 'https://github.com/vim-scripts/perlcritic-compiler-script'
 "}}}
 
-" non github repos "{{{
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+" non github repos
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"{{{
 NeoBundle 'http://repo.or.cz/r/vcscommand.git'
 "}}}
 
 filetype plugin indent on     " required!
-"}}}
 
 "----------------------------------------
 " NERDTree.vim "{{{
