@@ -492,6 +492,19 @@ command! ToggleIsKeyWordHyPhen  call s:toggle_is_key_word_hyphen()
 nnoremap <Space>K :call <SID>toggle_is_key_word_hyphen()<CR>
 "}}}
 
+" clipboardにunnamedを追加 {{{
+function! s:toggle_clipboard_unnamed() "{{{
+  if &clipboard =~# 'unnamed'
+    set clipboard -=unnamed
+  else
+    set clipboard +=unnamed
+  endif
+  echo &clipboard
+endfunction "}}}
+command! ToggleClipboardUnnamed call s:toggle_clipboard_unnamed()
+nnoremap <Space>P :call <SID>toggle_clipboard_unnamed()<CR>
+"}}}
+
 " 折り畳み列幅 "{{{
 function! s:toggle_fold_column()
   if &foldcolumn
