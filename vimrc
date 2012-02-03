@@ -751,6 +751,7 @@ NeoBundle 'https://github.com/tsukkee/unite-tag.git'
 NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
 NeoBundle 'https://github.com/petdance/vim-perl'
+NeoBundle 'https://github.com/pasela/unite-webcolorname'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
