@@ -952,6 +952,7 @@ nnoremap [unite]p   :<C-u>Unite process -start-insert<CR>
 "nnoremap [unite]r   :<C-u>Unite -buffer-name=register register<CR>
 nnoremap [unite]r   :<C-u>UniteResume<CR>
 nnoremap [unite]s   :<C-u>Unite history/search<CR>
+nnoremap [unite]v   :<C-u>Unite output:version -start-insert<CR>
 "}}}
 
 "----------------------------------------
