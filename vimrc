@@ -960,23 +960,23 @@ nnoremap [unite]c   :<C-u>Unite change<CR>
 nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap [unite]g   :<C-u>Unite grep<CR>
 nnoremap [unite]h   :<C-u>Unite history/command<CR>
-nnoremap [unite]hc  :<C-u>Unite history/command<CR>
-nnoremap [unite]hs  :<C-u>Unite history/search<CR>
-nnoremap [unite]hy  :<C-u>Unite history/yank<CR>
 nnoremap [unite]j   :<C-u>Unite jump<CR>
 nnoremap [unite]l   :<C-u>Unite locate -start-insert<CR>
-"nnoremap [unite]l   :<C-u>Unite launcher<CR>
 nnoremap [unite]m   :<C-u>Unite mapping -start-insert<CR>
-"nnoremap [unite]mk  :<C-u>Unite mark<CR>
 nnoremap [unite]n   :<C-u>Unite neobundle<CR>
-nnoremap [unite]nbi :<C-u>Unite neobundle/install:!<CR>
-nnoremap [unite]nbn :<C-u>Unite neobundle -input=Not<CR>
 nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
 nnoremap [unite]p   :<C-u>Unite process -start-insert<CR>
-"nnoremap [unite]r   :<C-u>Unite -buffer-name=register register<CR>
 nnoremap [unite]r   :<C-u>UniteResume<CR>
 nnoremap [unite]s   :<C-u>Unite history/search<CR>
 nnoremap [unite]v   :<C-u>Unite output:version -start-insert<CR>
+nnoremap [unite]y   :<C-u>Unite history/yank<CR>
+nnoremap [unite]A   :<C-u>Unite output:autocmd<CR>
+nnoremap [unite]I   :<C-u>Unite neobundle/install:!<CR>
+nnoremap [unite]L   :<C-u>Unite launcher<CR>
+nnoremap [unite]M   :<C-u>Unite output:messages<CR>
+nnoremap [unite]N   :<C-u>Unite neobundle -input=Not<CR>
+nnoremap [unite]R   :<C-u>Unite -buffer-name=register register<CR>
+nnoremap [unite]S   :<C-u>Unite output:scriptnames<CR>
 "}}}
 
 "----------------------------------------
