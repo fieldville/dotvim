@@ -641,6 +641,12 @@ vnoremap ) t)
 vnoremap ( t(
 "}}}
 
+" Complement Date and Time {{{
+inoremap <expr> <Leader>df strftime('%Y-%m-%dT%H:%M:%S')
+inoremap <expr> <Leader>dd strftime('%Y-%m-%d')
+inoremap <expr> <Leader>dt strftime('%H:%M:%S')
+"}}}
+
 "----------------------------------------
 " neobundle {{{
 filetype off
