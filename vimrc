@@ -506,10 +506,11 @@ nnoremap <Space>K :call <SID>toggle_is_key_word_hyphen()<CR>
 function! s:toggle_clipboard_unnamed() "{{{
   if &clipboard =~# 'unnamed'
     set clipboard -=unnamed
+    echo 'clipboard mode OFF'
   else
     set clipboard +=unnamed
+    echo 'clipboard mode ON'
   endif
-  echo &clipboard
 endfunction "}}}
 command! ToggleClipboardUnnamed call s:toggle_clipboard_unnamed()
 nnoremap <Space>P :call <SID>toggle_clipboard_unnamed()<CR>
