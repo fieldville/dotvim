@@ -810,8 +810,10 @@ let Tlist_WinWidth = 40
 "Setting examples:
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
+
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
+
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Use camel case completion.
@@ -857,6 +859,8 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " AutoComplPop like behavior.
 let g:neocomplcache_enable_auto_select = 1
+" 一部除きたい...
+"autocmd! FileType gitcommit NeoComplCacheDisable
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
