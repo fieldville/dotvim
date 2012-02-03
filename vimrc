@@ -613,7 +613,7 @@ function! s:ChangeCurrentDir(directory, bang)
   if a:directory == ''
     lcd %:p:h
   else
-    execute 'lcd' . a:directory
+    execute 'lcd ' . a:directory
   endif
 
   if a:bang == ''
