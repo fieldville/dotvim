@@ -475,8 +475,18 @@ autocmd FileType jproperties call s:jproperties_filetype_settings()
 " Ctrl + jでescape
 inoremap <C-j> <ESC>
 
-"カーソル上の言葉をヤンク
-nmap tt yiw
+"カーソル上の言葉をclipboardへヤンク "{{{
+function! s:yank_to_clipboard()
+  if &clipboard =~# 'unnamed'
+    normal! yiw
+  else
+    set clipboard +=unnamed
+    normal! yiw
+    set clipboard -=unnamed
+  endif
+endfunction
+nmap tt :call <SID>yank_to_clipboard()<CR>
+"}}}
 
 " 単語境界に-を追加 {{{
 setlocal iskeyword +=-
