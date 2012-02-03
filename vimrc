@@ -136,12 +136,12 @@ nmap <Leader>u :e ++enc=utf-8 %<CR>
 nmap <Leader>e :e ++enc=euc-jp %<CR>
 nmap <Leader>s :e ++enc=cp932 %<CR>
 
-command! Cp932     edit ++enc=cp932<CR>
-command! Utf8      edit ++enc=utf-8<CR>
-command! Eucjp     edit ++enc=euc-jp<CR>
-command! Iso2022jp edit ++enc=iso2022jp<CR>
-command! Jis       Iso2022jp
-command! Sjis      Cp932
+command! -bang -bar -complete=file -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
+command! -bang -bar -complete=file -nargs=? Eucjp edit<bang> ++enc=euc-jp <args>
+command! -bang -bar -complete=file -nargs=? Cp932 edit<bang> ++enc=cp932 <args>
+command! -bang -bar -complete=file -nargs=? Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
+command! -bang -bar -complete=file -nargs=? Sjis Cp932<bang> <args>
+command! -bang -bar -complete=file -nargs=? Jis Iso2022jp<bang> <args>
 "}}}
 
 " 文字コードの自動認識
