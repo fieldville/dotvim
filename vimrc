@@ -476,9 +476,6 @@ autocmd FileType jproperties call s:jproperties_filetype_settings()
 " Ctrl + jでescape
 inoremap <C-j> <ESC>
 
-inoremap <buffer> {{ {{{
-inoremap <buffer> }} }}}
-
 "カーソル上の言葉をclipboardへヤンク "{{{
 function! s:yank_to_clipboard()
   if &clipboard =~# 'unnamed'
@@ -1068,7 +1065,10 @@ inoremap <buffer> <expr> += smartchr#loop('+= ')
 inoremap <buffer> <expr> -= smartchr#loop('-= ')
 inoremap <buffer> <expr> .= smartchr#loop('.= ')
 inoremap <buffer> <expr> , smartchr#loop(', ', ',')
-inoremap <buffer> <expr> <%= smartchr#loop('<%=  %>')
+inoremap <buffer> <expr> { smartchr#loop('{', '{{{')
+inoremap <buffer> <expr> } smartchr#loop('}', '}}}')
+autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('<%=  %>', '<% %>')
+autocmd FileType ruby      inoremap <buffer> <expr> { smartchr#loop('{', '#{', '{{{')
 "}}}
 
 "----------------------------------------
