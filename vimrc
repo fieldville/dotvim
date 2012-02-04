@@ -476,6 +476,9 @@ autocmd FileType jproperties call s:jproperties_filetype_settings()
 " Ctrl + jでescape
 inoremap <C-j> <ESC>
 
+inoremap <buffer> {{ {{{
+inoremap <buffer> }} }}}
+
 "カーソル上の言葉をclipboardへヤンク "{{{
 function! s:yank_to_clipboard()
   if &clipboard =~# 'unnamed'
@@ -749,7 +752,8 @@ NeoBundle 'https://github.com/othree/html5.vim'
 NeoBundle 'https://github.com/basyura/jslint.vim'
 NeoBundle 'https://github.com/kana/vim-textobj-user'
 NeoBundle 'https://github.com/kana/vim-textobj-indent'
-NeoBundle 'https://github.com/tsukkee/unite-tag.git'
+NeoBundle 'https://github.com/kana/vim-smartchr'
+NeoBundle 'https://github.com/tsukkee/unite-tag'
 NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
 NeoBundle 'https://github.com/petdance/vim-perl'
@@ -1056,3 +1060,19 @@ nnoremap <F5> :GundoToggle<CR>
 " shadow "{{{
 let g:shadow_debug = 1
 "}}}
+
+"----------------------------------------
+" vim-smartchr {{{
+inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
+inoremap <buffer> <expr> += smartchr#loop('+= ')
+inoremap <buffer> <expr> -= smartchr#loop('-= ')
+inoremap <buffer> <expr> .= smartchr#loop('.= ')
+inoremap <buffer> <expr> , smartchr#loop(', ', ',')
+inoremap <buffer> <expr> <%= smartchr#loop('<%=  %>')
+"}}}
+
+"----------------------------------------
+"EnhancedCommentify {{{
+let g:EnhCommentifyBindInInsert = 'no'
+"}}}
+
