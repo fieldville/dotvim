@@ -666,6 +666,7 @@ augroup SkeletonAu
   autocmd BufNewFile *.rb   0r ~/.vim/skel/skel.rb
   autocmd BufNewFile *.t    0r ~/.vim/skel/skel.t
   autocmd BufNewFile *.html 0r ~/.vim/skel/skel.html
+  autocmd BufNewFile *.css  0r ~/.vim/skel/skel.css
   autocmd BufNewFile *.js   0r ~/.vim/skel/skel.js
 augroup END
 "}}}
