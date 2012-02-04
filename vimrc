@@ -666,6 +666,7 @@ augroup SkeletonAu
   autocmd BufNewFile *.rb   0r ~/.vim/skel/skel.rb
   autocmd BufNewFile *.t    0r ~/.vim/skel/skel.t
   autocmd BufNewFile *.html 0r ~/.vim/skel/skel.html
+  autocmd BufNewFile *.js   0r ~/.vim/skel/skel.js
 augroup END
 "}}}
 
@@ -1071,9 +1072,62 @@ inoremap <buffer> <expr> } smartchr#loop('}', '}}}')
 autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('<%=  %>', '<% %>')
 autocmd FileType ruby      inoremap <buffer> <expr> { smartchr#loop('{', '#{', '{{{')
 "}}}
+"}}}
 
 "----------------------------------------
 "EnhancedCommentify {{{
 let g:EnhCommentifyBindInInsert = 'no'
+"}}}
+
+"----------------------------------------
+"Zencoding {{{
+let g:user_zen_settings = {
+\  'lang' : 'ja',
+\  'html' : {
+\    'filters' : 'html',
+\    'snippets': {
+\      'lib:jq14': '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>',
+\      'lib:jq13': '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>',
+\      'lib:swf':  '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject_src.js"></script>',
+\      'lib:cf':   '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.js"></script>',
+\      'lib:html5': "<!--[if IE]>\n\t<script src=\"http://html5shiv.googlecode.com/svn/trunk/html5.js\"></script>\n<![endif]-->",
+\    }
+\  },
+\  'css' : {
+\    'filters' : 'fc',
+\    'snippets': {
+\      'clearfix': ".clearfix {\n" .
+\          " zoom: 1;/*for IE 5.5-7*/\n" .
+\          "}\n" .
+\          ".clearfix:after {/* for modern browser */\n" .
+\          " content: ".";\n" .
+\          " display: block;\n" .
+\          " height: 0px;\n" .
+\          " clear: both;\n" .
+\          " line-height: 0;\n" .
+\          " visibility: hidden;\n" .
+\          "}",
+\      'opacity': "filter: alpha(opacity=50);\n" .
+\          "-moz-opacity:0.5;\n" .
+\          "opacity:0.5;"
+\    },
+\  },
+\  'javascript' : {
+\    'snippets' : {
+\      'jq' : "$(function() {\n\t${cursor}${child}\n});",
+\      'jq:each' : "$.each(arr, function(index, item)\n\t${child}\n});",
+\      'fn' : "(function() {\n\t${cursor}\n})();",
+\      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
+\    },
+\  },
+\ 'java' : {
+\  'indentation' : '    ',
+\  'snippets' : {
+\   'main': "public static void main(String[] args) {\n\t|\n}",
+\   'println': "System.out.println(\"|\");",
+\   'class': "public class | {\n}\n",
+\  },
+\ },
+\}
 "}}}
 
