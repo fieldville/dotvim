@@ -663,6 +663,7 @@ augroup SkeletonAu
   autocmd!
   autocmd BufNewFile *.pl   0r ~/.vim/skel/skel.pl
   autocmd BufNewFile *.pm   0r ~/.vim/skel/skel.pm
+  autocmd BufNewFile *.rb   0r ~/.vim/skel/skel.rb
   autocmd BufNewFile *.t    0r ~/.vim/skel/skel.t
   autocmd BufNewFile *.html 0r ~/.vim/skel/skel.html
 augroup END
