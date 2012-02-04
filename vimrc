@@ -257,7 +257,8 @@ nmap <Space>C :ToggleCursorLine<CR>
 
 " for set list {{{
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:»\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set list
 highlight NonText ctermfg=DarkBlue
 highlight SpecialKey ctermfg=DarkBlue
