@@ -113,7 +113,7 @@ let mapleader=","
 
 " 検索などで飛んだらそこを真ん中に {{{
 for maptype in ['n', 'N', '*', '#', 'g*', 'g#', 'G']
-  execute 'nmap ' . maptype . ' ' . maptype . 'zz'
+  execute 'nmap' maptype maptype . 'zz'
 endfor
 "}}}
 
