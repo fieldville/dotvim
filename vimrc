@@ -655,7 +655,7 @@ autocmd! BufNewFile,BufRead *.tmpl setf tt2html
 " skelton {{{
 augroup SkeletonAu
   autocmd!
-  for ext in ['pl', 'pm', 'rb', 't', 'html', 'css', 'js', 'vim']
+  for ext in ['pl', 'pm', 'rb', 't', 'html', 'css', 'js', 'vim', 'c']
     execute 'autocmd BufNewFile *.' . ext . ' 0r ~/.vim/skel/skel.' . ext
   endfor
 augroup END
