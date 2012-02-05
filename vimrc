@@ -123,22 +123,18 @@ cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 "}}}
 
 " fileencoding "{{{
-nmap <Leader>U :set fileencoding=utf-8<CR>
-nmap <Leader>E :set fileencoding=euc-jp<CR>
-nmap <Leader>S :set fileencoding=cp932<CR>
-
-" 文字コードを指定して開き直す
-nmap <Leader>u :e ++enc=utf-8 %<CR>
-nmap <Leader>e :e ++enc=euc-jp %<CR>
-nmap <Leader>s :e ++enc=cp932 %<CR>
-
-command! -bang -bar -complete=file -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
-command! -bang -bar -complete=file -nargs=? Eucjp edit<bang> ++enc=euc-jp <args>
-command! -bang -bar -complete=file -nargs=? Cp932 edit<bang> ++enc=cp932 <args>
-command! -bang -bar -complete=file -nargs=? Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
-
-command! -bang -bar -complete=file -nargs=? Sjis Cp932<bang> <args>
-command! -bang -bar -complete=file -nargs=? Jis Iso2022jp<bang> <args>
+for [enc, cmds, key] in [
+  \ ['utf-8'      , ['Utf8']            , 'u'],
+  \ ['euc-jp'     , ['Eucjp']           , 'e'],
+  \ ['cp932'      , ['Cp932', 'Sjis']   , 's'],
+  \ ['iso-2022-jp', ['Iso2022jp', 'Jis'], 'j'],
+  \]
+  for cmd in cmds
+    execute 'command! -bang -bar -complete=file -nargs=?' cmd 'edit<bang> ++enc=' . enc '<args>'
+  endfor
+  execute 'nmap <Leader>' . key          ':' . cmds[0] . '<CR>'
+  execute 'nmap <Leader>' . toupper(key) ':set fileencoding=' . enc . '<CR>'
+endfor
 "}}}
 
 " 文字コードの自動認識
@@ -926,7 +922,7 @@ for [key, out] in items({
   execute 'nnoremap <silent>' key ':QuickRun' out '-mode n<CR>'
   execute 'vnoremap <silent>' key ':QuickRun' out '-mode v<CR>'
 endfor
-nnoremap <silent> <Leader>j :QuickRun >quickfix -mode n<CR>:bot copen<CR>
+"nnoremap <silent> <Leader>j :QuickRun >quickfix -mode n<CR>:bot copen<CR>
 "}}}
 
 "----------------------------------------
