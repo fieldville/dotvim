@@ -77,13 +77,13 @@ if !exists(":DiffOrig")
 endif
 " }}}
 
+set nobackup
 " 初回のみ読み込まれるデフォルト定義 {{{
 if has('vim_starting')
   set tabstop=4
   set softtabstop=4
   set shiftwidth=4
   set noautoindent
-  set nobackup
   set nowrapscan
   set number
   set ruler
