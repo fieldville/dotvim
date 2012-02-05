@@ -214,15 +214,14 @@ set wildmode=list:longest
 "set scrolloff=30
 set scrolloff=5
 
-" CTRL-hjklでウィンドウ移動
+" window movement
 "{{{
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
-nnoremap <silent> <C-h> :wincmd h<CR>
+for key in ['h', 'j', 'k', 'l']
+  execute 'nnoremap <silent> <C-' . key . '> :wincmd' key . '<CR>'
+endfor
 "}}}
 
-" ウィンドウサイズの変更
+" change window size
 "{{{
 nnoremap <silent> <Up>    :2 wincmd -<CR>
 nnoremap <silent> <Down>  :2 wincmd +<CR>
@@ -232,20 +231,22 @@ nnoremap <silent> <Right> :5 wincmd ><CR>
 
 "折れ曲がった行にも移動 {{{
 "set wrap のときに便利
-nmap j gj
-nmap k gk
-vmap j gj
-vmap k gk
+for key in ['j', 'k']
+  execute 'nmap' key 'g' . key
+  execute 'vmap' key 'g' . key
+endfor
 "set showbreak=…
 "}}}
 
 " toggle command {{{
-command! ToggleNumber  setlocal number!
-nmap <Space>N :ToggleNumber<CR>
-command! ToggleList  setlocal list!
-nmap <Space>L :ToggleList<CR>
-command! ToggleCursorLine  setlocal cursorline!
-nmap <Space>C :ToggleCursorLine<CR>
+for [cmd_name, opt_name, key] in [
+  \ ['ToggleNumber'    , 'number'    , 'N'],
+  \ ['ToggleList'      , 'list'      , 'L'],
+  \ ['ToggleCursorLine', 'cursorline', 'C'],
+  \]
+  execute 'command!' cmd_name 'setlocal' opt_name . '!'
+  execute 'nmap <Space>'. key ':' . cmd_name . '<CR>'
+endfor
 "}}}
 
 " for set list {{{
