@@ -112,13 +112,9 @@ nnoremap <C-]> g]
 let mapleader=","
 
 " 検索などで飛んだらそこを真ん中に {{{
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-nmap g* g*zz
-nmap g# g#zz
-nmap G Gzz
+for maptype in ['n', 'N', '*', '#', 'g*', 'g#', 'G']
+  execute 'nmap ' . maptype . ' ' . maptype . 'zz'
+endfor
 "}}}
 
 " escape automatically / ? {{{
@@ -140,6 +136,7 @@ command! -bang -bar -complete=file -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
 command! -bang -bar -complete=file -nargs=? Eucjp edit<bang> ++enc=euc-jp <args>
 command! -bang -bar -complete=file -nargs=? Cp932 edit<bang> ++enc=cp932 <args>
 command! -bang -bar -complete=file -nargs=? Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
+
 command! -bang -bar -complete=file -nargs=? Sjis Cp932<bang> <args>
 command! -bang -bar -complete=file -nargs=? Jis Iso2022jp<bang> <args>
 "}}}
@@ -661,13 +658,9 @@ autocmd! BufNewFile,BufRead *.tmpl setf tt2html
 " skelton {{{
 augroup SkeletonAu
   autocmd!
-  autocmd BufNewFile *.pl   0r ~/.vim/skel/skel.pl
-  autocmd BufNewFile *.pm   0r ~/.vim/skel/skel.pm
-  autocmd BufNewFile *.rb   0r ~/.vim/skel/skel.rb
-  autocmd BufNewFile *.t    0r ~/.vim/skel/skel.t
-  autocmd BufNewFile *.html 0r ~/.vim/skel/skel.html
-  autocmd BufNewFile *.css  0r ~/.vim/skel/skel.css
-  autocmd BufNewFile *.js   0r ~/.vim/skel/skel.js
+  for ext in ['pl', 'pm', 'rb', 't', 'html', 'css', 'js', 'vim']
+    execute 'autocmd BufNewFile *.' . ext . ' 0r ~/.vim/skel/skel.' . ext
+  endfor
 augroup END
 "}}}
 
