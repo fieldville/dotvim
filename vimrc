@@ -1053,11 +1053,11 @@ let g:shadow_debug = 1
 
 "----------------------------------------
 " vim-smartchr {{{
-inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
-inoremap <buffer> <expr> += smartchr#loop('+= ')
-inoremap <buffer> <expr> -= smartchr#loop('-= ')
-inoremap <buffer> <expr> .= smartchr#loop('.= ')
-inoremap <buffer> <expr> , smartchr#loop(', ', ',')
+"inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
+"inoremap <buffer> <expr> += smartchr#loop('+= ')
+"inoremap <buffer> <expr> -= smartchr#loop('-= ')
+"inoremap <buffer> <expr> .= smartchr#loop('.= ')
+"inoremap <buffer> <expr> , smartchr#loop(', ', ',')
 inoremap <buffer> <expr> { smartchr#loop('{', '{{{')
 inoremap <buffer> <expr> } smartchr#loop('}', '}}}')
 autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('<%=  %>', '<% %>')
