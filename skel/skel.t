@@ -1,9 +1,9 @@
 #!/usr/bin/perl
+# vim: foldmethod=marker
 
 use strict;
 use warnings;
 
-# vim: foldmethod=marker
 ########################################
 # 00-compile.t
 ########################################
