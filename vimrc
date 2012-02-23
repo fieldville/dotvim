@@ -675,6 +675,11 @@ inoremap <expr> <Leader>dd strftime('%Y-%m-%d')
 inoremap <expr> <Leader>dt strftime('%H:%M:%S')
 "}}}
 
+" Map semicolon to colon {{{
+nnoremap ; :
+nnoremap : ;
+"}}}
+
 "================================================================================
 " for plugin settings
 "================================================================================
