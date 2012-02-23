@@ -677,7 +677,6 @@ inoremap <expr> <Leader>dt strftime('%H:%M:%S')
 
 " Map semicolon to colon {{{
 nnoremap ; :
-nnoremap : ;
 "}}}
 
 "================================================================================
