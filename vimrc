@@ -243,6 +243,7 @@ for [cmd_name, opt_name, key] in [
   \ ['ToggleNumber'    , 'number'    , 'N'],
   \ ['ToggleList'      , 'list'      , 'L'],
   \ ['ToggleCursorLine', 'cursorline', 'C'],
+  \ ['ToggleWrap'      , 'wrap'      , 'W'],
   \]
   execute 'command!' cmd_name 'setlocal' opt_name . '!'
   execute 'nmap <Space>'. key ':' . cmd_name . '<CR>'
