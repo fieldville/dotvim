@@ -964,7 +964,6 @@ endfunction
 
 "nnoremap [unite] <Nop>
 nnoremap [unite] :<C-u>Unite<Space>
-"nmap ,u [unite]
 nmap f [unite]
 
 nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -1056,7 +1055,7 @@ let g:shadow_debug = 1
 "}}}
 
 "----------------------------------------
-" vim-smartchr {{{
+" vim-smartchr {{{1
 "inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
 "inoremap <buffer> <expr> += smartchr#loop('+= ')
 "inoremap <buffer> <expr> -= smartchr#loop('-= ')
@@ -1066,8 +1065,7 @@ inoremap <buffer> <expr> { smartchr#loop('{', '{{{')
 inoremap <buffer> <expr> } smartchr#loop('}', '}}}')
 autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('<%=  %>', '<% %>')
 autocmd FileType ruby      inoremap <buffer> <expr> { smartchr#loop('{', '#{', '{{{')
-"}}}
-"}}}
+"}}}1
 
 "----------------------------------------
 "EnhancedCommentify {{{
