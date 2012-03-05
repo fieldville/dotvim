@@ -753,6 +753,7 @@ NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
 NeoBundle 'https://github.com/petdance/vim-perl'
 NeoBundle 'https://github.com/pasela/unite-webcolorname'
+NeoBundle 'https://github.com/Lokaltog/vim-powerline'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1124,4 +1125,10 @@ let g:user_zen_settings = {
 \ },
 \}
 "}}}
+
+
+" Plugin/vim-powerline {{{
+let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'unicode'
+" }}}
 
