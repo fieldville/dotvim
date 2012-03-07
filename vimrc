@@ -252,9 +252,12 @@ endfor
 
 " for set list {{{
 " Use the same symbols as TextMate for tabstops and EOLs
-"set listchars=tab:▸\ ,eol:¬
-set listchars=tab:»\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-set list
+try
+  "set listchars=tab:▸\ ,eol:¬
+  set listchars=tab:»\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+  set list
+catch
+endtry
 highlight NonText ctermfg=DarkBlue
 highlight SpecialKey ctermfg=DarkBlue
 
@@ -411,7 +414,10 @@ highlight clear FoldColumn
 
 " 全角スペースの表示 {{{
 highlight ZenkakuSpace cterm=underline ctermfg=White
-match ZenkakuSpace /　/
+try
+  match ZenkakuSpace /　/
+catch
+endtry
 "}}}
 
 " カーソル行 {{{
