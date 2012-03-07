@@ -371,14 +371,14 @@ nmap <C-p> :cp<CR>
 
 " for statusline {{{
 " 文字エンコーディング＆改行コード取得
-function! GetStatusEx()
-    let str = &fileformat
-    if has('multi_byte') && &fileencoding != ''
-        let str = &fileencoding . ':' . str
-    endif
-    return '[' . str . ']'
-endfunction
-set statusline=%y%{GetStatusEx()}%F%m%r\ [%c,%l](%P)%=%{strftime(\"%Y/%m/%d(%a)\ %H:%M\")}
+"function! GetStatusEx()
+"    let str = &fileformat
+"    if has('multi_byte') && &fileencoding != ''
+"        let str = &fileencoding . ':' . str
+"    endif
+"    return '[' . str . ']'
+"endfunction
+"set statusline=%y%{GetStatusEx()}%F%m%r\ [%c,%l](%P)%=%{strftime(\"%Y/%m/%d(%a)\ %H:%M\")}
 "}}}
 
 " コマンドを実行 {{{
@@ -1132,9 +1132,8 @@ let g:user_zen_settings = {
 \}
 "}}}
 
-
-" Plugin/vim-powerline {{{
-let g:Powerline_symbols = 'fancy'
-"let g:Powerline_symbols = 'unicode'
+" vim-powerline {{{
+"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 " }}}
 
