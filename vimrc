@@ -1,5 +1,12 @@
-" vim: foldmethod=marker
-
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"                                 _                                             "
+"                          _   __(_)___ ___  __________                         "
+"                         | | / / / __ `__ \/ ___/ ___/                         "
+"                         | |/ / / / / / / / /  / /__                           "
+"                         |___/_/_/ /_/ /_/_/   \___/                           "
+"                                                                               "
+"                                                                               "
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 set nocompatible
 
 " allow backspacing over everything in insert mode
@@ -1137,3 +1144,4 @@ let g:user_zen_settings = {
 let g:Powerline_symbols = 'unicode'
 " }}}
 
+" vim: foldmethod=marker
