@@ -306,7 +306,7 @@ autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
-autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
+autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
 autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType java       setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType jsp        setlocal sw=4 sts=4 ts=4 et
@@ -1078,7 +1078,7 @@ let g:shadow_debug = 1
 "inoremap <buffer> <expr> , smartchr#loop(', ', ',')
 inoremap <buffer> <expr> { smartchr#loop('{', '{{{')
 inoremap <buffer> <expr> } smartchr#loop('}', '}}}')
-autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('<%=  %>', '<% %>')
+autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('%=  %>', '% %>', '%- -%>')
 autocmd FileType ruby      inoremap <buffer> <expr> { smartchr#loop('{', '#{', '{{{')
 "}}}1
 
@@ -1139,6 +1139,7 @@ let g:user_zen_settings = {
 \}
 "}}}
 
+"----------------------------------------
 " vim-powerline {{{
 "let g:Powerline_symbols = 'fancy'
 let g:Powerline_symbols = 'unicode'
