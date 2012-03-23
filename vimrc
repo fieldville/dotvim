@@ -1078,7 +1078,7 @@ let g:shadow_debug = 1
 "inoremap <buffer> <expr> , smartchr#loop(', ', ',')
 inoremap <buffer> <expr> { smartchr#loop('{', '{{{')
 inoremap <buffer> <expr> } smartchr#loop('}', '}}}')
-autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('%=  %>', '% %>', '%- -%>')
+"autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('%=  %>', '% %>', '%- -%>')
 autocmd FileType ruby      inoremap <buffer> <expr> { smartchr#loop('{', '#{', '{{{')
 "}}}1
 
@@ -1143,6 +1143,12 @@ let g:user_zen_settings = {
 " vim-powerline {{{
 "let g:Powerline_symbols = 'fancy'
 let g:Powerline_symbols = 'unicode'
+" }}}
+
+"----------------------------------------
+" vim-surround {{{
+let g:surround_106 = "$('\r')"  " 106 = j
+let g:surround_74 = "$j('\r')"  " 74 = J
 " }}}
 
 " vim: foldmethod=marker
