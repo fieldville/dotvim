@@ -767,6 +767,7 @@ NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
 NeoBundle 'https://github.com/petdance/vim-perl'
 NeoBundle 'https://github.com/pasela/unite-webcolorname'
 NeoBundle 'https://github.com/Lokaltog/vim-powerline'
+NeoBundle 'https://github.com/t9md/vim-surround_custom_mapping'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1147,8 +1148,48 @@ let g:Powerline_symbols = 'unicode'
 
 "----------------------------------------
 " vim-surround {{{
-let g:surround_106 = "$('\r')"  " 106 = j
-let g:surround_74 = "$j('\r')"  " 74 = J
+"let g:surround_106 = "$('\r')"  " 106 = j
+"let g:surround_74 = "$j('\r')"  " 74 = J
 " }}}
 
+"----------------------------------------
+" vim-surround_custom_mapping {{{
+let g:surround_custom_mapping = {}
+let g:surround_custom_mapping._ = {
+            \ 'p':  "<pre> \r </pre>",
+            \ 'w':  "%w(\r)",
+            \ 'j':  "$('\r')",
+            \ 'J':  "$j('\r')",
+            \ }
+let g:surround_custom_mapping.help = {
+            \ 'p':  "> \r <",
+            \ }
+let g:surround_custom_mapping.ruby = {
+            \ '-':  "<% \r %>",
+            \ '=':  "<%= \r %>",
+            \ '9':  "(\r)",
+            \ '5':  "%(\r)",
+            \ '%':  "%(\r)",
+            \ 'w':  "%w(\r)",
+            \ '#':  "#{\r}",
+            \ '3':  "#{\r}",
+            \ 'e':  "begin \r end",
+            \ 'E':  "<<EOS \r EOS",
+            \ 'i':  "if \1if\1 \r end",
+            \ 'u':  "unless \1unless\1 \r end",
+            \ 'c':  "class \1class\1 \r end",
+            \ 'm':  "module \1module\1 \r end",
+            \ 'd':  "def \1def\1\2args\r..*\r(&)\2 \r end",
+            \ 'p':  "\1method\1 do \2args\r..*\r|&| \2\r end",
+            \ 'P':  "\1method\1 {\2args\r..*\r|&|\2 \r }",
+            \ }
+let g:surround_custom_mapping.javascript = {
+            \ 'f':  "function(){ \r }",
+            \ }
+let g:surround_custom_mapping.vim = {
+            \'f':  "function! \r endfunction",
+            \'z':  "\"{{{ \r \"}}}",
+            \ }
+" }}}
+"
 " vim: foldmethod=marker
