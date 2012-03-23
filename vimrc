@@ -1105,15 +1105,15 @@ let g:user_zen_settings = {
 \    'filters' : 'fc',
 \    'snippets': {
 \      'clearfix': ".clearfix {\n" .
-\          " zoom: 1;/*for IE 5.5-7*/\n" .
+\          "  zoom: 1;/*for IE 5.5-7*/\n" .
 \          "}\n" .
 \          ".clearfix:after {/* for modern browser */\n" .
-\          " content: ".";\n" .
-\          " display: block;\n" .
-\          " height: 0px;\n" .
-\          " clear: both;\n" .
-\          " line-height: 0;\n" .
-\          " visibility: hidden;\n" .
+\          "  content: \".\";\n" .
+\          "  display: block;\n" .
+\          "  height: 0px;\n" .
+\          "  clear: both;\n" .
+\          "  line-height: 0;\n" .
+\          "  visibility: hidden;\n" .
 \          "}",
 \      'opacity': "filter: alpha(opacity=50);\n" .
 \          "-moz-opacity:0.5;\n" .
