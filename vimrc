@@ -986,9 +986,9 @@ nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 inoremap <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 
 nnoremap [unite]a   :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
-nnoremap [unite]b   :<C-u>Unite mark buffer file_mru<CR>
+nnoremap [unite]b   :<C-u>Unite mark buffer file_mru -start-insert<CR>
 nnoremap [unite]c   :<C-u>Unite change<CR>
-nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file -start-insert<CR>
 nnoremap [unite]g   :<C-u>Unite grep<CR>
 nnoremap [unite]h   :<C-u>Unite history/command<CR>
 nnoremap [unite]j   :<C-u>Unite jump<CR>
