@@ -360,6 +360,8 @@ let &grepprg="find . -type f -name '*.*'
               \ -a -not -regex '^\\./work.*'
               \ -a -not -regex '^\\./cpan.*'
               \ -a -not -regex '^\\./etc.*'
+              \ -a -not -regex '.*\\.min\\.js$'
+              \ -a -not -regex '.*\\.min\\.css$'
               \ -a -not -regex '.*schema.rb$'
               \ -print0 \\| xargs -0 grep -nH"
 "}}}
