@@ -1193,5 +1193,10 @@ let g:surround_custom_mapping.vim = {
             \'z':  "\"{{{ \r \"}}}",
             \ }
 " }}}
-"
+
+"----------------------------------------
+" csslint.vim {{{
+autocmd FileType css compiler csslint
+" }}}
+
 " vim: foldmethod=marker
