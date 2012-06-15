@@ -770,6 +770,8 @@ NeoBundle 'https://github.com/petdance/vim-perl'
 NeoBundle 'https://github.com/pasela/unite-webcolorname'
 NeoBundle 'https://github.com/Lokaltog/vim-powerline'
 NeoBundle 'https://github.com/t9md/vim-surround_custom_mapping'
+NeoBundle 'https://github.com/einars/js-beautify'
+NeoBundle 'https://github.com/maksimr/vim-jsbeautify'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1197,6 +1199,24 @@ let g:surround_custom_mapping.vim = {
 "----------------------------------------
 " csslint.vim {{{
 autocmd FileType css compiler csslint
+" }}}
+
+"----------------------------------------
+" vim-jsbeautify {{{
+let s:rootDir = fnamemodify(expand("<sfile>"), ":h")."/.vim/"
+let g:jsbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify.js")
+let g:htmlbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-html.js")
+let g:cssbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-css.js")
+
+let g:jsbeautify = {'indent_size': 2, 'indent_char': ' ', 'jslint_happy': 'true' }
+let g:htmlbeautify = {'indent_size': 2, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
+let g:cssbeautify = {'indent_size': 2, 'indent_char': ' '}
+
+autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " }}}
 
 " vim: foldmethod=marker
