@@ -938,6 +938,7 @@ let g:quicklaunch_no_default_key_mappings = 1
 
 let g:quickrun_config = {}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+let g:quickrun_config['css'] = {'command' : 'recess', 'exec' : ['%c --stripColors=true %s']}
 
 " 出力先別にショートカットキーを設定する
 for [key, out] in items({
