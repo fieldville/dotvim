@@ -1217,6 +1217,10 @@ autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call <SID>css_beautify()<cr>
+function! s:css_beautify() range
+  call CSSBeautify(a:firstline, a:lastline)
+endfunction
 " }}}
 
 " vim: foldmethod=marker
