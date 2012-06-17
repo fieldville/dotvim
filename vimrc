@@ -1010,7 +1010,7 @@ nnoremap [unite]J   :<C-u>Unite jump<CR>
 nnoremap [unite]I   :<C-u>Unite neobundle/install:!<CR>
 nnoremap [unite]L   :<C-u>Unite launcher<CR>
 nnoremap [unite]M   :<C-u>Unite output:messages<CR>
-"nnoremap [unite]N   :<C-u>Unite neobundle -input=Not<CR>
+nnoremap [unite]N   :<C-u>Unite neobundle -input=Not<CR>
 nnoremap [unite]R   :<C-u>Unite -buffer-name=register register<CR>
 nnoremap [unite]S   :<C-u>Unite output:scriptnames<CR>
 "}}}
