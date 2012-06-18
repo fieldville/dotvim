@@ -727,6 +727,7 @@ NeoBundle 'https://github.com/msanders/cocoa.vim'
 NeoBundle 'https://github.com/plasticboy/vim-markdown'
 NeoBundle 'https://github.com/rgo/taglist.vim'
 NeoBundle 'https://github.com/scrooloose/nerdtree'
+NeoBundle 'https://github.com/scrooloose/syntastic'
 NeoBundle 'https://github.com/thinca/vim-quickrun'
 NeoBundle 'https://github.com/thinca/vim-ref'
 NeoBundle 'https://github.com/thinca/vim-qfreplace'
@@ -759,7 +760,7 @@ NeoBundle 'https://github.com/tyru/open-browser.vim'
 NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
 NeoBundle 'https://github.com/cakebaker/scss-syntax.vim'
 NeoBundle 'https://github.com/othree/html5.vim'
-NeoBundle 'https://github.com/basyura/jslint.vim'
+"NeoBundle 'https://github.com/basyura/jslint.vim'
 NeoBundle 'https://github.com/kana/vim-textobj-user'
 NeoBundle 'https://github.com/kana/vim-textobj-indent'
 NeoBundle 'https://github.com/kana/vim-smartchr'
@@ -933,12 +934,24 @@ nnoremap <Leader>p :Rtree<CR>
 "}}}
 
 "----------------------------------------
+" syntastic {{{
+let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_jump=1
+"let g:syntastic_javascript_checker = 'jshint'
+let g:syntastic_javascript_checker = 'jslint'
+let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy=false --vars=false --es5=false"
+" }}}
+
+"----------------------------------------
 " vim-quickrun "{{{
 let g:quicklaunch_no_default_key_mappings = 1
 
 let g:quickrun_config = {}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 let g:quickrun_config['css'] = {'command' : 'recess', 'exec' : ['%c --stripColors=true %s']}
+let g:quickrun_config['javascript'] = {'command' : 'jsl', 'exec' : ['%c -process %s']}
+"let g:quickrun_config['javascript'] = {'command' : 'jshint', 'exec' : ['%c %s']}
+"let g:quickrun_config['javascript'] = {'command' : 'jslint', 'exec' : ['%c '. g:syntastic_javascript_jslint_conf .' %s']}
 
 " 出力先別にショートカットキーを設定する
 for [key, out] in items({
@@ -1057,12 +1070,12 @@ let g:vimfiler_safe_mode_by_default = 0
 "----------------------------------------
 " jslint "{{{
 "http://blog.monoweb.info/article/2011042918.html
-function! s:javascript_filetype_settings()
-  autocmd BufLeave     <buffer> call jslint#clear()
-  autocmd BufWritePost <buffer> call jslint#check()
-  autocmd CursorMoved  <buffer> call jslint#message()
-endfunction
-autocmd FileType javascript call s:javascript_filetype_settings()
+"function! s:javascript_filetype_settings()
+"  autocmd BufLeave     <buffer> call jslint#clear()
+"  autocmd BufWritePost <buffer> call jslint#check()
+"  autocmd CursorMoved  <buffer> call jslint#message()
+"endfunction
+"autocmd FileType javascript call s:javascript_filetype_settings()
 "}}}
 
 "----------------------------------------
@@ -1195,11 +1208,6 @@ let g:surround_custom_mapping.vim = {
             \'f':  "function! \r endfunction",
             \'z':  "\"{{{ \r \"}}}",
             \ }
-" }}}
-
-"----------------------------------------
-" csslint.vim {{{
-autocmd FileType css compiler csslint
 " }}}
 
 "----------------------------------------
