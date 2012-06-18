@@ -373,10 +373,10 @@ nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
 " 最後に検索した単語
 nmap <C-g><C-h> :grep "<C-R>/" \| bot cw<CR>
 
-"}}}
+nmap <silent> <C-g><C-n> :<C-u>cnext<CR>
+nmap <silent> <C-g><C-p> :<C-u>cprevious<CR>
 
-nmap <C-n> :cn<CR>
-nmap <C-p> :cp<CR>
+"}}}
 
 " for statusline {{{
 " 文字エンコーディング＆改行コード取得
@@ -469,6 +469,11 @@ nnoremap <Leader>bn :bnext<CR>
 nnoremap <Leader>bd :bdelete<CR>
 nmap <silent> <C-b><C-n> :<C-u>bnext<CR>
 nmap <silent> <C-b><C-p> :<C-u>bprevious<CR>
+"}}}
+
+" map for syntastic, etc {{{
+nmap <silent> <C-n> :<C-u>lnext<CR>
+nmap <silent> <C-p> :<C-u>lprevious<CR>
 "}}}
 
 " native2ascii {{{
