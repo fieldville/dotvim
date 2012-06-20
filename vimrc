@@ -373,8 +373,8 @@ nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
 " 最後に検索した単語
 nmap <C-g><C-h> :grep "<C-R>/" \| bot cw<CR>
 
-nmap <silent> <C-g><C-n> :<C-u>cnext<CR>
-nmap <silent> <C-g><C-p> :<C-u>cprevious<CR>
+nmap <silent> <C-n> :<C-u>cnext<CR>
+nmap <silent> <C-p> :<C-u>cprevious<CR>
 
 "}}}
 
@@ -472,8 +472,8 @@ nmap <silent> <C-b><C-p> :<C-u>bprevious<CR>
 "}}}
 
 " map for syntastic, etc {{{
-nmap <silent> <C-n> :<C-u>lnext<CR>
-nmap <silent> <C-p> :<C-u>lprevious<CR>
+nmap <silent> <C-g><C-n> :<C-u>lnext<CR>
+nmap <silent> <C-g><C-p> :<C-u>lprevious<CR>
 "}}}
 
 " native2ascii {{{
