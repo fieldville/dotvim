@@ -945,7 +945,7 @@ let g:syntastic_auto_jump=1
 "let g:syntastic_javascript_checker = 'jshint'
 let g:syntastic_javascript_checker = 'jslint'
 "let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars"
-let g:syntastic_javascript_jslint_conf = "--white=false --indent=2 --undef=false --nomen=false --regexp=false --plusplus=false --bitwise=false --newcap=false --vars=false --es5=false"
+let g:syntastic_javascript_jslint_conf = "--white=false --indent=2 --undef=false --nomen=false --regexp --plusplus=false --bitwise=false --newcap=false --vars=false --es5=false"
 " }}}
 
 "----------------------------------------
