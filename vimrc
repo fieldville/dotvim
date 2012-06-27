@@ -1142,6 +1142,7 @@ let g:user_zen_settings = {
 \          "  line-height: 0;\n" .
 \          "  visibility: hidden;\n" .
 \          "}",
+\      'box-shadow' : "-webkit-box-shadow: 0 0 0 # 000;\n-moz-box-shadow: 0 0 0 0 # 000;\nbox-shadow: 0 0 0 # 000;",
 \      'opacity': "filter: alpha(opacity=50);\n" .
 \          "-moz-opacity:0.5;\n" .
 \          "opacity:0.5;"
@@ -1149,10 +1150,12 @@ let g:user_zen_settings = {
 \  },
 \  'javascript' : {
 \    'snippets' : {
-\      'jq' : "\\$(function() {\n\t${cursor}${child}\n});",
-\      'jq:each' : "\\$.each(arr, function(index, item)\n\t${child}\n});",
-\      'fn' : "(function() {\n\t${cursor}\n})();",
-\      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
+\      'jq' : "\\$(function () {\n\t${cursor}${child}\n});",
+\      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
+\      'jq:wrap' : "(function (\\$) {\n\t${cursor}\n}(jQuery));",
+\      'jq:each' : "\\$.each(array, function (index, item) {\n\t\\${cursor}${child}\n});",
+\      'fn' : "(function () {\n\t${cursor}\n})();",
+\      'tm' : "setTimeout(function () {\n\t${cursor}\n}, 100);",
 \    },
 \  },
 \ 'java' : {

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 clearfix
+box-shadow
 opacity
 
 html,body,
@@ -79,10 +80,10 @@ br {
   display: none;
 }
 .float_clear {
-  clear: both !important;
-  margin: 0   !important;
-  padding: 0  !important;
-  height: 0   !important;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  height: 0;
 }
 .nowrap {
   white-space: nowrap;
@@ -95,5 +96,5 @@ br {
   white-space: nowrap;
 }
 .centering {
-  text-align: center !important;
+  text-align: center;
 }
