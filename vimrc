@@ -1149,8 +1149,8 @@ let g:user_zen_settings = {
 \  },
 \  'javascript' : {
 \    'snippets' : {
-\      'jq' : "$(function() {\n\t${cursor}${child}\n});",
-\      'jq:each' : "$.each(arr, function(index, item)\n\t${child}\n});",
+\      'jq' : "\\$(function() {\n\t${cursor}${child}\n});",
+\      'jq:each' : "\\$.each(arr, function(index, item)\n\t${child}\n});",
 \      'fn' : "(function() {\n\t${cursor}\n})();",
 \      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
 \    },
