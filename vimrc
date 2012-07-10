@@ -299,6 +299,7 @@ endif
 "}}}
 
 " FileType Indent "{{{
+augroup auto_filetype_indent
 autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
@@ -327,6 +328,7 @@ autocmd FileType xml        setlocal sw=2 sts=2 ts=2 et
 autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+augroup END
 "}}}
 
 " for grep {{{
@@ -669,8 +671,10 @@ function! s:perl_filetype_settings()
   vnoremap <Leader>pt :!perltidy<CR>
 endfunction
 
-autocmd! FileType perl call s:perl_filetype_settings()
-autocmd! BufNewFile,BufRead *.tmpl setf tt2html
+augroup perl_filetype
+  autocmd! FileType perl call s:perl_filetype_settings()
+  autocmd! BufNewFile,BufRead *.tmpl setf tt2html
+augroup END
 "}}}
 
 " skelton {{{
