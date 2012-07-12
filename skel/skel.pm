@@ -7,7 +7,9 @@ use Carp;
 
 sub new {
     my $class = shift;
-    bless {}, $class;
+    my $hash  = {};
+    bless $hash, $class;
+    return $hash;
 }
 
 1;
