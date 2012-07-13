@@ -4,12 +4,17 @@
 use strict;
 use warnings;
 
+use Test::More;
+use Test::Exception;
+
+use FindBin;
+use File::Spec;
+use lib File::Spec->catdir( $FindBin::Bin, '../lib' );
+
 ########################################
 # 00-compile.t
 ########################################
 #{{{
-use Test::More;
-
 BEGIN { use_ok '' }
 require_ok ('');
 
@@ -20,8 +25,6 @@ done_testing;
 # 01-call_func.t
 ########################################
 #{{{
-use Test::More;
-
 my @methods = qw/new/;
 
 for my $method (@methods) {
@@ -35,9 +38,6 @@ done_testing;
 # other
 ########################################
 #{{{
-use Test::More;
-use Test::Exception;
-
 sub test_func {
     my %specs = @_;
     my ( $input, $expects, $desc ) = @specs{qw/ input expects desc /};
