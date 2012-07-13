@@ -1048,9 +1048,9 @@ let g:vimshell_interactive_update_time = 10
 let g:vimshell_prompt = $USERNAME."% "
 
 " map
-nnoremap vs :VimShell<CR>
-nnoremap vsc :VimShellCreate<CR>
-nnoremap vp :VimShellPop<CR>
+"nnoremap vs :VimShell<CR>
+"nnoremap vsc :VimShellCreate<CR>
+"nnoremap vp :VimShellPop<CR>
 
 " alias
 autocmd FileType vimshell
