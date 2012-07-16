@@ -1159,21 +1159,31 @@ let g:user_zen_settings = {
 \  'javascript' : {
 \    'snippets' : {
 \      'jq' : "\\$(function () {\n\t${cursor}${child}\n});",
-\      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
+\      'jq:json' : "\\$.getJSON(\"${cursor}\", function (data) {\n\t\\${child}\n});",
 \      'jq:wrap' : "(function (\\$) {\n\t${cursor}\n}(jQuery));",
 \      'jq:each' : "\\$.each(array, function (index, item) {\n\t\\${cursor}${child}\n});",
 \      'fn' : "(function () {\n\t${cursor}\n})();",
 \      'tm' : "setTimeout(function () {\n\t${cursor}\n}, 100);",
 \    },
 \  },
-\ 'java' : {
-\  'indentation' : '    ',
-\  'snippets' : {
-\   'main': "public static void main(String[] args) {\n\t|\n}",
-\   'println': "System.out.println(\"|\");",
-\   'class': "public class | {\n}\n",
+\  'perl' : {
+\    'snippets' : {
+\      'dp' : "use Data::Dumper;",
+\      'pp' : "warn Dumper \"${cursor}\";",
+\      'w' : "warn \"${cursor}\";",
+\      's' : "my \\$self = shift;\n\nreturn;",
+\      'sub' : "sub ${cursor} {\n\tmy \\$self = shift;\n\n\treturn;\n}\n",
+\      'if' : "if (${cursor}) {\n}",
+\    },
 \  },
-\ },
+\  'java' : {
+\    'indentation' : '    ',
+\    'snippets' : {
+\      'main': "public static void main(String[] args) {\n\t|\n}",
+\      'pp': "System.out.println(\"|\");",
+\      'class': "public class | {\n}\n",
+\    },
+\  },
 \}
 "}}}
 
@@ -1194,9 +1204,6 @@ let g:Powerline_symbols = 'unicode'
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping._ = {
             \ 'p':  "<pre> \r </pre>",
-            \ 'w':  "%w(\r)",
-            \ 'j':  "$('\r')",
-            \ 'J':  "$j('\r')",
             \ }
 let g:surround_custom_mapping.help = {
             \ 'p':  "> \r <",
@@ -1220,8 +1227,16 @@ let g:surround_custom_mapping.ruby = {
             \ 'p':  "\1method\1 do \2args\r..*\r|&| \2\r end",
             \ 'P':  "\1method\1 {\2args\r..*\r|&|\2 \r }",
             \ }
+let g:surround_custom_mapping.perl = {
+            \ 'i':  "if (\1if\1) {\r }",
+            \ 'u':  "unless (\1unless\1) {\r }",
+            \ 's':  "sub \1sub\1 { \r }",
+            \ 'S':  "sub \1sub\1 { \r }",
+            \ }
 let g:surround_custom_mapping.javascript = {
-            \ 'f':  "function(){ \r }",
+            \ 'f':  "function () { \r }",
+            \ 'j':  "$('\r')",
+            \ 'J':  "$j('\r')",
             \ }
 let g:surround_custom_mapping.vim = {
             \'f':  "function! \r endfunction",

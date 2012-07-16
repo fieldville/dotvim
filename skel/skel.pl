@@ -4,3 +4,9 @@ use strict;
 use warnings;
 use Carp;
 
+dp
+pp
+w
+s
+sub
+if
