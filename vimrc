@@ -1169,7 +1169,7 @@ let g:user_zen_settings = {
 \  'perl' : {
 \    'snippets' : {
 \      'dp' : "use Data::Dumper;",
-\      'pp' : "warn Dumper \"${cursor}\";",
+\      'pp' : "warn Dumper ${cursor};",
 \      'w' : "warn \"${cursor}\";",
 \      's' : "my \\$self = shift;\n\nreturn;",
 \      'sub' : "sub ${cursor} {\n\tmy \\$self = shift;\n\n\treturn;\n}\n",
