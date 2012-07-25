@@ -1164,6 +1164,7 @@ let g:user_zen_settings = {
 \      'jq:each' : "\\$.each(array, function (index, item) {\n\t\\${cursor}${child}\n});",
 \      'fn' : "(function () {\n\t${cursor}\n})();",
 \      'tm' : "setTimeout(function () {\n\t${cursor}\n}, 100);",
+\      'pp' : "console.log(${cursor});",
 \    },
 \  },
 \  'perl' : {
