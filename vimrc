@@ -949,7 +949,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['java', 'perl', 'xml'] }
 
 let g:syntastic_auto_loc_list=1
-let g:syntastic_auto_jump=1
+let g:syntastic_auto_jump=0
 "let g:syntastic_javascript_checker = 'jshint'
 let g:syntastic_javascript_checker = 'jslint'
 "let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars"
