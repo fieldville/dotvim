@@ -17,60 +17,60 @@ abbr NSLog(...)
 
 snippet cl
 abbr Class
-	@interface ${1} : ${2:NSObject}
-	{
-	}
-	@end
-	
-	@implementation ${1}
-	- (id)init
-	{
-		if((self = [super init]))
-		{${0}
-		}
-		return self;
-	}
-	@end
-    
+    @interface ${1} : ${2:NSObject}
+    {
+    }
+    @end
+
+    @implementation ${1}
+    - (id)init
+    {
+        if((self = [super init]))
+        {${0}
+        }
+        return self;
+    }
+    @end
+
 
 snippet cli
 abbr ClassInterface
-	@interface ${1} : ${2:NSObject}
-	{${3}
-	}
-	${0}
-	@end
-    
+    @interface ${1} : ${2:NSObject}
+    {${3}
+    }
+    ${0}
+    @end
+
 
 snippet clm
 abbr ClassImplementation
-	@implementation ${1:object}
-	- (id)init
-	{
-		if((self = [super init]))
-		{${0}
-		}
-		return self;
-	}
-	@end
-    
+    @implementation ${1:object}
+    - (id)init
+    {
+        if((self = [super init]))
+        {${0}
+        }
+        return self;
+    }
+    @end
+
 
 snippet cat
 abbr Category
-	@interface ${1:NSObject} (${2:Category})
-	@end
-	
-	@implementation ${1} (${2})
-	${0}
-	@end
-    
+    @interface ${1:NSObject} (${2:Category})
+    @end
+
+    @implementation ${1} (${2})
+    ${0}
+    @end
+
 
 snippet cati
 abbr CategoryInterface
-	@interface ${1:NSObject)} (${2:Category)})
-	${0}
-	@end
-    
+    @interface ${1:NSObject)} (${2:Category)})
+    ${0}
+    @end
+
 
 snippet array
     NSMutableArray *${1:array} = [NSMutableArray array];
@@ -81,18 +81,18 @@ snippet dict
 
 
 snippet bez
-	NSBezierPath *${1:path} = [NSBezierPath bezierPath];
-	${0}
-    
+    NSBezierPath *${1:path} = [NSBezierPath bezierPath];
+    ${0}
+
 
 snippet m
 abbr Method
-	- (${1:id})${2:method}${3:(id)}${4:anArgument}
-	{
-    	${0}
-		return nil;
-	}
-    
+    - (${1:id})${2:method}${3:(id)}${4:anArgument}
+    {
+        ${0}
+        return nil;
+    }
+
 
 snippet M
 abbr Method
@@ -101,11 +101,11 @@ abbr Method
 
 snippet cm
 abbr ClassMethod
-	+ (${1:id})${2:method}${3:(id)}${4:anArgument}
-	{
-    	${0}
-		return nil;
-	}
+    + (${1:id})${2:method}${3:(id)}${4:anArgument}
+    {
+        ${0}
+        return nil;
+    }
 
 
 snippet icm
@@ -115,152 +115,152 @@ abbr InterfaceClassMethod
 
 snippet sm
 abbr SubMethod
-	- (${1:id})${2:method}${3:(id)}${4:anArgument}
-	{
-		${1} res = [super ${2:method}]
-		return res;
-	}
+    - (${1:id})${2:method}${3:(id)}${4:anArgument}
+    {
+        ${1} res = [super ${2:method}]
+        return res;
+    }
 
 
 snippet mi
 abbr MethodInitialize
-	+ (void)initialize
-	{
-		[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
-			${0}@"value", @"key",
-			nil]];
-	}
-    
+    + (void)initialize
+    {
+        [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
+            ${0}@"value", @"key",
+            nil]];
+    }
+
 
 snippet obj
-	- (${1:id})${2:thing}
-	{
-		return ${2};
-	}
-	
-	- (void)set${2}:(${1})aValue
-	{
-		${0}${1}old${2} = ${2};
-		${2} = [aValue retain];
-		[old${2} release];
-	}
+    - (${1:id})${2:thing}
+    {
+        return ${2};
+    }
+
+    - (void)set${2}:(${1})aValue
+    {
+        ${0}${1}old${2} = ${2};
+        ${2} = [aValue retain];
+        [old${2} release];
+    }
 
 
 snippet iobj
-	- (${1:id})${2:thing};
-	- (void)set${2}:(${1})aValue;
-    
+    - (${1:id})${2:thing};
+    - (void)set${2}:(${1})aValue;
+
 
 snippet str
-	- (NSString${$1: *)})${1:thing}
-	{
-		return ${2};
-	}
-	
-	- (void)set${1}:(NSString${2: *})${3}
-	{
-		${3} = [${3} copy];
-		[${2} release];
-		${2} = ${3};
-	}
-    
+    - (NSString${$1: *)})${1:thing}
+    {
+        return ${2};
+    }
+
+    - (void)set${1}:(NSString${2: *})${3}
+    {
+        ${3} = [${3} copy];
+        [${2} release];
+        ${2} = ${3};
+    }
+
 
 snippet istr
-	- (NSString${1: *)}${1:thing};
-	- (void)set${1}:(NSString${2: *})${2};
-    
+    - (NSString${1: *)}${1:thing};
+    - (void)set${1}:(NSString${2: *})${2};
+
 
 snippet cd
 abbr CoreData
-	- (${1:id})${2:attribute}
-	{
-		[self willAccessValueForKey:@"${2: attribute}"];
-		${1:id} value = [self primitiveValueForKey:@"${2: attribute}"];
-		[self didAccessValueForKey:@"${2: attribute}"];
-		return value;
-	}
-	
-	- (void)set${2}:(${1})aValue
-	{
-		[self willChangeValueForKey:@"${2: attribute}"];
-		[self setPrimitiveValue:aValue forKey:@"${2: attribute}"];
-		[self didChangeValueForKey:@"${2: attribute}"];
-	}
-    
+    - (${1:id})${2:attribute}
+    {
+        [self willAccessValueForKey:@"${2: attribute}"];
+        ${1:id} value = [self primitiveValueForKey:@"${2: attribute}"];
+        [self didAccessValueForKey:@"${2: attribute}"];
+        return value;
+    }
+
+    - (void)set${2}:(${1})aValue
+    {
+        [self willChangeValueForKey:@"${2: attribute}"];
+        [self setPrimitiveValue:aValue forKey:@"${2: attribute}"];
+        [self didChangeValueForKey:@"${2: attribute}"];
+    }
+
 
 snippet karray
 abbr KVCArry
-	- (void)addObjectTo${1:Things}:(${2:id})anObject
-	{
-		[${3}} addObject:anObject];
-	}
-	
-	- (void)insertObject:(${2})anObject in${1}AtIndex:(unsigned int)i 
-	{
-		[${3} insertObject:anObject atIndex:i];
-	}
-	
-	- (${2})objectIn${1}AtIndex:(unsigned int)i
-	{
-		return [${3} objectAtIndex:i];
-	}
-	
-	- (unsigned int)indexOfObjectIn${1}:(${2})anObject
-	{
-		return [${3} indexOfObject:anObject];
-	}
-	
-	- (void)removeObjectFrom${1}AtIndex:(unsigned int)i
-	{
-		 [${3} removeObjectAtIndex:i]; 
-	}
-	
-	- (unsigned int)countOf${1}
-	{
-		return [${3} count];
-	}
-	
-	- (NSArray${4: *}${1}
-	{
-		return ${3}
-	}
-	
-	- (void)set${1}:(NSArray${4: *})new${1}
-	{
-		[${3} setArray:new${1}];
-	}
-    
+    - (void)addObjectTo${1:Things}:(${2:id})anObject
+    {
+        [${3}} addObject:anObject];
+    }
+
+    - (void)insertObject:(${2})anObject in${1}AtIndex:(unsigned int)i
+    {
+        [${3} insertObject:anObject atIndex:i];
+    }
+
+    - (${2})objectIn${1}AtIndex:(unsigned int)i
+    {
+        return [${3} objectAtIndex:i];
+    }
+
+    - (unsigned int)indexOfObjectIn${1}:(${2})anObject
+    {
+        return [${3} indexOfObject:anObject];
+    }
+
+    - (void)removeObjectFrom${1}AtIndex:(unsigned int)i
+    {
+         [${3} removeObjectAtIndex:i];
+    }
+
+    - (unsigned int)countOf${1}
+    {
+        return [${3} count];
+    }
+
+    - (NSArray${4: *}${1}
+    {
+        return ${3}
+    }
+
+    - (void)set${1}:(NSArray${4: *})new${1}
+    {
+        [${3} setArray:new${1}];
+    }
+
 
 snippet iarray
 abbr InterfaceAccessorsForKVCArray
-	- (void)addObjectTo${1:Things}:(${2:id})anObject;
-	- (void)insertObject:(${2})anObject in${1}AtIndex:(unsigned int)i;
-	- (${2})objectIn${1}AtIndex:(unsigned int)i;
-	- (unsigned int)indexOfObjectIn${1}:(${2})anObject;
-	- (void)removeObjectFrom${1}AtIndex:(unsigned int)i;
-	- (unsigned int)countOf${1};
-	- (NSArray${3: *})${1};
-	- (void)set${1}:(NSArray${3: *})new${1};
+    - (void)addObjectTo${1:Things}:(${2:id})anObject;
+    - (void)insertObject:(${2})anObject in${1}AtIndex:(unsigned int)i;
+    - (${2})objectIn${1}AtIndex:(unsigned int)i;
+    - (unsigned int)indexOfObjectIn${1}:(${2})anObject;
+    - (void)removeObjectFrom${1}AtIndex:(unsigned int)i;
+    - (unsigned int)countOf${1};
+    - (NSArray${3: *})${1};
+    - (void)set${1}:(NSArray${3: *})new${1};
 
 
 snippet acc
 abbr PrimitiveType
-	- (${1:unsigned int})${2:thing}
-	{
-		return ${3};
-	}
-	
-	- (void)set${2}:(${1:unsigned int})new${2}
-	{
-		${3} = new${2};
-	}
+    - (${1:unsigned int})${2:thing}
+    {
+        return ${3};
+    }
+
+    - (void)set${2}:(${1:unsigned int})new${2}
+    {
+        ${3} = new${2};
+    }
 
 
 snippet iacc
 abbr Interface:AccessorsForPrimitiveType
-	- (${1:unsigned int})${2:thing};
-	- (void)set${2}:($1)new${2};
-    
+    - (${1:unsigned int})${2:thing};
+    - (void)set${2}:($1)new${2};
+
 
 snippet rdef
 abbr ReadDefaultsValue
@@ -290,54 +290,54 @@ snippet reg
 
 
 snippet focus
-	[self lockFocus];
-	${0}
-	[self unlockFocus];
-    
+    [self lockFocus];
+    ${0}
+    [self unlockFocus];
+
 
 snippet forarray
-	unsigned int	${1:object}Count = [${2:array} count];
-	
-	for(unsigned int index = 0; index < ${1}Count; index += 1)
-	{
-		${3:id}	${1} = [${2} objectAtIndex:index];
-		${0}
-	}
-    
+    unsigned int    ${1:object}Count = [${2:array} count];
+
+    for(unsigned int index = 0; index < ${1}Count; index += 1)
+    {
+        ${3:id} ${1} = [${2} objectAtIndex:index];
+        ${0}
+    }
+
 
 snippet alert
-	int choice = NSRunAlertPanel(@"${1:Something important!}", @"${2:Something important just happend, and now I need to ask you, do you want to continue?}", @"${3:Continue}", @"${4:Cancel}", nil);
-	if(choice == NSAlertDefaultReturn) // "${3:Continue}"
-	{
-		${0};
-	}
-	else if(choice == NSAlertAlternateReturn) // "${4:Cancel}"
-	{
-		
-	}
-    
+    int choice = NSRunAlertPanel(@"${1:Something important!}", @"${2:Something important just happend, and now I need to ask you, do you want to continue?}", @"${3:Continue}", @"${4:Cancel}", nil);
+    if(choice == NSAlertDefaultReturn) // "${3:Continue}"
+    {
+        ${0};
+    }
+    else if(choice == NSAlertAlternateReturn) // "${4:Cancel}"
+    {
+
+    }
+
 
 snippet res
-	${1} Send ${2} to ${1}, if ${1} supports it}${3}
-	if ([${1:self} respondsToSelector:@selector(${2:someSelector:})])
-	{
-	    [${1} ${3}];
-	}
-    
+    ${1} Send ${2} to ${1}, if ${1} supports it}${3}
+    if ([${1:self} respondsToSelector:@selector(${2:someSelector:})])
+    {
+        [${1} ${3}];
+    }
+
 
 snippet del
-	if([${1:[self delegate]} respondsToSelector:@selector(${2:selfDidSomething:})])
-		[${1} ${3}];
+    if([${1:[self delegate]} respondsToSelector:@selector(${2:selfDidSomething:})])
+        [${1} ${3}];
 
 
 snippet format
-   [NSString stringWithFormat:@"${1}", ${2}]${0} 
+   [NSString stringWithFormat:@"${1}", ${2}]${0}
 
 
 snippet save
-	[NSGraphicsContext saveGraphicsState];
-	${0}
-	[NSGraphicsContext restoreGraphicsState];
+    [NSGraphicsContext saveGraphicsState];
+    ${0}
+    [NSGraphicsContext restoreGraphicsState];
 
 
 snippet thread
@@ -345,8 +345,8 @@ snippet thread
 
 
 snippet pool
-	NSAutoreleasePool${TM_C_POINTER: *}pool = [NSAutoreleasePool new];
-	${0}
-	[pool drain];
-    
-    
+    NSAutoreleasePool${TM_C_POINTER: *}pool = [NSAutoreleasePool new];
+    ${0}
+    [pool drain];
+
+

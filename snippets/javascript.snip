@@ -1,18 +1,18 @@
 snippet :f
-	${1:method_name}: function(${2:attribute}){
-		${0}
-	}
+    ${1:method_name}: function(${2:attribute}){
+      ${0}
+    }
 
 snippet func
 alias   function
-	function ${1:function_name}(${2:argument}) {
-		${0:// body...}
-	}
+    function ${1:function_name}(${2:argument}) {
+      ${0:// body...}
+    }
 
 snippet proto
-	${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
-		${0:// body...}
-	};
+    ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
+      ${0:// body...}
+    };
 
 
 snippet f
@@ -26,14 +26,14 @@ snippet ife
     if (${1:true}) {${0:$TM_SELECTED_TEXT}} else{};
 
 snippet for
-	for (var ${2:i}=0; $2 < ${1:Things}.length; $2++) {
-		${0}
-	};
+    for (var ${2:i}=0; $2 < ${1:Things}.length; $2++) {
+      ${0}
+    };
 
 snippet forin
-	for (var ${2:i} in ${1:Things}) {
-		${0}
-	};
+    for (var ${2:i} in ${1:Things}) {
+      ${0}
+    };
 
 snippet ;,
     ${1:value_name}:${0:value},
@@ -46,141 +46,142 @@ snippet key
 snippet timeout
     setTimeout(function() {${0}}${2:}, ${1:10});
 
-
+########################################
+# Jasmine
 # After Each
 snippet aft
-	afterEach(function() { 
-		${1} 
-	}
+    afterEach(function() {
+      ${1}
+    }
 
 # Any
 snippet any
-	jasmine.any(${1})
+    jasmine.any(${1})
 
-#	Before Each
+#   Before Each
 snippet bef
-	beforeEach(function() {
-		${1}
-	});
+    beforeEach(function() {
+      ${1}
+    });
 
 # Describe
 snippet des
-	describe("${1:description}", function() {
-		${2}
-	});${3}	
+    describe("${1:description}", function() {
+      ${2}
+    });${3}
 
 # Expect not to be defined
 snippet notd
-	expect(${1:target}).not.toBeDefined();${2}
+    expect(${1:target}).not.toBeDefined();${2}
 
 # Expect not to be falsy
 snippet notf
-	expect(${1:target}).not.toBeFalsy();${2}
+    expect(${1:target}).not.toBeFalsy();${2}
 
 # Expect not to be null
 snippet notn
-	expect(${1:target}).not.toBeNull();${2}
+    expect(${1:target}).not.toBeNull();${2}
 
 # Expect to be truthy
 snippet nott
-	expect(${1:target}).not.toBeTruthy();${2}
+    expect(${1:target}).not.toBeTruthy();${2}
 
 # Expect not to contain
 snippet notc
-	expect(${1:target}).not.toContain(${2:value});${3}
+    expect(${1:target}).not.toContain(${2:value});${3}
 
 # Expect not to equal
 snippet note
-	expect(${1:target}).not.toEqual(${2:value});${3}
+    expect(${1:target}).not.toEqual(${2:value});${3}
 
 # Expect not to match
 snippet notm
-	expect(${1:target}).not.toBeDefined();${2}
+    expect(${1:target}).not.toBeDefined();${2}
 
 # Expect not
 snippet notx
-	expect(${1:target}).not;${2}
+    expect(${1:target}).not;${2}
 
 # Expect to be defined
 snippet ed
-	expect(${1:target}).toBeDefined();${2}
+    expect(${1:target}).toBeDefined();${2}
 
 # Expect to be falsy
 snippet ef
-	expect(${1:target}).toBeFalsy();${2}
+    expect(${1:target}).toBeFalsy();${2}
 
 # Expect to be null
 snippet en
-	expect(${1:target}).toBeNull();${2}
+    expect(${1:target}).toBeNull();${2}
 
 # Expect to be truthy
 snippet et
-	expect(${1:target}).toBeTruthy();${2}
+    expect(${1:target}).toBeTruthy();${2}
 
 # Expect to contain
 snippet ec
-	expect(${1:target}).toContain(${2:value});${3}
+    expect(${1:target}).toContain(${2:value});${3}
 
 # Expect to equal
 snippet ee
-	expect(${1:target}).toEqual(${2:value});${3}
+    expect(${1:target}).toEqual(${2:value});${3}
 
 # Expect to match
 snippet em
-	expect(${1:target}).toMatch(${2:pattern});${3}
+    expect(${1:target}).toMatch(${2:pattern});${3}
 
 # Expect was called with
 snippet escw
-	expect(${1:target}).wasCalledWith(${2:arguments});${3}
+    expect(${1:target}).wasCalledWith(${2:arguments});${3}
 
 # Expect was called
 snippet esc
-	expect(${1:target}).wasCalled();${2}
+    expect(${1:target}).wasCalled();${2}
 
 # Expect was not called with
 snippet notscw
-	expect(${1:target}).wasNotCalledWith(${2:arguments});${3}
+    expect(${1:target}).wasNotCalledWith(${2:arguments});${3}
 
 # Expect was not called
 snippet notsc
-	expect(${1:target}).wasNotCalled();${3}
+    expect(${1:target}).wasNotCalled();${3}
 
 # Expect
 snippet ex
-	expect(${1:target});${2}
+    expect(${1:target});${2}
 
 # It
 snippet it
-	it("${1:description}", function() {
-		${2}
-	});${3}
+    it("${1:description}", function() {
+      ${2}
+    });${3}
 
 # Runs
 snippet ru
-	runs(function() {
-		${1}
-	});${2}
+    runs(function() {
+      ${1}
+    });${2}
 
 # Spy on and call fake
 snippet scf
-	spyOn(${1:object}, "${2:method}").andCallFake(${3:function});${4}
+    spyOn(${1:object}, "${2:method}").andCallFake(${3:function});${4}
 
 # Spy on and call through
 snippet sct
-	spyOn(${1:object}, "${2:method}").andCallThrough();${3}
+    spyOn(${1:object}, "${2:method}").andCallThrough();${3}
 
 # Spy on and return
 snippet sr
-	spyOn(${1:object}, "${2:method}").andReturn(${3:arguments});${4}
+    spyOn(${1:object}, "${2:method}").andReturn(${3:arguments});${4}
 
 # Spy on and throw
 snippet st
-	spyOn(${1:object}, "${2:method}").andThrow(${3:exception});${4}
+    spyOn(${1:object}, "${2:method}").andThrow(${3:exception});${4}
 
 # Spy on
 snippet s
-	spyOn(${1:object}, "${2:method}");${3}
+    spyOn(${1:object}, "${2:method}");${3}
 
 # Waits
 snippet wa
-	waits(${1});${2}
+    waits(${1});${2}

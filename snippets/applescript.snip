@@ -16,7 +16,7 @@ snippet tell
 	tell ${1:app}
 		${0:-- insert actions here}
 	end tell
-    
+
 snippet terms
 	using terms from ${1:app}
 		${0:-- insert actions here}
@@ -41,14 +41,14 @@ abbr rep
 	repeat while ${1:condition}
 		${0}
 	end repeat
-	    
+
 
 snippet repwi
 abbr rep
 	repeat with ${1} in ${2}
 		${0}
 	end repeat
-    
+
 
 snippet try
 	try
@@ -57,7 +57,7 @@ snippet try
 		-- error handling
 	end try
 	    <D-c>
-	    
+
 
 snippet timeout
 	with timeout ${1:number} seconds
@@ -69,19 +69,19 @@ snippet con
 	considering ${1:case}
 		${0:-- insert actions here}
 	end considering
-    
-    
+
+
 snippet ign
 	ignoring ${1:application responses}
 		${0:-- insert actions here}
 	end ignoring
-   
+
 
 snippet shell
-	${1:set shell_stdout to }do shell script ${3:"${2:#script}"} 
+	${1:set shell_stdout to }do shell script ${3:"${2:#script}"}
 		without altering line endings
 	${0}
-    
+
 
 
 snippet delim
@@ -96,23 +96,23 @@ snippet parent
 
 
 snippet alert
-	display alert "${1:alert text}" 
-		${2:message} "${3:message text}" 
+	display alert "${1:alert text}"
+		${2:message} "${3:message text}"
 		${4:as warning}
-	    
+
 
 snippet dialog_OK
 abbr dialog
-	display dialog "${1:text}" 
-		${2:with icon} ${3:1} 
+	display dialog "${1:text}"
+		${2:with icon} ${3:1}
 		buttons {"${4:OK}"} default button 1
 
 
 snippet dialog_OK/Cancel
 abbr dialog
-	display dialog "${1:text}" 
-		${2:with icon} 
-		buttons {"${3:Cancel}", "${4:OK}"} 
+	display dialog "${1:text}"
+		${2:with icon}
+		buttons {"${3:Cancel}", "${4:OK}"}
 		default button "${4}"
 	set button_pressed to button returned of result
 	if button_pressed is "${4}" then
@@ -120,13 +120,13 @@ abbr dialog
 	else
 		-- action for cancel button goes here
 	end if
-    
-    
+
+
 snippet dialog_OK/Cancel/Other
 abbr dialog
-	display dialog "${1:text}" 
-		${2:with icon} 
-		buttons {"${3:Cancel}", "${4:Other Choice}", "${5:OK}"} 
+	display dialog "${1:text}"
+		${2:with icon}
+		buttons {"${3:Cancel}", "${4:Other Choice}", "${5:OK}"}
 		default button "${5}"
 	set button_pressed to button returned of result
 	if button_pressed is "${5}" then
@@ -136,14 +136,14 @@ abbr dialog
 	else
 		-- action for other button goes here
 	end if
-    
+
 
 snippet dialog_TextFierld
 abbr dialog
-	set the_result to display dialog "${1:text}" 
-		default answer "${2:type here}" 
-		${3:with icon}  
-		buttons {"${4:Cancel}", "${5:OK}"} 
+	set the_result to display dialog "${1:text}"
+		default answer "${2:type here}"
+		${3:with icon}
+		buttons {"${4:Cancel}", "${5:OK}"}
 		default button "${5}"
 	set button_pressed to button returned of the_result
 	set text_typed to text returned of the_result
@@ -152,12 +152,12 @@ abbr dialog
 	else
 		-- action for cancel button goes here
 	end if
-    
+
 
 snippet choose_Applications
 abbr choose
 	${1:set the_application to }choose application with prompt "${2:Choose an application:}"${3:with multiple selections allowed}
-    
+
 
 snippet choose_Files
 abbr choose
@@ -177,25 +177,25 @@ abbr choose
 	${6:with showing package contents}
 	${0}
 
-    
+
 
 snippet choose_NewFile
 abbr choose
-	${1:set the_filename to }choose file name with prompt "${2:Name this file:}" 
+	${1:set the_filename to }choose file name with prompt "${2:Name this file:}"
 		default name "${3:untitled}" default location ${4:path to home folder}
 
 
 snippet choose_URL
 abbr choose
 	${1:set the_url to }choose URL showing ${2:Web} servers with editable URL
-    
+
 
 snippet choose_Color
 abbr choose
 	${1:set the_color to }choose color default color ${2:{65536, 65536, 65536\}}
-    
+
 
 snippet choose_ItemFromList
 abbr choose
 	set the_choice to choose from list ${1}"\}}
-    
+
