@@ -14,21 +14,24 @@ snippet proto
       ${0:// body...}
     };
 
-
 snippet f
-    function (${1}) {${0:$TM_SELECTED_TEXT}};
+    function (${1}) {${0}};
 
 snippet fn
     (function () {
-      ${0:$TM_SELECTED_TEXT}
+      ${0}
     })();
 
 snippet if
-    if (${1:true}) {${0:$TM_SELECTED_TEXT}};
-
+    if (${1:true}) {
+      ${0}
+    };
 
 snippet ife
-    if (${1:true}) {${0:$TM_SELECTED_TEXT}} else{};
+    if (${1:true}) {
+      ${0}
+    } else {
+    };
 
 snippet for
     for (var ${2:i}=0; $2 < ${1:Things}.length; $2++) {
@@ -43,10 +46,8 @@ snippet forin
 snippet ;,
     ${1:value_name}:${0:value},
 
-
 snippet key
     ${1:key}: "${2:value}"}${3:, }
-
 
 snippet timeout
 alias   tm
@@ -56,7 +57,6 @@ alias   tm
 
 snippet  pp
     console.log(${0});
-
 
 snippet jq_json
     $.getJSON("${1}", function (data) {

@@ -73,14 +73,6 @@ abbr        enum {}
         ${0}
     };
 
-# main function.
-snippet main
-	int main(int argc, char const* argv[])
-	{
-		${0}
-		return 0;
-	}
-
 # #include <...>
 snippet inc
 alias   #inc, #include
@@ -101,14 +93,14 @@ snippet def
 alias   #def, #define
     #define 
 
-# Include-Guard
-snippet once
-abbr include-guard
-    #ifndef ${1:SYMBOL}
-        #define $1
-
-        ${0}
-    #endif /* end of include guard */
+snippet include_guard
+alias   inc_guard
+prev_word '^'
+abbr    #if !defined HOGE #define HOGE #endif
+    #if !defined `toupper( substitute( expand("%"), "\\.", "_", "g" ) )."_INCLUDED__"`
+    #define `toupper( substitute( expand("%"), "\\.", "_", "g" ) )."_INCLUDED__"`
+    ${0}
+    #endif // `toupper( substitute( expand("%"), "\\.", "_", "g" ) )."_INCLUDED__"`
 
 # Tertiary conditional
 snippet conditional
@@ -133,11 +125,3 @@ snippet sizeof
 alias size
     sizeof(${0})
 
-snippet include_guard
-alias   inc_guard
-prev_word '^'
-abbr    #if !defined HOGE #define HOGE #endif
-    #if !defined `toupper( substitute( expand("%"), "\\.", "_", "g" ) )."_INCLUDED__"`
-    #define `toupper( substitute( expand("%"), "\\.", "_", "g" ) )."_INCLUDED__"`
-    ${0}
-    #endif // `toupper( substitute( expand("%"), "\\.", "_", "g" ) )."_INCLUDED__"`
