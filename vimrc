@@ -721,6 +721,7 @@ endif
 "{{{
 NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'https://github.com/Shougo/neocomplcache'
+NeoBundle 'https://github.com/Shougo/neocomplcache-snippets-complete'
 NeoBundle 'https://github.com/Shougo/unite.vim'
 NeoBundle 'https://github.com/Shougo/vimshell'
 NeoBundle 'https://github.com/Shougo/vimproc'
@@ -875,6 +876,9 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 " SuperTab like snippets behavior.
 "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
+let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
+noremap nes :<C-u>NeoComplCacheEditSnippets<CR>
+
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 "inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
@@ -1028,7 +1032,7 @@ nnoremap [unite]l   :<C-u>Unite locate -start-insert<CR>
 nnoremap [unite]m   :<C-u>Unite mapping -start-insert<CR>
 nnoremap [unite]n   :<C-u>Unite neobundle<CR>
 nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
-nnoremap [unite]p   :<C-u>Unite process -start-insert<CR>
+nnoremap [unite]p   :<C-u>Unite snippet -start-insert<CR>
 nnoremap [unite]r   :<C-u>UniteResume<CR>
 nnoremap [unite]s   :<C-u>Unite history/search<CR>
 nnoremap [unite]v   :<C-u>Unite output:version -start-insert<CR>
@@ -1039,6 +1043,7 @@ nnoremap [unite]I   :<C-u>Unite neobundle/install:!<CR>
 nnoremap [unite]L   :<C-u>Unite launcher<CR>
 nnoremap [unite]M   :<C-u>Unite output:messages<CR>
 nnoremap [unite]N   :<C-u>Unite neobundle -input=Not<CR>
+nnoremap [unite]P   :<C-u>Unite process -start-insert<CR>
 nnoremap [unite]R   :<C-u>Unite -buffer-name=register register<CR>
 nnoremap [unite]S   :<C-u>Unite output:scriptnames<CR>
 "}}}
