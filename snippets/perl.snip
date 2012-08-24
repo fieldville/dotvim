@@ -3,11 +3,14 @@ snippet perl
 
     use strict;
     use warnings;
+    use Carp;
     ${1}
 
 snippet sub
     sub ${1:function_name} {
+        my $self = shift;
         ${2:# body...}
+        return;
     }
 
 snippet if
@@ -74,3 +77,22 @@ snippet eval
     if ($@) {
         ${2:# handle failure...}
     }
+
+
+snippet dp
+    use Data::Dumper;
+    ${1}
+
+snippet pp
+    warn Dumper ${1};
+
+snippet warn
+abbr w
+    warn "${1}";
+
+snippet shift
+abbr s
+    my $self = shift;
+    ${1}
+    return;
+

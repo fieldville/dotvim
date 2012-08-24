@@ -1,5 +1,5 @@
 snippet :f
-    ${1:method_name}: function(${2:attribute}){
+    ${1:method_name}: function (${2:attribute}){
       ${0}
     }
 
@@ -10,13 +10,18 @@ alias   function
     }
 
 snippet proto
-    ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
+    ${1:class_name}.prototype.${2:method_name} = function (${3:first_argument}) {
       ${0:// body...}
     };
 
 
 snippet f
-    function(${1}) {${0:$TM_SELECTED_TEXT}};
+    function (${1}) {${0:$TM_SELECTED_TEXT}};
+
+snippet fn
+    (function () {
+      ${0:$TM_SELECTED_TEXT}
+    })();
 
 snippet if
     if (${1:true}) {${0:$TM_SELECTED_TEXT}};
@@ -44,13 +49,41 @@ snippet key
 
 
 snippet timeout
-    setTimeout(function() {${0}}${2:}, ${1:10});
+alias   tm
+    setTimeout(function() {
+        ${0}
+    }, ${1:100});
+
+snippet  pp
+    console.log(${0});
+
+
+snippet jq_json
+    $.getJSON("${1}", function (data) {
+      ${0:// body...}
+    });
+
+snippet jq_each
+    $.each(${1:array}, function (index, item) {
+      ${0:// body...}
+    });
+
+snippet jq_wrap
+    (function ($) {
+      ${0:// body...}
+    }(jQuery));
+
+snippet jq
+    $(function () {
+      ${0:// body...}
+    });
+
 
 ########################################
-# Jasmine
+# Jasmine start
 # After Each
 snippet aft
-    afterEach(function() {
+    afterEach(function () {
       ${1}
     }
 
@@ -60,7 +93,7 @@ snippet any
 
 #   Before Each
 snippet bef
-    beforeEach(function() {
+    beforeEach(function () {
       ${1}
     });
 
@@ -152,13 +185,13 @@ snippet ex
 
 # It
 snippet it
-    it("${1:description}", function() {
+    it("${1:description}", function () {
       ${2}
     });${3}
 
 # Runs
 snippet ru
-    runs(function() {
+    runs(function () {
       ${1}
     });${2}
 
@@ -185,3 +218,5 @@ snippet s
 # Waits
 snippet wa
     waits(${1});${2}
+# Jasmine end
+########################################

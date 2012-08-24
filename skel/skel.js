@@ -1,6 +1,4 @@
-jq
-jq:wrap
-jq:each
-jq:json
-tm
-fn
+/*global jQuery */
+(function ($) {
+  "use strict";
+}(jQuery));

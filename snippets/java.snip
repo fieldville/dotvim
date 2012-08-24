@@ -22,22 +22,23 @@ snippet ab
     abstract
 
 
-snippet cl
-	class ${1} ${2:extends} ${3:Parent} ${4:implements} ${5:Interface} {
-		${0}
-	}
+snippet class
+abbr cl
+    class ${1} ${2:extends} ${3:Parent} ${4:implements} ${5:Interface} {
+        ${0}
+    }
 
 
 snippet in
-	interface ${1} ${2:extends} ${3:Parent} {
-		${0}
-	}
+    interface ${1} ${2:extends} ${3:Parent} {
+        ${0}
+    }
 
 
 snippet m
-	${1:void} ${2:method}(${3}) ${4:throws} {
-		${0}
-	}
+    ${1:void} ${2:method}(${3}) ${4:throws} {
+        ${0}
+    }
 
 
 snippet v
@@ -61,45 +62,45 @@ snippet as
 
 
 snippet if
-	if (${1}) {
-		${2}
-	}
+    if (${1}) {
+        ${2}
+    }
 
 snippet elif
-	else if (${1}) {
-		${2}
-	}
+    else if (${1}) {
+        ${2}
+    }
 
 
 snippet wh
-	while (${1}) {
-		${2}
-	}
+    while (${1}) {
+        ${2}
+    }
 
 
 snippet for
-	for (${1}; ${2}; ${3}) {
-		${4}
-	}
+    for (${1}; ${2}; ${3}) {
+        ${4}
+    }
 
 
 snippet fore
-	for (${1} : ${2}) {
-	${3}
+    for (${1} : ${2}) {
+    ${3}
 }
 
 
 snippet sw
-	switch (${1}) {
-		${2}
-	}
+    switch (${1}) {
+        ${2}
+    }
 
 
 snippet case
 abbr ce
-	case ${1}:
-		${2}
-	${0}
+    case ${1}:
+        ${2}
+    ${0}
 
 
 snippet br
@@ -107,14 +108,14 @@ snippet br
 
 
 snippet de
-	default:
-		${0}
+    default:
+        ${0}
 
 
 snippet ca
-	catch (${1:Exception} ${2:e}) {
-		${0}
-	}
+    catch (${1:Exception} ${2:e}) {
+        ${0}
+    }
 
 
 snippet th
@@ -134,20 +135,20 @@ snippet pa
 
 
 snippet tc
-	public class ${1} extends ${2:TestCase} {
-		${0}
-	}
+    public class ${1} extends ${2:TestCase} {
+        ${0}
+    }
 
 
 snippet test
-	public void test${1:Name}() throws Exception {
-		${0}
-	}
+    public void test${1:Name}() throws Exception {
+        ${0}
+    }
 
 
 snippet imt
-	import junit.framework.TestCase;
-	${0}
+    import junit.framework.TestCase;
+    ${0}
 
 
 snippet j.u
@@ -171,9 +172,9 @@ snippet j.m
 
 
 snippet main
-	public static void main(String[] args) {
-		${0}
-	}
+    public static void main(String[] args) {
+        ${0}
+    }
 
 
 snippet pl
@@ -183,12 +184,15 @@ snippet pl
 snippet p
     System.out.print(${1});${0}
 
+snippet pp
+    System.out.println("${0}");
+
 
 #javadoc
 snippet c
-	/**
-	 * ${0}
-	 */
+    /**
+     * ${0}
+     */
 
 
 snippet a
