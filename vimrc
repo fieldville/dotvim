@@ -965,7 +965,7 @@ let g:syntastic_javascript_jslint_conf = "--white=false --indent=2 --undef=false
 let g:quicklaunch_no_default_key_mappings = 1
 
 let g:quickrun_config = {}
-let g:quickrun_config['ruby'] = {'command' : 'reek', 'exec' : ['%c %s']}
+"let g:quickrun_config['ruby'] = {'command' : 'reek', 'exec' : ['%c %s']}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 let g:quickrun_config['css'] = {'command' : 'recess', 'exec' : ['%c --stripColors=true %s']}
 let g:quickrun_config['javascript'] = {'command' : 'jsl', 'exec' : ['%c -process %s']}
