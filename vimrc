@@ -1024,29 +1024,29 @@ inoremap <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 
 nnoremap [unite]a   :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
 nnoremap [unite]c   :<C-u>Unite change<CR>
-nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file -start-insert<CR>
+nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file -start-insert -vertical -direction=topleft<CR>
 nnoremap [unite]g   :<C-u>Unite grep<CR>
-nnoremap [unite]h   :<C-u>Unite history/command<CR>
+nnoremap [unite]h   :<C-u>Unite history/command -vertical -direction=topleft<CR>
 nnoremap [unite]j   :<C-u>Unite mark buffer file_mru -start-insert<CR>
 nnoremap [unite]l   :<C-u>Unite locate -start-insert<CR>
-nnoremap [unite]m   :<C-u>Unite mapping -start-insert<CR>
+nnoremap [unite]m   :<C-u>Unite mapping -start-insert -vertical -direction=topleft<CR>
 nnoremap [unite]n   :<C-u>Unite neobundle<CR>
 nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -auto-preview outline<CR>
-nnoremap [unite]p   :<C-u>Unite snippet -start-insert<CR>
+nnoremap [unite]p   :<C-u>Unite snippet -start-insert -vertical -direction=topleft<CR>
 nnoremap [unite]r   :<C-u>UniteResume<CR>
-nnoremap [unite]s   :<C-u>Unite history/search<CR>
+nnoremap [unite]s   :<C-u>Unite history/search -vertical -direction=topleft<CR>
 nnoremap [unite]v   :<C-u>Unite output:version -start-insert<CR>
 nnoremap [unite]y   :<C-u>Unite history/yank<CR>
 nnoremap [unite]A   :<C-u>Unite output:autocmd<CR>
-nnoremap [unite]F   :<C-u>UniteWithCursorWord line<CR>
+nnoremap [unite]F   :<C-u>UniteWithCursorWord line -vertical -direction=topleft<CR>
 nnoremap [unite]J   :<C-u>Unite jump<CR>
 nnoremap [unite]I   :<C-u>Unite neobundle/install:!<CR>
 nnoremap [unite]L   :<C-u>Unite launcher<CR>
-nnoremap [unite]M   :<C-u>Unite output:messages<CR>
+nnoremap [unite]M   :<C-u>Unite output:messages -vertical -direction=topleft<CR>
 nnoremap [unite]N   :<C-u>Unite neobundle -input=Not<CR>
 nnoremap [unite]P   :<C-u>Unite process -start-insert<CR>
 nnoremap [unite]R   :<C-u>Unite -buffer-name=register register<CR>
-nnoremap [unite]S   :<C-u>Unite output:scriptnames<CR>
+nnoremap [unite]S   :<C-u>Unite output:scriptnames -vertical -direction=topleft<CR>
 "}}}
 
 "----------------------------------------
