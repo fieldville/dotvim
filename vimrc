@@ -1038,6 +1038,7 @@ nnoremap [unite]s   :<C-u>Unite history/search<CR>
 nnoremap [unite]v   :<C-u>Unite output:version -start-insert<CR>
 nnoremap [unite]y   :<C-u>Unite history/yank<CR>
 nnoremap [unite]A   :<C-u>Unite output:autocmd<CR>
+nnoremap [unite]F   :<C-u>UniteWithCursorWord line<CR>
 nnoremap [unite]J   :<C-u>Unite jump<CR>
 nnoremap [unite]I   :<C-u>Unite neobundle/install:!<CR>
 nnoremap [unite]L   :<C-u>Unite launcher<CR>
