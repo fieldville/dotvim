@@ -1034,7 +1034,8 @@ nnoremap [unite]j   :<C-u>Unite mark buffer file_mru -start-insert<CR>
 nnoremap [unite]l   :<C-u>Unite locate -start-insert<CR>
 nnoremap [unite]m   :<C-u>Unite mapping -start-insert -vertical -direction=topleft<CR>
 nnoremap [unite]n   :<C-u>Unite neobundle<CR>
-nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -auto-preview outline -vertical -direction=topleft<CR>
+"nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -auto-preview outline -vertical -direction=topleft<CR>
+nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -winwidth=40 -no-quit outline -vertical -direction=topleft<CR>
 nnoremap [unite]p   :<C-u>Unite snippet -start-insert -vertical -direction=topleft<CR>
 nnoremap [unite]r   :<C-u>UniteResume<CR>
 nnoremap [unite]s   :<C-u>Unite history/search -vertical -direction=topleft<CR>
