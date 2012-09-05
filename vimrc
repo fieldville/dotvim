@@ -954,10 +954,12 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:syntastic_auto_loc_list=1
 let g:syntastic_auto_jump=0
+let g:syntastic_javascript_checker = 'gjslint'
 "let g:syntastic_javascript_checker = 'jshint'
-let g:syntastic_javascript_checker = 'jslint'
+"let g:syntastic_javascript_checker = 'jslint'
 "let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars"
-let g:syntastic_javascript_jslint_conf = "--white=false --indent=2 --undef=false --nomen=false --regexp --plusplus=false --bitwise=false --newcap=false --vars=false --es5=false"
+"let g:syntastic_javascript_jslint_conf = "--white=false --indent=2 --undef=false --nomen=false --regexp --plusplus=false --bitwise=false --newcap=false --vars=false --es5=false"
+"let g:syntastic_javascript_jslint_conf = "--white=true --indent=2 --undef=false --nomen=false --regexp --plusplus=false --bitwise=false --newcap=false --vars=true --es5=false"
 " }}}
 
 "----------------------------------------
@@ -1194,7 +1196,8 @@ let g:jsbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify.js")
 let g:htmlbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-html.js")
 let g:cssbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-css.js")
 
-let g:jsbeautify = {'indent_size': 2, 'indent_char': ' ', 'jslint_happy': 'true', 'keep_array_indentation': 'true' }
+"let g:jsbeautify = {'indent_size': 2, 'indent_char': ' ', 'jslint_happy': 'true', 'keep_array_indentation': 'true' }
+let g:jsbeautify = {'indent_size': 2, 'indent_char': ' ', 'keep_array_indentation': 'true' }
 let g:htmlbeautify = {'indent_size': 2, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
 let g:cssbeautify = {'indent_size': 2, 'indent_char': ' '}
 
