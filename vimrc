@@ -262,7 +262,7 @@ endfor
 try
   "set listchars=tab:▸\ ,eol:¬
   "set listchars=tab:»\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-  set listchars=tab:-\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+  set listchars=tab:￫\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
   set list
 catch
 endtry
