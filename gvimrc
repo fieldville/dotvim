@@ -60,7 +60,7 @@ endif
 
 "colorscheme darkblue
 colorscheme wombat256mod
-set nolist
+"set nolist
 
 set columns=178
 set lines=50
