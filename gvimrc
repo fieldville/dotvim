@@ -91,7 +91,8 @@ highlight ZenkakuSpace gui=underline
 if has('gui_macvim')
   set transparency=0 " 透明度を指定
   set antialias
-  set guifont=Osaka-Mono:h15
+  "set guifont=Osaka-Mono:h15
+  set guifont=Menlo:h12
   set imdisable   " IMを無効化
 
   "フルスクリーンモード
