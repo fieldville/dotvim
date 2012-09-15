@@ -17,20 +17,12 @@ set ruler      " show the cursor position all the time
 set showcmd    " display incomplete commands
 set incsearch  " do incremental searching
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-"if has('mouse')
-"  set mouse=a
-"endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -44,7 +36,6 @@ endif
 " Only do this part when compiled with support for autocommands.
 "{{{
 if has("autocmd")
-
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
@@ -73,16 +64,6 @@ else
   set autoindent    " always set autoindenting on
 endif " has("autocmd")
 "}}}
-
-"DiffOrig {{{
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-      \ | wincmd p | diffthis
-endif
-" }}}
 
 set nobackup
 " 初回のみ読み込まれるデフォルト定義 {{{
@@ -115,7 +96,6 @@ endif
 nnoremap <C-]> g]
 "}}}
 
-" leaderを,に変更
 let mapleader=","
 
 " 検索などで飛んだらそこを真ん中に {{{
@@ -183,7 +163,6 @@ if has('iconv')
       let &fileencodings = &fileencodings .','. s:enc_euc
     endif
   endif
-  " 定数を処分
   unlet s:enc_euc
   unlet s:enc_jis
 endif
@@ -218,7 +197,6 @@ set wildmode=list:longest
 "}}}
 
 "検索後のスクロールから下の行がわかる
-"set scrolloff=30
 set scrolloff=5
 
 " window movement
@@ -255,6 +233,9 @@ for [cmd_name, opt_name, key] in [
   execute 'command!' cmd_name 'setlocal' opt_name . '!'
   execute 'nmap <Space>'. key ':' . cmd_name . '<CR>'
 endfor
+
+" cf http://vimcasts.org/episodes/soft-wrapping-text/
+command! Wrap set wrap linebreak nolist
 "}}}
 
 " for set list {{{
@@ -268,22 +249,6 @@ catch
 endtry
 highlight NonText ctermfg=DarkBlue
 highlight SpecialKey ctermfg=DarkBlue
-
-"set wrap linebreak nolist
-" cf http://vimcasts.org/episodes/soft-wrapping-text/
-command! Wrap set wrap linebreak nolist
-"}}}
-
-" for VIMRC {{{
-" Source the vimrc file after saving it {{{
-"if has("autocmd")
-"  if has("gui_running")
-"    "autocmd BufWritePost *vimrc source $MYVIMRC | source $MYGVIMRC
-"    "autocmd BufWritePost *gvimrc source $MYVIMRC | source $MYGVIMRC
-"  else
-"    autocmd BufWritePost *vimrc source $MYVIMRC
-"  endif
-"endif
 "}}}
 
 nnoremap <Leader>v :split $MYVIMRC<CR>
@@ -381,18 +346,6 @@ nmap <silent> <C-p> :<C-u>cprevious<CR>
 
 "}}}
 
-" for statusline {{{
-" 文字エンコーディング＆改行コード取得
-"function! GetStatusEx()
-"    let str = &fileformat
-"    if has('multi_byte') && &fileencoding != ''
-"        let str = &fileencoding . ':' . str
-"    endif
-"    return '[' . str . ']'
-"endfunction
-"set statusline=%y%{GetStatusEx()}%F%m%r\ [%c,%l](%P)%=%{strftime(\"%Y/%m/%d(%a)\ %H:%M\")}
-"}}}
-
 " コマンドを実行 {{{
 "nnoremap <Leader>ex :execute '!' &ft ' %'<CR>
 nnoremap <silent> <Leader>ex :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| cw \| if len(getqflist()) != 0 \| bot copen \| endif<CR>
@@ -407,12 +360,9 @@ cnoremap <C-N> <DOWN>
 nnoremap <Leader>a ggVG
 
 " color {{{
-"set background=dark
 set background=light
 
 " cf http://vimwiki.net/
-"colorscheme elflord
-"colorscheme torte
 colorscheme desert
 
 " 色番号  :help ctermbg(NR-8)
@@ -695,12 +645,6 @@ vnoremap ) t)
 vnoremap ( t(
 "}}}
 
-" Complement Date and Time {{{
-inoremap <expr> <Leader>df strftime('%Y-%m-%dT%H:%M:%S')
-inoremap <expr> <Leader>dd strftime('%Y-%m-%d')
-inoremap <expr> <Leader>dt strftime('%H:%M:%S')
-"}}}
-
 " Map semicolon to colon {{{
 nnoremap ; :
 "}}}
@@ -755,7 +699,6 @@ NeoBundle 'https://github.com/tpope/vim-abolish'
 NeoBundle 'https://github.com/tsaleh/vim-matchit'
 NeoBundle 'https://github.com/vim-ruby/vim-ruby'
 NeoBundle 'https://github.com/taku-o/vim-toggle'
-NeoBundle 'https://github.com/ecomba/vim-ruby-refactoring'
 NeoBundle 'https://github.com/h1mesuke/unite-outline'
 NeoBundle 'https://github.com/h1mesuke/vim-alignta'
 NeoBundle 'https://github.com/ujihisa/unite-locate'
@@ -771,10 +714,8 @@ NeoBundle 'https://github.com/tyru/open-browser.vim'
 NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
 NeoBundle 'https://github.com/cakebaker/scss-syntax.vim'
 NeoBundle 'https://github.com/othree/html5.vim'
-"NeoBundle 'https://github.com/basyura/jslint.vim'
 NeoBundle 'https://github.com/kana/vim-textobj-user'
 NeoBundle 'https://github.com/kana/vim-textobj-indent'
-NeoBundle 'https://github.com/kana/vim-smartchr'
 NeoBundle 'https://github.com/tsukkee/unite-tag'
 NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
@@ -818,15 +759,15 @@ filetype plugin indent on     " required!
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
-function! s:CloseIfOnlyNerdTreeLeft()
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
-      endif
-    endif
-  endif
-endfunction
+"function! s:CloseIfOnlyNerdTreeLeft()
+"  if exists("t:NERDTreeBufName")
+"    if bufwinnr(t:NERDTreeBufName) != -1
+"      if winnr("$") == 1
+"        q
+"      endif
+"    endif
+"  endif
+"endfunction
 "}}}
 
 "----------------------------------------
@@ -838,7 +779,6 @@ let Tlist_WinWidth = 40
 
 "----------------------------------------
 " neocomplcache.vim {{{
-"Setting examples:
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 
@@ -988,11 +928,6 @@ endfor
 "}}}
 
 "----------------------------------------
-" rubyrefactoring "{{{
-let g:ruby_refactoring_map_keys=0
-"}}}
-
-"----------------------------------------
 " rubytest.vim "{{{
 let g:rubytest_cmd_spec = "spec %p"
 let g:rubytest_cmd_example = "spec %p -l %c"
@@ -1019,7 +954,6 @@ function! s:unite_my_settings()
   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 endfunction
 
-"nnoremap [unite] <Nop>
 nnoremap [unite] :<C-u>Unite<Space>
 nmap f [unite]
 
@@ -1035,7 +969,6 @@ nnoremap [unite]j   :<C-u>Unite mark buffer file_mru -start-insert<CR>
 nnoremap [unite]l   :<C-u>Unite locate -start-insert<CR>
 nnoremap [unite]m   :<C-u>Unite mapping -start-insert -vertical -direction=topleft<CR>
 nnoremap [unite]n   :<C-u>Unite neobundle<CR>
-"nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -auto-preview outline -vertical -direction=topleft<CR>
 nnoremap [unite]o   :<C-u>Unite -buffer-name=outline -winwidth=40 -no-quit outline -vertical -direction=topleft<CR>
 nnoremap [unite]p   :<C-u>Unite snippet -start-insert -vertical -direction=topleft<CR>
 nnoremap [unite]r   :<C-u>UniteResume<CR>
@@ -1059,11 +992,6 @@ nnoremap [unite]S   :<C-u>Unite output:scriptnames -vertical -direction=topleft<
 let g:vimshell_interactive_update_time = 10
 let g:vimshell_prompt = $USERNAME."% "
 
-" map
-"nnoremap vs :VimShell<CR>
-"nnoremap vsc :VimShellCreate<CR>
-"nnoremap vp :VimShellPop<CR>
-
 " alias
 autocmd FileType vimshell
 \ call vimshell#altercmd#define('g', 'git')
@@ -1071,7 +999,6 @@ autocmd FileType vimshell
 \| call vimshell#altercmd#define('ll', 'ls -ltr')
 \| call vimshell#altercmd#define('la', 'ls -ltra')
 "}}}
-
 "----------------------------------------
 " migemo割り当て "{{{
 if !has("gui_running")
@@ -1115,17 +1042,6 @@ let g:vimfiler_execute_file_list = {
 "}}}
 
 "----------------------------------------
-" jslint "{{{
-"http://blog.monoweb.info/article/2011042918.html
-"function! s:javascript_filetype_settings()
-"  autocmd BufLeave     <buffer> call jslint#clear()
-"  autocmd BufWritePost <buffer> call jslint#check()
-"  autocmd CursorMoved  <buffer> call jslint#message()
-"endfunction
-"autocmd FileType javascript call s:javascript_filetype_settings()
-"}}}
-
-"----------------------------------------
 " Gundo "{{{
 nnoremap <F5> :GundoToggle<CR>
 "}}}
@@ -1136,26 +1052,12 @@ let g:shadow_debug = 1
 "}}}
 
 "----------------------------------------
-" vim-smartchr {{{1
-"inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
-"inoremap <buffer> <expr> += smartchr#loop('+= ')
-"inoremap <buffer> <expr> -= smartchr#loop('-= ')
-"inoremap <buffer> <expr> .= smartchr#loop('.= ')
-"inoremap <buffer> <expr> , smartchr#loop(', ', ',')
-inoremap <buffer> <expr> { smartchr#loop('{', '{{{')
-inoremap <buffer> <expr> } smartchr#loop('}', '}}}')
-"autocmd FileType eruby,jsp inoremap <buffer> <expr> % smartchr#loop('%=  %>', '% %>', '%- -%>')
-autocmd FileType ruby      inoremap <buffer> <expr> { smartchr#loop('{', '#{', '{{{')
-"}}}1
-
-"----------------------------------------
 "EnhancedCommentify {{{
 let g:EnhCommentifyBindInInsert = 'no'
 "}}}
 
 "----------------------------------------
 " vim-powerline {{{
-"let g:Powerline_symbols = 'fancy'
 let g:Powerline_symbols = 'unicode'
 " }}}
 
