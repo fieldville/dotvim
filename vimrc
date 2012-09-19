@@ -815,7 +815,7 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
-noremap nes :<C-u>NeoComplCacheEditSnippets<CR>
+noremap es :<C-u>NeoComplCacheEditSnippets<CR>
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
