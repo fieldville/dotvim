@@ -960,7 +960,7 @@ inoremap <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap [unite]a   :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
 nnoremap [unite]c   :<C-u>Unite change<CR>
 nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file -start-insert<CR>
-nnoremap [unite]g   :<C-u>Unite grep<CR>
+nnoremap [unite]g   :<C-u>Unite grep:%::<C-R>=expand('<cword>')<CR><CR>
 nnoremap [unite]h   :<C-u>Unite history/command -vertical -direction=topleft<CR>
 nnoremap [unite]j   :<C-u>Unite mark buffer file_mru -start-insert<CR>
 nnoremap [unite]l   :<C-u>Unite locate -start-insert<CR>
@@ -974,6 +974,7 @@ nnoremap [unite]v   :<C-u>Unite output:version -start-insert<CR>
 nnoremap [unite]y   :<C-u>Unite history/yank<CR>
 nnoremap [unite]A   :<C-u>Unite output:autocmd -vertical -direction=topleft<CR>
 nnoremap [unite]F   :<C-u>UniteWithCursorWord line -vertical -direction=topleft<CR>
+nnoremap [unite]G   :<C-u>Unite grep<CR>
 nnoremap [unite]J   :<C-u>Unite jump<CR>
 nnoremap [unite]I   :<C-u>Unite neobundle/install:!<CR>
 nnoremap [unite]L   :<C-u>Unite launcher<CR>
