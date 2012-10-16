@@ -722,6 +722,7 @@ NeoBundle 'https://github.com/Lokaltog/vim-powerline'
 NeoBundle 'https://github.com/t9md/vim-surround_custom_mapping'
 NeoBundle 'https://github.com/einars/js-beautify'
 NeoBundle 'https://github.com/maksimr/vim-jsbeautify'
+NeoBundle 'https://github.com/chaquotay/ftl-vim-syntax'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
