@@ -663,7 +663,7 @@ endif
 "{{{
 NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'https://github.com/Shougo/neocomplcache'
-NeoBundle 'https://github.com/Shougo/neocomplcache-snippets-complete'
+NeoBundle 'https://github.com/Shougo/neosnippet'
 NeoBundle 'https://github.com/Shougo/unite.vim'
 NeoBundle 'https://github.com/Shougo/vimshell'
 NeoBundle 'https://github.com/Shougo/vimproc'
@@ -806,17 +806,8 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
-let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
-noremap es :<C-u>NeoComplCacheEditSnippets<CR>
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -858,11 +849,6 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
 if !exists('g:neocomplcache_delimiter_patterns')
   let g:neocomplcache_delimiter_patterns= {}
 endif
@@ -871,6 +857,25 @@ let g:neocomplcache_delimiter_patterns.cpp = ['::']
 
 command! ToggleNeoComplCache  NeoComplCacheToggle
 nmap <Space>H :ToggleNeoComplCache<CR>
+"}}}
+
+"----------------------------------------
+" neosnippet.vim "{{{
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+let g:neosnippet#snippets_directory=$HOME.'/.vim/snippets'
+noremap es :<C-u>NeoSnippetEdit<CR>
 "}}}
 
 "----------------------------------------
