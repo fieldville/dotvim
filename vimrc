@@ -1118,15 +1118,15 @@ let g:surround_custom_mapping.vim = {
 
 "----------------------------------------
 " vim-jsbeautify {{{
-let s:rootDir = fnamemodify(expand("<sfile>"), ":h")."/.vim/"
-let g:jsbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify.js")
-let g:htmlbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-html.js")
-let g:cssbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-css.js")
-
-"let g:jsbeautify = {'indent_size': 2, 'indent_char': ' ', 'jslint_happy': 'true', 'keep_array_indentation': 'true' }
-let g:jsbeautify = {'indent_size': 2, 'indent_char': ' ', 'keep_array_indentation': 'true' }
-let g:htmlbeautify = {'indent_size': 2, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
-let g:cssbeautify = {'indent_size': 2, 'indent_char': ' '}
+"let s:rootDir = fnamemodify(expand("<sfile>"), ":h")."/.vim/"
+"let g:jsbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify.js")
+"let g:htmlbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-html.js")
+"let g:cssbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify-css.js")
+"
+""let g:jsbeautify = {'indent_size': 2, 'indent_char': ' ', 'jslint_happy': 'true', 'keep_array_indentation': 'true' }
+"let g:jsbeautify = {'indent_size': 2, 'indent_char': ' ', 'keep_array_indentation': 'true' }
+"let g:htmlbeautify = {'indent_size': 2, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
+"let g:cssbeautify = {'indent_size': 2, 'indent_char': ' '}
 
 autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 " for html
