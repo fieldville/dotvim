@@ -723,7 +723,9 @@ NeoBundle 'https://github.com/bitc/vim-bad-whitespace'
 NeoBundle 'https://github.com/petdance/vim-perl'
 NeoBundle 'https://github.com/pasela/unite-webcolorname'
 NeoBundle 'https://github.com/taichouchou2/alpaca_powertabline'
-NeoBundle 'https://github.com/Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+"NeoBundle 'https://github.com/Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'https://github.com/Lokaltog/powerline'
+NeoBundle 'https://github.com/Lokaltog/vim-powerline'
 NeoBundle 'https://github.com/t9md/vim-surround_custom_mapping'
 NeoBundle 'https://github.com/einars/js-beautify'
 NeoBundle 'https://github.com/maksimr/vim-jsbeautify'
