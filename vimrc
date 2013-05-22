@@ -732,6 +732,7 @@ NeoBundle 'https://github.com/maksimr/vim-jsbeautify'
 NeoBundle 'https://github.com/chaquotay/ftl-vim-syntax'
 NeoBundle 'https://github.com/nelstrom/vim-qargs.git'
 NeoBundle 'https://github.com/groenewege/vim-less.git'
+NeoBundle 'https://github.com/skammer/vim-css-color.git'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
