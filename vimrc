@@ -337,6 +337,7 @@ nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
 nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
 " 最後に検索した単語
 nmap <C-g><C-h> :grep "<C-R>/" \| bot cw<CR>
+nmap <C-g><C-j> :vim /<C-R>// ## \| bot cw<CR>
 
 nmap <silent> <C-n> :<C-u>cnext<CR>
 nmap <silent> <C-p> :<C-u>cprevious<CR>
