@@ -651,6 +651,11 @@ nnoremap ; :
 set virtualedit+=block
 "}}}
 
+" argdoの時の警告を無視 "{{{
+" http://vimcasts.org/episodes/using-argdo-to-change-multiple-files/
+set hidden
+"}}}
+
 "================================================================================
 " for plugin settings
 "================================================================================
