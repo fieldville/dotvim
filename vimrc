@@ -965,10 +965,6 @@ autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 " unite.vim "{{{
 let g:unite_source_grep_default_opts = '--color=never -Hn'
 
-" unite-outline
-call unite#set_buffer_name_option('outline', 'ignorecase', 1)
-call unite#set_buffer_name_option('outline', 'smartcase',  1)
-
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
