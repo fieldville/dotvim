@@ -577,6 +577,17 @@ endfunction
 nnoremap <silent> <Space>: :call <SID>quick_fix_toggle()<CR>
 "}}}
 
+" LocationListToggle {{{
+function! s:location_list_toggle()
+  let _ = winnr('$')
+  lclose
+  if _ == winnr('$')
+    lwindow
+  endif
+endfunction
+nnoremap <silent> <Space>" :call <SID>location_list_toggle()<CR>
+"}}}
+
 " ChangeCurrentDir {{{
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
