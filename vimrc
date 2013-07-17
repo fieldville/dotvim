@@ -753,6 +753,7 @@ NeoBundle 'https://github.com/chaquotay/ftl-vim-syntax'
 NeoBundle 'https://github.com/nelstrom/vim-qargs'
 NeoBundle 'https://github.com/nelstrom/vim-visual-star-search'
 NeoBundle 'https://github.com/groenewege/vim-less'
+NeoBundle 'https://github.com/rking/ag.vim'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
