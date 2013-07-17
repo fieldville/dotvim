@@ -335,6 +335,8 @@ let &grepprg="find . -type f -name '*.*'
 
 " カーソル直下の単語(Word)
 nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
+" Ag.vim
+nmap <C-g><C-k> :Ag <C-R><C-W><CR>
 " カーソル直下の単語(WORD)(C-aはscreenとバッティングするためC-eに)
 nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
 " 最後に検索した単語
