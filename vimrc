@@ -768,7 +768,7 @@ NeoBundle 'pasela/unite-webcolorname'
 NeoBundle 'taichouchou2/alpaca_powertabline'
 "NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'Lokaltog/powerline'
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'bling/vim-airline'
 NeoBundle 't9md/vim-surround_custom_mapping'
 NeoBundle 'einars/js-beautify'
 NeoBundle 'maksimr/vim-jsbeautify'
@@ -1110,11 +1110,6 @@ let g:shadow_debug = 1
 "EnhancedCommentify {{{
 let g:EnhCommentifyBindInInsert = 'no'
 "}}}
-
-"----------------------------------------
-" vim-powerline {{{
-let g:Powerline_symbols = 'unicode'
-" }}}
 
 "----------------------------------------
 " vim-surround {{{
