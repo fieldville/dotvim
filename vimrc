@@ -905,9 +905,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:syntastic_auto_loc_list=1
 let g:syntastic_auto_jump=0
-let g:syntastic_javascript_checker = 'gjslint'
-"let g:syntastic_javascript_checker = 'jshint'
-"let g:syntastic_javascript_checker = 'jslint'
+let g:syntastic_javascript_checkers = ['gjslint']
+"let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_javascript_checkers = ['jslint']
 "let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars"
 "let g:syntastic_javascript_jslint_conf = "--white=false --indent=2 --undef=false --nomen=false --regexp --plusplus=false --bitwise=false --newcap=false --vars=false --es5=false"
 "let g:syntastic_javascript_jslint_conf = "--white=true --indent=2 --undef=false --nomen=false --regexp --plusplus=false --bitwise=false --newcap=false --vars=true --es5=false"
