@@ -215,6 +215,7 @@ endif
 "}}}
 
 " FileType Indent "{{{
+set et
 augroup auto_filetype_indent
 autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
