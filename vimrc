@@ -641,6 +641,11 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 "}}}
 
+" shellpipe "{{{
+" no buffering, to utf8
+set shellpipe=2>\&1\|nkf\ -uw>%s
+"}}}
+
 "================================================================================
 " for plugin settings
 "================================================================================
