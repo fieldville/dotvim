@@ -737,6 +737,7 @@ NeoBundle 'nelstrom/vim-qargs'
 NeoBundle 'nelstrom/vim-visual-star-search'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'osyo-manga/vim-over'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1143,6 +1144,18 @@ autocmd FileType css vnoremap <buffer> <c-f> :call <SID>css_beautify()<cr>
 function! s:css_beautify() range
   call CSSBeautify(a:firstline, a:lastline)
 endfunction
+" }}}
+
+"----------------------------------------
+" over.vim {{{
+" over.vimの起動
+nnoremap <silent> <Leader>m :OverCommandLine<CR>
+
+" カーソル下の単語をハイライト付きで置換
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+
+" コピーした文字列をハイライト付きで置換
+nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 " }}}
 
 " vim: foldmethod=marker
