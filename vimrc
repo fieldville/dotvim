@@ -454,13 +454,14 @@ nnoremap <Space>G :call <SID>toggle_fold_column()<CR>
 
 " 末尾空白削除 " {{{
 "autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
-function! s:trim_last_white_space() range
-  execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
-endfunction
-command! -range=% Trim :<line1>,<line2>call <SID>trim_last_white_space()
-nnoremap <Leader>tr :%Trim<CR>
-vnoremap <Leader>tr :Trim<CR>
-nnoremap <Space>Y :ToggleBadWhitespace<CR>
+
+" cf: vim-bad-whitespace
+"function! s:trim_last_white_space() range
+"  execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
+"endfunction
+"command! -range=% Trim :<line1>,<line2>call <SID>trim_last_white_space()
+"nnoremap <Leader>tr :%Trim<CR>
+"vnoremap <Leader>tr :Trim<CR>
 "}}}
 
 " タブ移動 {{{
@@ -1060,6 +1061,13 @@ let g:vimfiler_execute_file_list = {
 "----------------------------------------
 " Gundo "{{{
 nnoremap <F5> :GundoToggle<CR>
+"}}}
+
+"----------------------------------------
+" vim-bad-whitespace " {{{
+nnoremap <Space>Y :ToggleBadWhitespace<CR>
+nnoremap <Leader>y :%EraseBadWhitespace<CR>
+vnoremap <Leader>y :EraseBadWhitespace<CR>
 "}}}
 
 "----------------------------------------
