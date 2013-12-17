@@ -740,6 +740,7 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'airblade/vim-rooter'
+NeoBundle 'AndrewRadev/linediff.vim'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
