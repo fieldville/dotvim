@@ -1168,4 +1168,61 @@ nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 " }}}
 
+"----------------------------------------
+" uncrustify {{{
+" see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
+
+" 例: Shift-Fでコードのフォーマットを行う．
+nnoremap <S-f> :call UncrustifyAuto()<CR>
+
+" 例: 保存時に自動フォーマット
+" autocmd BufWritePre <buffer> :call UncrustifyAuto()
+
+" uncrustifyの設定ファイル
+let g:uncrustify_cfg_file_path = '~/.dotfiles_private/uncrustify.cfg'
+
+" uncrustifyでフォーマットする言語
+let g:uncrustify_lang = ""
+autocmd FileType c let g:uncrustify_lang = "c"
+autocmd FileType cpp let g:uncrustify_lang = "cpp"
+autocmd FileType java let g:uncrustify_lang = "java"
+autocmd FileType objc let g:uncrustify_lang = "oc"
+autocmd FileType cs let g:uncrustify_lang = "cs"
+
+" Restore cursor position, window position, and last search after running a
+" command.
+function! Preserve(command)
+    " Save the last search.
+    let search = @/
+    " Save the current cursor position.
+    let cursor_position = getpos('.')
+    " Save the current window position.
+    normal! H
+    let window_position = getpos('.')
+    call setpos('.', cursor_position)
+    " Execute the command.
+    execute a:command
+    " Restore the last search.
+    let @/ = search
+    " Restore the previous window position.
+    call setpos('.', window_position)
+    normal! zt
+    " Restore the previous cursor position.
+    call setpos('.', cursor_position)
+endfunction
+
+" Don't forget to add Uncrustify executable to $PATH (on Unix) or
+" %PATH% (on Windows) for this command to work.
+function! Uncrustify(language)
+    call Preserve(':silent %!uncrustify'.' -q '.' -l '.a:language.' -c '.
+                \shellescape(fnamemodify(g:uncrustify_cfg_file_path, ':p')))
+endfunction
+
+function! UncrustifyAuto()
+    if g:uncrustify_lang != ""
+        call Uncrustify(g:uncrustify_lang)
+    endif
+endfunction
+" }}}
+
 " vim: foldmethod=marker
