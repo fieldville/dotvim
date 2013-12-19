@@ -741,6 +741,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'AndrewRadev/linediff.vim'
+NeoBundle 'martintreurnicht/vim-gradle.git'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
