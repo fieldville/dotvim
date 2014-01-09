@@ -742,6 +742,7 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'AndrewRadev/linediff.vim'
 NeoBundle 'martintreurnicht/vim-gradle.git'
+NeoBundle 'itchyny/calendar.vim'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1224,6 +1225,12 @@ function! UncrustifyAuto()
         call Uncrustify(g:uncrustify_lang)
     endif
 endfunction
+" }}}
+
+"----------------------------------------
+" calendar.vim {{{
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
 " }}}
 
 " vim: foldmethod=marker
