@@ -1235,3 +1235,4 @@ let g:calendar_google_task = 1
 " }}}
 
 " vim: foldmethod=marker
+" vim: foldcolumn=3
