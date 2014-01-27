@@ -172,6 +172,23 @@ endfor
 "set showbreak=…
 "}}}
 
+" folding shortcut {{{
+noremap [space] <nop>
+nmap <Space> [space]
+
+noremap [space]j zj   " カーソルより下方の折畳へ移動する
+noremap [space]k zk   " カーソルより上方の折畳へ移動する
+noremap [space]n ]z   " 現在の開いている折畳の末尾へ移動する
+noremap [space]p [z   " 現在の開いている折畳の先頭へ移動する
+noremap [space]h zc   " カーソルの下の折畳を一段階閉じる
+noremap [space]l zo   " カーソルの下の折畳を一段階開く
+noremap [space]a za   " 折畳が閉じていた場合: それを開く
+noremap [space]m zM   " 全ての折畳を閉じる
+noremap [space]i zMzv " 全ての折畳を閉じる => カーソル行を表示する
+noremap [space]r zR   " 全ての折畳を開く
+noremap [space]f zf   " 折畳を作成する操作
+"}}}
+
 " toggle command {{{
 for [cmd_name, opt_name, key] in [
   \ ['ToggleNumber'      , 'number'      , 'N'],
