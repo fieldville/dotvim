@@ -762,6 +762,7 @@ NeoBundle 'airblade/vim-rooter'
 NeoBundle 'AndrewRadev/linediff.vim'
 NeoBundle 'martintreurnicht/vim-gradle.git'
 NeoBundle 'itchyny/calendar.vim'
+NeoBundle 'kannokanno/previm'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
