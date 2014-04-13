@@ -617,7 +617,7 @@ augroup END
 " skelton {{{
 augroup SkeletonAu
   autocmd!
-  for ext in ['pl', 'pm', 'rb', 't', 'html', 'css', 'js', 'vim', 'c']
+  for ext in ['pl', 'pm', 'rb', 't', 'html', 'css', 'js', 'vim', 'c', 'mk']
     execute 'autocmd BufNewFile *.' . ext . ' 0r ~/.vim/skel/skel.' . ext
   endfor
 augroup END
