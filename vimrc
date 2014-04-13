@@ -668,6 +668,13 @@ if $LANG =~# 'UTF'
 endif
 "}}}
 
+" temporary workaround for previm "{{{
+fun! ChangeFileTypeToMarkDown(ft)
+  let &ft = a:ft
+endfun
+au FileType mkd call ChangeFileTypeToMarkDown('markdown')
+"}}}
+
 "================================================================================
 " for plugin settings
 "================================================================================
