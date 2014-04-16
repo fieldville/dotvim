@@ -728,7 +728,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'taku-o/vim-toggle'
 NeoBundle 'h1mesuke/unite-outline'
@@ -778,6 +777,7 @@ NeoBundle 'tommcdo/vim-exchange'
 " vim-scripts repos
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "{{{
+NeoBundle 'matchit.zip'
 NeoBundle 'JavaDecompiler.vim'
 NeoBundle 'SQLUtilities'
 NeoBundle 'svn-diff.vim'
