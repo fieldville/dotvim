@@ -771,6 +771,8 @@ NeoBundle 'martintreurnicht/vim-gradle.git'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'rizzatti/funcoo.vim'
+NeoBundle 'rizzatti/dash.vim'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
