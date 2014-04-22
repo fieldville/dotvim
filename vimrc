@@ -1104,6 +1104,7 @@ nnoremap <Space>Y :ToggleBadWhitespace<CR>
 nnoremap <Leader>y :%EraseBadWhitespace<CR>
 vnoremap <Leader>y :EraseBadWhitespace<CR>
 autocmd FileType mail exe ':HideBadWhitespace'
+autocmd FileType markdown exe ':HideBadWhitespace'
 "}}}
 
 "----------------------------------------
