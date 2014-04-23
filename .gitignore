@@ -1,2 +1,4 @@
 bundle/*
 _auto_fileencoding.vim
+eclim/
+plugin/eclim.vim
