@@ -991,7 +991,7 @@ let g:rubytest_in_quickfix = 1
 
 "----------------------------------------
 " vim-coffee-script.vim "{{{
-autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
+"autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 "}}}
 
 "----------------------------------------
