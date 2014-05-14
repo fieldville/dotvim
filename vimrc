@@ -773,6 +773,7 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'rizzatti/funcoo.vim'
 NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'tejr/vim-tmux'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
