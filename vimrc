@@ -774,6 +774,7 @@ NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'rizzatti/funcoo.vim'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'tejr/vim-tmux'
+NeoBundle 'altercation/vim-colors-solarized'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1265,6 +1266,14 @@ endfunction
 " calendar.vim {{{
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
+" }}}
+
+"----------------------------------------
+" vim-colors-solarized {{{
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 " }}}
 
 " vim: foldmethod=marker
