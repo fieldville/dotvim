@@ -1071,28 +1071,12 @@ vmap gl <Plug>(openbrowser-smart-search)
 
 "----------------------------------------
 " vimfiler "{{{
-nnoremap <silent> <F7> :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
+nnoremap <silent> <F7> :VimFilerExplore -find<CR>
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
-let g:vimfiler_execute_file_list = {
-  \ 'vim' : 'vim',
-  \ 'c' : 'open',
-  \ 'h' : 'open',
-  \ 'rb' : 'open',
-  \ 'pl' : 'open',
-  \ 'java' : 'open',
-  \ 'js' : 'open',
-  \ 'css' : 'open',
-  \ 'html' : 'open',
-  \ 'txt' : 'open',
-  \ 'pdf' : 'open',
-  \ 'jpg' : 'open',
-  \ 'png' : 'open',
-  \ 'xlsx' : 'open',
-  \ 'xls' : 'open',
-  \ 'docx' : 'open',
-  \ 'doc' : 'open',
-  \ }
+let g:vimfiler_edit_action='vsplit'
+let g:vimfiler_execute_file_list={}
+let g:vimfiler_execute_file_list["_"]="open"
 "}}}
 
 "----------------------------------------
