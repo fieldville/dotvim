@@ -775,6 +775,7 @@ NeoBundle 'rizzatti/funcoo.vim'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'tejr/vim-tmux'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'rbtnn/rabbit-ui.vim'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1258,6 +1259,17 @@ syntax enable
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+" }}}
+
+"----------------------------------------
+" rabbit-ui {{{
+function! s:edit_csv(path)
+  call writefile(map(rabbit_ui#gridview(
+        \ map(readfile(expand(a:path)),'split(v:val,",",1)')),
+        \ "join(v:val, ',')"), expand(a:path))
+endfunction
+
+command! -nargs=1 -complete=file EditCSV  :call <sid>edit_csv(<q-args>)
 " }}}
 
 " vim: foldmethod=marker
