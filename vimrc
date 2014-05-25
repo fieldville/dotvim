@@ -675,6 +675,10 @@ endfun
 au FileType mkd call ChangeFileTypeToMarkDown('markdown')
 "}}}
 
+" not to use undofile after 7.4.227 "{{{
+set noundofile
+"}}}
+
 "================================================================================
 " for plugin settings
 "================================================================================
