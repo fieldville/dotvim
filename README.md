@@ -1,5 +1,5 @@
 ####Installation
-    git clone git://github.com/fieldville/dotvim.git ~/.vim
+    git clone https://github.com/fieldville/dotvim.git ~/.vim
 
 #####Create symlinks
     ln -s ~/.vim/vimrc ~/.vimrc
@@ -7,6 +7,6 @@
 
 #####Set up NeoBundle
     mkdir -p ~/.vim/bundle
-    git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+    git clone https://github.com/Shougo/neobundle.vim  ~/.vim/bundle/neobundle.vim
 
 then launch vim, run `:NeoBundleInstall`
