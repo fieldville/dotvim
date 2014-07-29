@@ -952,9 +952,11 @@ nnoremap <Leader>p :Rtree<CR>
 "----------------------------------------
 " syntastic {{{
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['java', 'perl', 'xml'] }
+                           \ 'active_filetypes': ['perl'],
+                           \ 'passive_filetypes': ['java', 'xml'] }
 
+let g:syntastic_enable_perl_checker=1
+let g:syntastic_perl_checkers = ['perl', 'podchecker']
 let g:syntastic_auto_loc_list=1
 let g:syntastic_auto_jump=0
 let g:syntastic_javascript_checkers = ['gjslint']
