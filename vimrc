@@ -792,7 +792,6 @@ NeoBundle 'SQLUtilities'
 NeoBundle 'svn-diff.vim'
 NeoBundle 'wombat256.vim'
 NeoBundle 'yanktmp.vim'
-NeoBundle 'sudo.vim'
 NeoBundle 'perlcritic-compiler-script'
 NeoBundle 'Align'
 "}}}
