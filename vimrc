@@ -794,6 +794,7 @@ NeoBundle 'wombat256.vim'
 NeoBundle 'yanktmp.vim'
 NeoBundle 'perlcritic-compiler-script'
 NeoBundle 'Align'
+NeoBundle 'DirDiff.vim'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
