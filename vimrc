@@ -690,8 +690,7 @@ if has('vim_starting')
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -805,6 +804,8 @@ NeoBundle 'DirDiff.vim'
 "{{{
 NeoBundle 'http://repo.or.cz/r/vcscommand.git'
 "}}}
+
+call neobundle#end()
 
 filetype plugin indent on     " required!
 
