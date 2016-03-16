@@ -796,13 +796,14 @@ NeoBundle 'yanktmp.vim'
 NeoBundle 'perlcritic-compiler-script'
 NeoBundle 'Align'
 NeoBundle 'DirDiff.vim'
+NeoBundle 'vcscommand.vim'
 "}}}
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " non github repos
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "{{{
-NeoBundle 'http://repo.or.cz/r/vcscommand.git'
+"NeoBundle 'https://repo.or.cz/r/vcscommand.git'
 "}}}
 
 call neobundle#end()
