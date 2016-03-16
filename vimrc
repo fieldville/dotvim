@@ -682,25 +682,42 @@ set noundofile
 "================================================================================
 " for plugin settings
 "================================================================================
-" neobundle
-filetype off
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+" 設定開始
+call dein#begin(s:dein_dir)
 
-if neobundle#load_cache()
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#load_toml('~/.vim/neobundle.toml')
-  call neobundle#load_toml('~/.vim/neobundlelazy.toml', {'lazy' :1} )
-  NeoBundleSaveCache
+" プラグインリストを収めた TOML ファイル
+let s:toml      = '~/.vim/rc/dein.toml'
+let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
+
+" TOML を読み込み、キャッシュしておく
+if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#save_cache()
 endif
 
-call neobundle#end()
+" 設定終了
+call dein#end()
 
-filetype plugin indent on     " required!
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
+
+filetype plugin indent on
 
 "----------------------------------------
 " NERDTree.vim "{{{
