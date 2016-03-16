@@ -690,121 +690,13 @@ if has('vim_starting')
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-" original repos on github
-"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-"{{{
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle "Shougo/neosnippet-snippets"
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'corntrace/bufexplorer'
-NeoBundle 'hrp/EnhancedCommentify'
-NeoBundle 'janx/vim-rubytest'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'rgo/taglist.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'thinca/vim-qfreplace'
-NeoBundle 'thinca/vim-unite-history'
-NeoBundle 'thinca/vim-openbuf'
-NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'taku-o/vim-toggle'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'ujihisa/unite-locate'
-NeoBundle 'ujihisa/unite-gem'
-NeoBundle 'ujihisa/shadow.vim'
-NeoBundle 'ujihisa/unite-rake'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'tacroe/unite-mark'
-NeoBundle 'sgur/unite-qf'
-NeoBundle 'choplin/unite-vim_hacks'
-NeoBundle 'koron/chalice'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'bitc/vim-bad-whitespace'
-NeoBundle 'petdance/vim-perl'
-NeoBundle 'pasela/unite-webcolorname'
-NeoBundle 'taichouchou2/alpaca_powertabline'
-"NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-NeoBundle 'Lokaltog/powerline'
-NeoBundle 'bling/vim-airline'
-NeoBundle 't9md/vim-surround_custom_mapping'
-NeoBundle 'einars/js-beautify'
-NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'chaquotay/ftl-vim-syntax'
-NeoBundle 'nelstrom/vim-qargs'
-NeoBundle 'nelstrom/vim-visual-star-search'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'osyo-manga/vim-over'
-"NeoBundle 'airblade/vim-rooter'
-NeoBundle 'AndrewRadev/linediff.vim'
-NeoBundle 'martintreurnicht/vim-gradle.git'
-NeoBundle 'itchyny/calendar.vim'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'rizzatti/funcoo.vim'
-NeoBundle 'rizzatti/dash.vim'
-NeoBundle 'tejr/vim-tmux'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'rbtnn/rabbit-ui.vim'
-"}}}
-
-"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-" vim-scripts repos
-"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-"{{{
-NeoBundle 'matchit.zip'
-NeoBundle 'JavaDecompiler.vim'
-NeoBundle 'SQLUtilities'
-NeoBundle 'svn-diff.vim'
-NeoBundle 'wombat256.vim'
-NeoBundle 'yanktmp.vim'
-NeoBundle 'perlcritic-compiler-script'
-NeoBundle 'Align'
-NeoBundle 'DirDiff.vim'
-NeoBundle 'vcscommand.vim'
-"}}}
-
-"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-" non github repos
-"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-"{{{
-"NeoBundle 'https://repo.or.cz/r/vcscommand.git'
-"}}}
+if neobundle#load_cache()
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#load_toml('~/.vim/neobundle.toml')
+  call neobundle#load_toml('~/.vim/neobundlelazy.toml', {'lazy' :1} )
+  NeoBundleSaveCache
+endif
 
 call neobundle#end()
 
