@@ -8,6 +8,9 @@ repo = 'vim-jp/vimdoc-ja'
 repo = 'Shougo/neocomplcache'
 
 [[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
