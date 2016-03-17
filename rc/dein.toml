@@ -44,9 +44,6 @@ repo = 'plasticboy/vim-markdown'
 repo = 'rgo/taglist.vim'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
 repo = 'scrooloose/syntastic'
 
 [[plugins]]
@@ -59,13 +56,7 @@ repo = 'thinca/vim-unite-history'
 repo = 'thinca/vim-openbuf'
 
 [[plugins]]
-repo = 'tpope/vim-cucumber'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'tpope/vim-haml'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -80,43 +71,13 @@ repo = 'tpope/vim-abolish'
 repo = 'tpope/vim-repeat'
 
 [[plugins]]
-repo = 'vim-ruby/vim-ruby'
-
-[[plugins]]
 repo = 'taku-o/vim-toggle'
-
-[[plugins]]
-repo = 'h1mesuke/unite-outline'
 
 [[plugins]]
 repo = 'h1mesuke/vim-alignta'
 
 [[plugins]]
-repo = 'ujihisa/unite-locate'
-
-[[plugins]]
-repo = 'ujihisa/unite-gem'
-
-[[plugins]]
-repo = 'ujihisa/shadow.vim'
-
-[[plugins]]
-repo = 'ujihisa/unite-rake'
-
-[[plugins]]
-repo = 'ujihisa/unite-colorscheme'
-
-[[plugins]]
 repo = 'tacroe/unite-mark'
-
-[[plugins]]
-repo = 'sgur/unite-qf'
-
-[[plugins]]
-repo = 'choplin/unite-vim_hacks'
-
-[[plugins]]
-repo = 'koron/chalice'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'

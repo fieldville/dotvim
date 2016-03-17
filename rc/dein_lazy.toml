@@ -38,6 +38,10 @@ repo = 'janx/vim-rubytest'
 on_ft = 'ruby'
 
 [[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = 'ruby'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = 'html'
 
