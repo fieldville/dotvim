@@ -993,11 +993,6 @@ autocmd FileType markdown exe ':HideBadWhitespace'
 "}}}
 
 "----------------------------------------
-" shadow "{{{
-let g:shadow_debug = 1
-"}}}
-
-"----------------------------------------
 "EnhancedCommentify {{{
 let g:EnhCommentifyBindInInsert = 'no'
 "}}}
