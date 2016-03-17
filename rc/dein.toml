@@ -155,6 +155,9 @@ repo = 'altercation/vim-colors-solarized'
 repo = 'rbtnn/rabbit-ui.vim'
 
 [[plugins]]
+repo = 'm-kat/aws-vim'
+
+[[plugins]]
 repo = 'matchit.zip'
 
 [[plugins]]
