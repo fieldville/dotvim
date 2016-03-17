@@ -26,9 +26,6 @@ repo = 'corntrace/bufexplorer'
 repo = 'hrp/EnhancedCommentify'
 
 [[plugins]]
-repo = 'janx/vim-rubytest'
-
-[[plugins]]
 repo = 'kchmck/vim-coffee-script'
 
 [[plugins]]
@@ -125,12 +122,6 @@ repo = 'koron/chalice'
 repo = 'tyru/open-browser.vim'
 
 [[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-
-[[plugins]]
-repo = 'cakebaker/scss-syntax.vim'
-
-[[plugins]]
 repo = 'othree/html5.vim'
 
 [[plugins]]
@@ -144,9 +135,6 @@ repo = 'tsukkee/unite-tag'
 
 [[plugins]]
 repo = 'bitc/vim-bad-whitespace'
-
-[[plugins]]
-repo = 'petdance/vim-perl'
 
 [[plugins]]
 repo = 'pasela/unite-webcolorname'
@@ -164,12 +152,6 @@ repo = 'bling/vim-airline'
 repo = 't9md/vim-surround_custom_mapping'
 
 [[plugins]]
-repo = 'einars/js-beautify'
-
-[[plugins]]
-repo = 'maksimr/vim-jsbeautify'
-
-[[plugins]]
 repo = 'nelstrom/vim-qargs'
 
 [[plugins]]
@@ -183,9 +165,6 @@ repo = 'osyo-manga/vim-over'
 
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim'
-
-[[plugins]]
-repo = 'martintreurnicht/vim-gradle.git'
 
 [[plugins]]
 repo = 'itchyny/calendar.vim'
@@ -228,9 +207,6 @@ repo = 'wombat256.vim'
 
 [[plugins]]
 repo = 'yanktmp.vim'
-
-[[plugins]]
-repo = 'perlcritic-compiler-script'
 
 [[plugins]]
 repo = 'Align'

@@ -34,10 +34,42 @@ repo = 'thinca/vim-ref'
 on_ft = 'ruby'
 
 [[plugins]]
+repo = 'janx/vim-rubytest'
+on_ft = 'ruby'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = 'html'
 
-# toml {{{
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+[[plugins]]
+repo = 'petdance/vim-perl'
+on_ft = 'perl'
+
+[[plugins]]
+repo = 'perlcritic-compiler-script'
+on_ft = 'perl'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = 'css'
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = 'scss'
+
+[[plugins]]
+repo = 'einars/js-beautify'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'maksimr/vim-jsbeautify'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'martintreurnicht/vim-gradle.git'
+on_ft = 'groovy'
+
