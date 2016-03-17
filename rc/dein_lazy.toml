@@ -74,6 +74,10 @@ repo = 'maksimr/vim-jsbeautify'
 on_ft = 'javascript'
 
 [[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
+
+[[plugins]]
 repo = 'martintreurnicht/vim-gradle.git'
 on_ft = 'groovy'
 
