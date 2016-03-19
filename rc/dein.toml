@@ -29,13 +29,7 @@ repo = 'corntrace/bufexplorer'
 repo = 'hrp/EnhancedCommentify'
 
 [[plugins]]
-repo = 'kchmck/vim-coffee-script'
-
-[[plugins]]
 repo = 'mattn/webapi-vim'
-
-[[plugins]]
-repo = 'mileszs/ack.vim'
 
 [[plugins]]
 repo = 'msanders/cocoa.vim'

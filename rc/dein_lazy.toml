@@ -13,12 +13,6 @@ repo = 'Shougo/neosnippet'
 repo = "Shougo/neosnippet-snippets"
 
 [[plugins]]
-repo = 'sjl/gundo.vim'
-
-[[plugins]]
-repo = 'rking/ag.vim'
-
-[[plugins]]
 repo = 'Shougo/vimshell'
 
 [[plugins]]

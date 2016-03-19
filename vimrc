@@ -309,8 +309,6 @@ let &grepprg="find . -type f -name '*.*'
 
 " カーソル直下の単語(Word)
 nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
-" Ag.vim
-nmap <C-g><C-k> :Ag <C-R><C-W><CR>
 " カーソル直下の単語(WORD)(C-aはscreenとバッティングするためC-eに)
 nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
 " 最後に検索した単語
@@ -326,11 +324,6 @@ nmap <silent> <C-p> :<C-u>cprevious<CR>
 "nnoremap <Leader>ex :execute '!' &ft ' %'<CR>
 nnoremap <silent> <Leader>ex :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| cw \| if len(getqflist()) != 0 \| bot copen \| endif<CR>
 "}}}
-
-" Ctrl+Nでコマンドライン履歴を一つ進む(前方一致)
-cnoremap <C-P> <UP>
-" Ctrl+Pでコマンドライン履歴を一つ戻る(前方一致)
-cnoremap <C-N> <DOWN>
 
 " 全選択
 nnoremap <Leader>a ggVG
@@ -377,8 +370,6 @@ highlight clear CursorLine
 highlight CursorLine cterm=underline gui=underline
 "}}}
 
-" コマンド実行中は再描画しない
-"set lazyredraw
 " 高速ターミナル接続を行う
 set ttyfast
 
@@ -878,7 +869,6 @@ let g:quicklaunch_no_default_key_mappings = 1
 
 let g:quickrun_config = {}
 "let g:quickrun_config.ruby = {'command' : 'reek', 'exec' : ['%c %s']}
-let g:quickrun_config.coffee = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 let g:quickrun_config.css = {'command' : 'recess', 'exec' : ['%c --stripColors=true --noIDs=false --noOverqualifying=false --noUniversalSelectors=false %s']}
 "let g:quickrun_config.css = {'command' : 'recess', 'exec' : ['%c --stripColors=true %s']}
 let g:quickrun_config.javascript = {'command' : 'jsl', 'exec' : ['%c -process %s']}
@@ -902,11 +892,6 @@ endfor
 let g:rubytest_cmd_spec = "spec %p"
 let g:rubytest_cmd_example = "spec %p -l %c"
 let g:rubytest_in_quickfix = 1
-"}}}
-
-"----------------------------------------
-" vim-coffee-script.vim "{{{
-"autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow
 "}}}
 
 "----------------------------------------
@@ -983,11 +968,6 @@ let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_edit_action='vsplit'
 let g:vimfiler_execute_file_list={}
 let g:vimfiler_execute_file_list["_"]="open"
-"}}}
-
-"----------------------------------------
-" Gundo "{{{
-nnoremap <F5> :GundoToggle<CR>
 "}}}
 
 "----------------------------------------
