@@ -474,14 +474,14 @@ set hidden
 nmap <Leader>d :diffoff!<CR>
 "}}}
 " tab function {{{
-nnoremap [Tag] <Nop>
-nmap t [Tag]
+nnoremap [Tab] <Nop>
+nmap t [Tab]
 
-for n in range(1, 9) | execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>' | endfor
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-map <silent> [Tag]x :tabclose<CR>
-map <silent> [Tag]n :tabnext<CR>
-map <silent> [Tag]p :tabprevious<CR>
+for n in range(1, 9) | execute 'nnoremap <silent> [Tab]'.n  ':<C-u>tabnext'.n.'<CR>' | endfor
+map <silent> [Tab]c :tablast <bar> tabnew<CR>
+map <silent> [Tab]d :tabclose<CR>
+map <silent> [Tab]n :tabnext<CR>
+map <silent> [Tab]p :tabprevious<CR>
 noremap gh gT   " Tab move to left
 noremap gl gt   " Tab move to right
 "}}}
