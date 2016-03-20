@@ -82,8 +82,8 @@ repo = 'taichouchou2/alpaca_powertabline'
 [[plugins]]
 repo = 'Lokaltog/powerline'
 
-#[[plugins]]
-#repo = 'bling/vim-airline'
+[[plugins]]
+repo = 'bling/vim-airline'
 
 [[plugins]]
 repo = 't9md/vim-surround_custom_mapping'
