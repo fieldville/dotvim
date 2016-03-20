@@ -13,7 +13,7 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set history=50 " keep 50 lines of command line history
+set history=1000 " keep n lines of command line history
 set ruler      " show the cursor position all the time
 set showcmd    " display incomplete commands
 set incsearch  " do incremental searching
@@ -735,6 +735,10 @@ nnoremap [unite]M   :<C-u>Unite output:messages -vertical -direction=topleft<CR>
 nnoremap [unite]P   :<C-u>Unite process -start-insert<CR>
 nnoremap [unite]R   :<C-u>Unite -buffer-name=register register -vertical -direction=topleft<CR>
 nnoremap [unite]S   :<C-u>Unite output:scriptnames -vertical -direction=topleft<CR>
+
+" <C-r> で unite-history/command を起動
+" 選択するとコマンドラインに選択したコマンドが挿入される
+cnoremap <C-r> :<C-u>Unite history/command -start-insert -default-action=edit<CR>
 "}}}
 " open-browser {{{
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
