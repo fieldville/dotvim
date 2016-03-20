@@ -7,6 +7,7 @@
 "                                                                               "
 "                                                                               "
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"{{{
 set nocompatible
 
 " allow backspacing over everything in insert mode
@@ -16,25 +17,23 @@ set history=50 " keep 50 lines of command line history
 set ruler      " show the cursor position all the time
 set showcmd    " display incomplete commands
 set incsearch  " do incremental searching
+set nobackup
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+let mapleader=","
+"}}}
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo, {{{
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" Switch syntax highlighting on, when the terminal has colors
+"}}}
+" Switch syntax highlighting on, when the terminal has colors {{{
 " Also switch on highlighting the last used search pattern.
-"{{{
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+nnoremap <Esc><Esc> :nohlsearch<CR>
 "}}}
-
-" Only do this part when compiled with support for autocommands.
-"{{{
+" Only do this part when compiled with support for autocommands. {{{
 if has("autocmd")
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
@@ -61,10 +60,8 @@ if has("autocmd")
   augroup END
 else
   set autoindent    " always set autoindenting on
-endif " has("autocmd")
+endif
 "}}}
-
-set nobackup
 " 初回のみ読み込まれるデフォルト定義 {{{
 if has('vim_starting')
   set tabstop=4
@@ -84,9 +81,6 @@ if has('vim_starting')
   set noequalalways
 endif
 "}}}
-
-nnoremap <Esc><Esc> :nohlsearch<CR>
-
 "set tags {{{
 if has("autochdir")
   set autochdir
@@ -96,21 +90,16 @@ else
 endif
 nnoremap <C-]> g]
 "}}}
-
-let mapleader=","
-
 " 検索などで飛んだらそこを真ん中に {{{
 for maptype in ['n', 'N', '*', '#', 'g*', 'g#', 'G']
   execute 'nmap' maptype maptype . 'zz'
 endfor
 "}}}
-
 " escape automatically / ? {{{
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 "}}}
-
-" fileencoding "{{{
+" fileencoding {{{
 for [enc, cmds, key] in [
   \ ['utf-8'      , ['Utf8']            , 'u'],
   \ ['euc-jp'     , ['Eucjp']           , 'e'],
@@ -124,13 +113,11 @@ for [enc, cmds, key] in [
   execute 'nmap <Leader>' . toupper(key) ':set fileencoding=' . enc . '<CR>'
 endfor
 "}}}
-
 " 文字コードの自動認識 {{{
 if filereadable(expand("$HOME/.vim/_auto_fileencoding.vim"))
   source $HOME/.vim/_auto_fileencoding.vim
 endif
 "}}}
-
 " 改行コードの自動認識 {{{
 set fileformats=unix,dos,mac
 " □とか○の文字があってもカーソル位置がずれないようにする
@@ -138,33 +125,27 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 "}}}
-
-" 大文字小文字の両方が含まれている場合は大文字小文字を区別
+" 大文字小文字の両方が含まれている場合は大文字小文字を区別 {{{
 set smartcase
-
+"}}}
 " コマンドライン補完 {{{
 set wildmenu
 set wildmode=list:longest
 "}}}
-
-"検索後のスクロールから下の行がわかる
+" 検索後、画面の端でスクロールするのではなく、数行余裕があるうちにスクロールする {{{
 set scrolloff=5
-
-" window movement
-"{{{
+"}}}
+" window movement {{{
 for key in ['h', 'j', 'k', 'l']
   execute 'nnoremap <silent> <C-' . key . '> :wincmd' key . '<CR>'
 endfor
 "}}}
-
-" change window size
-"{{{
+" change window size {{{
 nnoremap <silent> <Up>    :2 wincmd -<CR>
 nnoremap <silent> <Down>  :2 wincmd +<CR>
 nnoremap <silent> <Left>  :5 wincmd <<CR>
 nnoremap <silent> <Right> :5 wincmd ><CR>
 "}}}
-
 "折れ曲がった行にも移動 {{{
 "set wrap のときに便利
 for key in ['j', 'k']
@@ -173,7 +154,6 @@ for key in ['j', 'k']
 endfor
 "set showbreak=…
 "}}}
-
 " folding shortcut {{{
 noremap [space] <nop>
 nmap <Space> [space]
@@ -190,7 +170,6 @@ noremap [space]i zMzv " 全ての折畳を閉じる => カーソル行を表示�
 noremap [space]r zR   " 全ての折畳を開く
 noremap [space]f zf   " 折畳を作成する操作
 "}}}
-
 " toggle command {{{
 for [cmd_name, opt_name, key] in [
   \ ['ToggleNumber'      , 'number'      , 'N'],
@@ -206,7 +185,6 @@ endfor
 " cf http://vimcasts.org/episodes/soft-wrapping-text/
 command! Wrap set wrap linebreak nolist
 "}}}
-
 " for set list {{{
 " Use the same symbols as TextMate for tabstops and EOLs
 try
@@ -219,18 +197,17 @@ endtry
 highlight NonText ctermfg=DarkBlue
 highlight SpecialKey ctermfg=DarkBlue
 "}}}
-
-nnoremap <Leader>v :split $MYVIMRC<CR>
-nnoremap <Leader>gv :split $MYGVIMRC<CR>
+" edit vimrc {{{
+nnoremap <Leader>v :tabnew $MYVIMRC<CR>     " vimrcを開く
+nnoremap <Leader>gv :tabnew $MYVIMRC<CR>     " gvimrcを開く
 
 if has("gui_running")
-  nnoremap <Leader>so :source $MYVIMRC \| source $MYGVIMRC<CR>
+  nnoremap <Leader>so :source $MYVIMRC \| source $MYGVIMRC<CR>  " vimrcをリロード
 else
-  nnoremap <Leader>so :source $MYVIMRC<CR>
+  nnoremap <Leader>so :source $MYVIMRC<CR>  " vimrcをリロード
 endif
 "}}}
-
-" FileType Indent "{{{
+" FileType Indent {{{
 set et
 augroup auto_filetype_indent
 autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
@@ -268,7 +245,6 @@ autocmd FileType aws.json   setlocal sw=2 sts=2 ts=2 et fdm=indent nowrap
 autocmd FileType json       setlocal sw=2 sts=2 ts=2 et fdm=indent nowrap
 augroup END
 "}}}
-
 " for grep {{{
 "{{{ 外部grep
 let &grepprg="find . -type f -name '*.*'
@@ -305,7 +281,6 @@ let &grepprg="find . -type f -name '*.*'
               \ -a -not -regex '.*schema.rb$'
               \ -print0 \\| xargs -0 grep -nH"
 "}}}
-
 " カーソル直下の単語(Word)
 nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
 " カーソル直下の単語(WORD)(C-aはscreenとバッティングするためC-eに)
@@ -318,7 +293,6 @@ nmap <silent> <C-n> :<C-u>cnext<CR>
 nmap <silent> <C-p> :<C-u>cprevious<CR>
 
 "}}}
-
 " color {{{
 set background=light
 
@@ -333,7 +307,6 @@ highlight PmenuSbar ctermbg=0
 highlight clear Folded
 highlight clear FoldColumn
 "}}}
-
 " 全角スペースの表示 {{{
 highlight ZenkakuSpace cterm=underline ctermfg=White
 try
@@ -341,7 +314,6 @@ try
 catch
 endtry
 "}}}
-
 " カーソル行 {{{
 "{{{
 if has("gui_running")
@@ -360,20 +332,14 @@ end
 highlight clear CursorLine
 highlight CursorLine cterm=underline gui=underline
 "}}}
-
 " map for buffer {{{
-nnoremap <Leader>bp :bprevious<CR>
-nnoremap <Leader>bn :bnext<CR>
-nnoremap <Leader>bd :bdelete<CR>
 nmap <silent> <C-b><C-n> :<C-u>bnext<CR>
 nmap <silent> <C-b><C-p> :<C-u>bprevious<CR>
 "}}}
-
 " map for syntastic, etc {{{
 nmap <silent> <C-g><C-n> :<C-u>lnext<CR>
 nmap <silent> <C-g><C-p> :<C-u>lprevious<CR>
 "}}}
-
 " native2ascii {{{
 function! s:jproperties_filetype_settings()
   augroup jprop
@@ -385,8 +351,6 @@ function! s:jproperties_filetype_settings()
 endfunction
 autocmd FileType jproperties call s:jproperties_filetype_settings()
 "}}}
-
-
 " 単語境界に-を追加 {{{
 setlocal iskeyword +=-
 function! s:toggle_is_key_word_hyphen() "{{{
@@ -400,8 +364,7 @@ endfunction "}}}
 command! ToggleIsKeyWordHyPhen  call s:toggle_is_key_word_hyphen()
 nnoremap <Space>K :call <SID>toggle_is_key_word_hyphen()<CR>
 "}}}
-
-" 折り畳み列幅 "{{{
+" 折り畳み列幅 {{{
 function! s:toggle_fold_column()
   if &foldcolumn
     setlocal foldcolumn=0
@@ -412,10 +375,8 @@ endfunction
 command! ToggleFoldColumn  call s:toggle_fold_column()
 nnoremap <Space>G :call <SID>toggle_fold_column()<CR>
 "}}}
-
-" 末尾空白削除 " {{{
+" 末尾空白削除 {{{
 "autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
-
 " cf: vim-bad-whitespace
 function! s:trim_last_white_space() range
   execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
@@ -424,12 +385,6 @@ command! -range=% Trim :<line1>,<line2>call <SID>trim_last_white_space()
 nnoremap <Leader>tr :%Trim<CR>
 vnoremap <Leader>tr :Trim<CR>
 "}}}
-
-" タブ移動 {{{
-noremap gh gT
-noremap gl gt
-"}}}
-
 " QuickFixToggle {{{
 function! s:quick_fix_toggle()
   let _ = winnr('$')
@@ -440,7 +395,6 @@ function! s:quick_fix_toggle()
 endfunction
 nnoremap <silent> <Space>: :call <SID>quick_fix_toggle()<CR>
 "}}}
-
 " LocationListToggle {{{
 function! s:location_list_toggle()
   let _ = winnr('$')
@@ -451,7 +405,6 @@ function! s:location_list_toggle()
 endfunction
 nnoremap <silent> <Space>" :call <SID>location_list_toggle()<CR>
 "}}}
-
 " ChangeCurrentDir {{{
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
@@ -465,11 +418,8 @@ function! s:ChangeCurrentDir(directory, bang)
     pwd
   endif
 endfunction
-
-" Change current directory.
 nnoremap <silent> <Space>cd :<C-u>CD<CR>
 "}}}
-
 " for perl {{{
 function! s:check_perl_critic()
   setlocal makeprg=perlcritic\ -verbose\ 1\ -5\ %
@@ -502,7 +452,6 @@ augroup perl_filetype
   autocmd! BufNewFile,BufRead *.tmpl setf tt2html
 augroup END
 "}}}
-
 " skelton {{{
 augroup SkeletonAu
   autocmd!
@@ -511,25 +460,20 @@ augroup SkeletonAu
   endfor
 augroup END
 "}}}
-
 " Map semicolon to colon {{{
 nnoremap ; :
 "}}}
-
-" 矩形選択で行末を超えてブロックを選択できるようにする "{{{
+" 矩形選択で行末を超えてブロックを選択できるようにする {{{
 set virtualedit+=block
 "}}}
-
-" argdoの時の警告を無視 "{{{
+" argdoの時の警告を無視 {{{
 " http://vimcasts.org/episodes/using-argdo-to-change-multiple-files/
 set hidden
 "}}}
-
-" diffoff! "{{{
+" diffoff! {{{
 nmap <Leader>d :diffoff!<CR>
 "}}}
-
-" tab function "{{{
+" tab function {{{
 nnoremap [Tag] <Nop>
 nmap t [Tag]
 
@@ -540,28 +484,25 @@ map <silent> [Tag]c :tablast <bar> tabnew<CR>
 map <silent> [Tag]x :tabclose<CR>
 map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
+noremap gh gT   " Tab move to left
+noremap gl gt   " Tab move to right
 "}}}
-
-" shellpipe "{{{
+" shellpipe {{{
 " no buffering, to utf8
 if $LANG =~# 'UTF'
   set shellpipe=2>\&1\|nkf\ -uw>%s
 endif
 "}}}
-
-" temporary workaround for previm "{{{
+" temporary workaround for previm {{{
 fun! ChangeFileTypeToMarkDown(ft)
   let &ft = a:ft
 endfun
 au FileType mkd call ChangeFileTypeToMarkDown('markdown')
 "}}}
-
-" not to use undofile after 7.4.227 "{{{
+" not to use undofile after 7.4.227 {{{
 set noundofile
 "}}}
-"
-
-" jq "{{{
+" jq {{{
 set noundofile
 if executable('jq')
   function! s:jq(...)
@@ -570,10 +511,12 @@ if executable('jq')
   command! -bar -nargs=? Jq  call s:jq(<f-args>)
 endif
 "}}}
-
-"================================================================================
-" for plugin settings
-"================================================================================
+" helpをtab helpに {{{
+cabbrev help tab help
+"}}}
+"======================================== for plugin settings ======================================== {{{
+"}}}
+" dein.vim {{{
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
@@ -610,15 +553,12 @@ if dein#check_install()
 endif
 
 filetype plugin indent on
-
-"----------------------------------------
-" taglist.vim "{{{
+"}}}
+" taglist.vim {{{
 nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 40
 "}}}
-
-"----------------------------------------
 " neocomplcache.vim {{{
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -701,9 +641,7 @@ let g:neocomplcache_delimiter_patterns.cpp = ['::']
 command! ToggleNeoComplCache  NeoComplCacheToggle
 nmap <Space>H :ToggleNeoComplCache<CR>
 "}}}
-
-"----------------------------------------
-" neosnippet.vim "{{{
+" neosnippet.vim {{{
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -720,15 +658,11 @@ endif
 let g:neosnippet#snippets_directory=$HOME.'/.vim/snippets'
 noremap es :<C-u>NeoSnippetEdit<CR>
 "}}}
-
-"----------------------------------------
-" yanktmp.vim "{{{
+" yanktmp.vim {{{
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
 "}}}
-
-"----------------------------------------
 " syntastic {{{
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['perl'],
@@ -744,10 +678,8 @@ let g:syntastic_javascript_checkers = ['gjslint']
 "let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars"
 "let g:syntastic_javascript_jslint_conf = "--white=false --indent=2 --undef=false --nomen=false --regexp --plusplus=false --bitwise=false --newcap=false --vars=false --es5=false"
 "let g:syntastic_javascript_jslint_conf = "--white=true --indent=2 --undef=false --nomen=false --regexp --plusplus=false --bitwise=false --newcap=false --vars=true --es5=false"
-" }}}
-
-"----------------------------------------
-" vim-quickrun "{{{
+"}}}
+" vim-quickrun {{{
 let g:quicklaunch_no_default_key_mappings = 1
 
 let g:quickrun_config = {}
@@ -769,17 +701,9 @@ for [key, out] in items({
 endfor
 "nnoremap <silent> <Leader>j :QuickRun >quickfix -mode n<CR>:bot copen<CR>
 "}}}
-
-"----------------------------------------
-" rubytest.vim "{{{
-let g:rubytest_cmd_spec = "spec %p"
-let g:rubytest_cmd_example = "spec %p -l %c"
-let g:rubytest_in_quickfix = 1
-"}}}
-
-"----------------------------------------
-" unite.vim "{{{
+" unite.vim {{{
 let g:unite_source_grep_default_opts = '--color=never -Hn'
+call unite#custom_default_action('file', 'tabopen')
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
@@ -796,10 +720,10 @@ inoremap <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 
 nnoremap [unite]a   :<C-u>UniteWithBufferDir -buffer-name=files mark buffer file_mru bookmark file<CR>
 nnoremap [unite]c   :<C-u>Unite change<CR>
-nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file file/new -start-insert<CR>
+nnoremap [unite]f   :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 nnoremap [unite]g   :<C-u>Unite grep:%::<C-R>=expand('<cword>')<CR><CR>
 nnoremap [unite]h   :<C-u>Unite history/command -vertical -direction=topleft<CR>
-nnoremap [unite]j   :<C-u>Unite mark buffer file_mru -start-insert<CR>
+nnoremap [unite]j   :<C-u>Unite mark buffer file_mru<CR>
 nnoremap [unite]m   :<C-u>Unite mapping -start-insert -vertical -direction=topleft<CR>
 nnoremap [unite]r   :<C-u>UniteResume<CR>
 nnoremap [unite]s   :<C-u>Unite history/search -vertical -direction=topleft<CR>
@@ -814,31 +738,12 @@ nnoremap [unite]P   :<C-u>Unite process -start-insert<CR>
 nnoremap [unite]R   :<C-u>Unite -buffer-name=register register -vertical -direction=topleft<CR>
 nnoremap [unite]S   :<C-u>Unite output:scriptnames -vertical -direction=topleft<CR>
 "}}}
-
-"----------------------------------------
-" vimshell "{{{
-let g:vimshell_interactive_update_time = 10
-let g:vimshell_prompt = $USERNAME."% "
-
-" alias
-autocmd FileType vimshell
-\ call vimshell#altercmd#define('g', 'git')
-\| call vimshell#altercmd#define('l', 'll')
-\| call vimshell#altercmd#define('ll', 'ls -ltr')
-\| call vimshell#altercmd#define('la', 'ls -ltra')
-"}}}
-
-"----------------------------------------
-" open-browser "{{{
+" open-browser {{{
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
-nmap gl <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-vmap gl <Plug>(openbrowser-smart-search)
 "}}}
-
-"----------------------------------------
-" vimfiler "{{{
+" vimfiler {{{
 nnoremap <silent> <F7> :VimFilerExplore -find<CR>
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
@@ -846,9 +751,7 @@ let g:vimfiler_edit_action='vsplit'
 let g:vimfiler_execute_file_list={}
 let g:vimfiler_execute_file_list["_"]="open"
 "}}}
-
-"----------------------------------------
-" vim-bad-whitespace " {{{
+" vim-bad-whitespace {{{
 nnoremap <Space>Y :ToggleBadWhitespace<CR>
 nnoremap <Leader>y :%EraseBadWhitespace<CR>
 vnoremap <Leader>y :EraseBadWhitespace<CR>
@@ -856,8 +759,6 @@ autocmd FileType mail exe ':HideBadWhitespace'
 autocmd FileType markdown exe ':HideBadWhitespace'
 let b:bad_whitespace_show = 0
 "}}}
-
-"----------------------------------------
 " vim-surround_custom_mapping {{{
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping._ = {
@@ -900,9 +801,7 @@ let g:surround_custom_mapping.vim = {
             \'f':  "function! \r endfunction",
             \'z':  "\"{{{ \r \"}}}",
             \ }
-" }}}
-
-"----------------------------------------
+"}}}
 " vim-jsbeautify {{{
 "let s:rootDir = fnamemodify(expand("<sfile>"), ":h")."/.vim/"
 "let g:jsbeautify_file = fnameescape(s:rootDir."/bundle/js-beautify/beautify.js")
@@ -923,9 +822,7 @@ autocmd FileType css vnoremap <buffer> <c-f> :call <SID>css_beautify()<cr>
 function! s:css_beautify() range
   call CSSBeautify(a:firstline, a:lastline)
 endfunction
-" }}}
-
-"----------------------------------------
+"}}}
 " over.vim {{{
 " over.vimの起動
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
@@ -935,9 +832,7 @@ nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
 " コピーした文字列をハイライト付きで置換
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
-" }}}
-
-"----------------------------------------
+"}}}
 " uncrustify {{{
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
@@ -992,21 +887,18 @@ function! UncrustifyAuto()
         call Uncrustify(g:uncrustify_lang)
     endif
 endfunction
-" }}}
-
-"----------------------------------------
+"}}}
 " calendar.vim {{{
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
-" }}}
-
-"----------------------------------------
+"}}}
 " vim-colors-solarized {{{
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-" }}}
-
+"}}}
+" {{{
 " vim: foldmethod=marker
 " vim: foldcolumn=3
+"}}}

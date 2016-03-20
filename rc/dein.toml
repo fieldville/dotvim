@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'chaquotay/ftl-vim-syntax'
-
-[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
@@ -23,13 +20,7 @@ repo = 'Shougo/vimproc'
     unix = 'make -f make_unix.mak'
 
 [[plugins]]
-repo = 'corntrace/bufexplorer'
-
-[[plugins]]
 repo = 'mattn/webapi-vim'
-
-[[plugins]]
-repo = 'msanders/cocoa.vim'
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
@@ -41,13 +32,7 @@ repo = 'rgo/taglist.vim'
 repo = 'scrooloose/syntastic'
 
 [[plugins]]
-repo = 'thinca/vim-qfreplace'
-
-[[plugins]]
 repo = 'thinca/vim-unite-history'
-
-[[plugins]]
-repo = 'thinca/vim-openbuf'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -88,8 +73,8 @@ repo = 'tsukkee/unite-tag'
 [[plugins]]
 repo = 'bitc/vim-bad-whitespace'
 
-[[plugins]]
-repo = 'pasela/unite-webcolorname'
+#[[plugins]]
+#repo = 'pasela/unite-webcolorname'
 
 [[plugins]]
 repo = 'taichouchou2/alpaca_powertabline'
@@ -97,8 +82,8 @@ repo = 'taichouchou2/alpaca_powertabline'
 [[plugins]]
 repo = 'Lokaltog/powerline'
 
-[[plugins]]
-repo = 'bling/vim-airline'
+#[[plugins]]
+#repo = 'bling/vim-airline'
 
 [[plugins]]
 repo = 't9md/vim-surround_custom_mapping'
@@ -112,8 +97,8 @@ repo = 'nelstrom/vim-visual-star-search'
 [[plugins]]
 repo = 'groenewege/vim-less'
 
-[[plugins]]
-repo = 'osyo-manga/vim-over'
+#[[plugins]]
+#repo = 'osyo-manga/vim-over'
 
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim'
@@ -123,12 +108,6 @@ repo = 'itchyny/calendar.vim'
 
 [[plugins]]
 repo = 'kannokanno/previm'
-
-[[plugins]]
-repo = 'rizzatti/funcoo.vim'
-
-[[plugins]]
-repo = 'rizzatti/dash.vim'
 
 [[plugins]]
 repo = 'tejr/vim-tmux'
@@ -158,9 +137,6 @@ repo = 'wombat256.vim'
 repo = 'yanktmp.vim'
 
 [[plugins]]
-repo = 'Align'
-
-[[plugins]]
 repo = 'DirDiff.vim'
 
 [[plugins]]
@@ -185,7 +161,7 @@ repo = 'petdance/vim-perl'
 repo = 'cakebaker/scss-syntax.vim'
 
 [[plugins]]
-repo = "Shougo/neosnippet-snippets"
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'einars/js-beautify'

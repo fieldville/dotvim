@@ -10,22 +10,11 @@ repo = 'thinca/vim-quickrun'
 repo = 'Shougo/neosnippet'
 
 [[plugins]]
-repo = 'Shougo/vimshell'
-
-[[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
-on_ft = 'ruby'
-
-[[plugins]]
-repo = 'thinca/vim-ref'
-on_ft = 'ruby'
-
-[[plugins]]
-repo = 'janx/vim-rubytest'
 on_ft = 'ruby'
 
 [[plugins]]
