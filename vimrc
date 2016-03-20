@@ -91,9 +91,7 @@ endif
 "nnoremap <C-]> g]
 "}}}
 " 検索などで飛んだらそこを真ん中に {{{
-for maptype in ['n', 'N', '*', '#', 'g*', 'g#', 'G']
-  execute 'nmap' maptype maptype . 'zz'
-endfor
+for maptype in ['n', 'N', '*', '#', 'g*', 'g#', 'G'] | execute 'nmap' maptype maptype . 'zz' | endfor
 "}}}
 " escape automatically / ? {{{
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
@@ -136,9 +134,11 @@ set wildmode=list:longest
 set scrolloff=5
 "}}}
 " window movement {{{
-for key in ['h', 'j', 'k', 'l']
-  execute 'nnoremap <silent> <C-' . key . '> :wincmd' key . '<CR>'
-endfor
+for key in ['h', 'j', 'k', 'l'] | execute 'nnoremap <silent> <C-' . key . '> :wincmd' key . '<CR>' | endfor
+"}}}
+" remap for split, vsplit {{{
+nnoremap <C-w>- :<C-u>sp<CR>
+nnoremap <C-w>\ :<C-u>vs<CR>
 "}}}
 " change window size {{{
 nnoremap <silent> <Up>    :2 wincmd -<CR>
@@ -477,9 +477,7 @@ nmap <Leader>d :diffoff!<CR>
 nnoremap [Tag] <Nop>
 nmap t [Tag]
 
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
+for n in range(1, 9) | execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>' | endfor
 map <silent> [Tag]c :tablast <bar> tabnew<CR>
 map <silent> [Tag]x :tabclose<CR>
 map <silent> [Tag]n :tabnext<CR>
@@ -508,7 +506,7 @@ if executable('jq')
   function! s:jq(...)
     execute '%!jq' (a:0 == 0 ? '.' : a:1)
   endfunction
-  command! -bar -nargs=? Jq  call s:jq(<f-args>)
+  command! -bar -nargs=? Jq call s:jq(<f-args>)
 endif
 "}}}
 " helpをtab helpに {{{
@@ -899,6 +897,5 @@ let g:solarized_termcolors=256
 colorscheme solarized
 "}}}
 " {{{
-" vim: foldmethod=marker
-" vim: foldcolumn=3
+" vim: foldmethod=marker:foldcolumn=3:nowrap
 "}}}
