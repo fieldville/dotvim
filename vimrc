@@ -80,6 +80,8 @@ if has('vim_starting')
   set title
   " バックスペースでインデントや改行を削除できるようにする
   set backspace=2
+  " 分割幅を均等でなくする。<C-W>=で均等に、<C-W>|で最大化
+  set noequalalways
 endif
 "}}}
 
@@ -221,9 +223,6 @@ highlight SpecialKey ctermfg=DarkBlue
 nnoremap <Leader>v :split $MYVIMRC<CR>
 nnoremap <Leader>gv :split $MYGVIMRC<CR>
 
-nnoremap <Leader>ev :e $MYVIMRC<CR>
-nnoremap <Leader>egv :e $MYGVIMRC<CR>
-
 if has("gui_running")
   nnoremap <Leader>so :source $MYVIMRC \| source $MYGVIMRC<CR>
 else
@@ -320,14 +319,6 @@ nmap <silent> <C-p> :<C-u>cprevious<CR>
 
 "}}}
 
-" コマンドを実行 {{{
-"nnoremap <Leader>ex :execute '!' &ft ' %'<CR>
-nnoremap <silent> <Leader>ex :execute 'set makeprg=' . expand(&ft) . '\ ' . expand('%')<CR>:make \| cw \| if len(getqflist()) != 0 \| bot copen \| endif<CR>
-"}}}
-
-" 全選択
-nnoremap <Leader>a ggVG
-
 " color {{{
 set background=light
 
@@ -370,19 +361,6 @@ highlight clear CursorLine
 highlight CursorLine cterm=underline gui=underline
 "}}}
 
-" 高速ターミナル接続を行う
-set ttyfast
-
-" Visually select the text that was last edited/pasted
-nmap gV `[v`]
-
-" F1 for help {{{
-" <F1>でヘルプ
-nnoremap <F1>  :<C-u>help<Space>
-" カーソル下のキーワードをヘルプでひく
-nnoremap <F1><F1> :<C-u>help<Space><C-r><C-w><Enter>
-"}}}
-
 " map for buffer {{{
 nnoremap <Leader>bp :bprevious<CR>
 nnoremap <Leader>bn :bnext<CR>
@@ -408,21 +386,6 @@ endfunction
 autocmd FileType jproperties call s:jproperties_filetype_settings()
 "}}}
 
-" Ctrl + jでescape
-inoremap <C-j> <ESC>
-
-"カーソル上の言葉をclipboardへヤンク "{{{
-function! s:yank_to_clipboard()
-  if &clipboard =~# 'unnamed'
-    normal! yiw
-  else
-    set clipboard +=unnamed
-    normal! yiw
-    set clipboard -=unnamed
-  endif
-endfunction
-nmap tt :call <SID>yank_to_clipboard()<CR>
-"}}}
 
 " 単語境界に-を追加 {{{
 setlocal iskeyword +=-
@@ -436,20 +399,6 @@ function! s:toggle_is_key_word_hyphen() "{{{
 endfunction "}}}
 command! ToggleIsKeyWordHyPhen  call s:toggle_is_key_word_hyphen()
 nnoremap <Space>K :call <SID>toggle_is_key_word_hyphen()<CR>
-"}}}
-
-" clipboardにunnamedを追加 {{{
-function! s:toggle_clipboard_unnamed() "{{{
-  if &clipboard =~# 'unnamed'
-    set clipboard -=unnamed
-    echo 'clipboard mode OFF'
-  else
-    set clipboard +=unnamed
-    echo 'clipboard mode ON'
-  endif
-endfunction "}}}
-command! ToggleClipboardUnnamed call s:toggle_clipboard_unnamed()
-nnoremap <Space>P :call <SID>toggle_clipboard_unnamed()<CR>
 "}}}
 
 " 折り畳み列幅 "{{{
@@ -468,70 +417,17 @@ nnoremap <Space>G :call <SID>toggle_fold_column()<CR>
 "autocmd FileType cpp,python,perl,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " cf: vim-bad-whitespace
-"function! s:trim_last_white_space() range
-"  execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
-"endfunction
-"command! -range=% Trim :<line1>,<line2>call <SID>trim_last_white_space()
-"nnoremap <Leader>tr :%Trim<CR>
-"vnoremap <Leader>tr :Trim<CR>
+function! s:trim_last_white_space() range
+  execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
+endfunction
+command! -range=% Trim :<line1>,<line2>call <SID>trim_last_white_space()
+nnoremap <Leader>tr :%Trim<CR>
+vnoremap <Leader>tr :Trim<CR>
 "}}}
 
 " タブ移動 {{{
 noremap gh gT
 noremap gl gt
-"}}}
-
-" HTML Key Mappings for Typing Character Codes: {{{
-"
-" |--------------------------------------------------------------------
-" |Keys    |Insert   |For  |Comment
-" |--------|---------|-----|-------------------------------------------
-" |\&      |&amp;    |&    |ampersand
-" |\<      |&lt;     |<    |less-than sign
-" |\>      |&gt;     |>    |greater-than sign
-" |\.      |&middot; |・   |middle dot (decimal point)
-" |\?      |&#8212;  |?    |em-dash
-" |\2      |&#8220;  |“   |open curved double quote
-" |\"      |&#8221;  |”   |close curved double quote
-" |\`      |&#8216;  |‘   |open curved single quote
-" |\'      |&#8217;  |’   |close curved single quote (apostrophe)
-" |\`      |`        |`    |OS-dependent open single quote
-" |\'      |'        |'    |OS-dependent close or vertical single quote
-" |\<Space>|&nbsp;   |     |non-breaking space
-" |---------------------------------------------------------------------
-"
-" > http://www.stripey.com/vim/html.html
-"
-"
-autocmd BufEnter * if &filetype == "html" | call MapHTMLKeys() | endif
-function! MapHTMLKeys(...)
-  if a:0 == 0 || a:1 != 0
-    inoremap \\ \
-    inoremap \& &amp;
-    inoremap \< &lt;
-    inoremap \> &gt;
-    inoremap \. ・
-    inoremap \- &#8212;
-    inoremap \<Space> &nbsp;
-    inoremap \` &#8216;
-    inoremap \' &#8217;
-    inoremap \2 &#8220;
-    inoremap \" &#8221;
-    autocmd! BufLeave * call MapHTMLKeys(0)
-  else
-    iunmap \\
-    iunmap \&
-    iunmap \<
-    iunmap \>
-    iunmap \-
-    iunmap \<Space>
-    iunmap \`
-    iunmap \'
-    iunmap \2
-    iunmap \"
-    autocmd! BufLeave *
-  endif " test for mapping/unmapping
-endfunction " MapHTMLKeys()
 "}}}
 
 " QuickFixToggle {{{
@@ -614,14 +510,6 @@ augroup SkeletonAu
     execute 'autocmd BufNewFile *.' . ext . ' 0r ~/.vim/skel/skel.' . ext
   endfor
 augroup END
-"}}}
-
-" 括弧までを消したり置き換えたりする "{{{
-" http://vim-users.jp/2011/04/hack214/
-onoremap ) t)
-onoremap ( t(
-vnoremap ) t)
-vnoremap ( t(
 "}}}
 
 " Map semicolon to colon {{{
@@ -841,11 +729,6 @@ map <silent> sP :call YanktmpPaste_P()<CR>
 "}}}
 
 "----------------------------------------
-"rails.vim + nerdtree.vim "{{{
-nnoremap <Leader>p :Rtree<CR>
-"}}}
-
-"----------------------------------------
 " syntastic {{{
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['perl'],
@@ -944,12 +827,6 @@ autocmd FileType vimshell
 \| call vimshell#altercmd#define('ll', 'ls -ltr')
 \| call vimshell#altercmd#define('la', 'ls -ltra')
 "}}}
-"----------------------------------------
-" migemo割り当て "{{{
-if !has("gui_running")
-  noremap  g/ :<C-u>Migemo<CR>
-endif
-"}}}
 
 "----------------------------------------
 " open-browser "{{{
@@ -979,17 +856,6 @@ autocmd FileType mail exe ':HideBadWhitespace'
 autocmd FileType markdown exe ':HideBadWhitespace'
 let b:bad_whitespace_show = 0
 "}}}
-
-"----------------------------------------
-"EnhancedCommentify {{{
-let g:EnhCommentifyBindInInsert = 'no'
-"}}}
-
-"----------------------------------------
-" vim-surround {{{
-"let g:surround_106 = "$('\r')"  " 106 = j
-"let g:surround_74 = "$j('\r')"  " 74 = J
-" }}}
 
 "----------------------------------------
 " vim-surround_custom_mapping {{{
@@ -1140,17 +1006,6 @@ syntax enable
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-" }}}
-
-"----------------------------------------
-" rabbit-ui {{{
-function! s:edit_csv(path)
-  call writefile(map(rabbit_ui#gridview(
-        \ map(readfile(expand(a:path)),'split(v:val,",",1)')),
-        \ "join(v:val, ',')"), expand(a:path))
-endfunction
-
-command! -nargs=1 -complete=file EditCSV  :call <sid>edit_csv(<q-args>)
 " }}}
 
 " vim: foldmethod=marker

@@ -26,9 +26,6 @@ repo = 'Shougo/vimproc'
 repo = 'corntrace/bufexplorer'
 
 [[plugins]]
-repo = 'hrp/EnhancedCommentify'
-
-[[plugins]]
 repo = 'mattn/webapi-vim'
 
 [[plugins]]
@@ -66,9 +63,6 @@ repo = 'tpope/vim-abolish'
 
 [[plugins]]
 repo = 'tpope/vim-repeat'
-
-[[plugins]]
-repo = 'taku-o/vim-toggle'
 
 [[plugins]]
 repo = 'h1mesuke/vim-alignta'
@@ -131,9 +125,6 @@ repo = 'itchyny/calendar.vim'
 repo = 'kannokanno/previm'
 
 [[plugins]]
-repo = 'tommcdo/vim-exchange'
-
-[[plugins]]
 repo = 'rizzatti/funcoo.vim'
 
 [[plugins]]
@@ -144,9 +135,6 @@ repo = 'tejr/vim-tmux'
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
-
-[[plugins]]
-repo = 'rbtnn/rabbit-ui.vim'
 
 [[plugins]]
 repo = 'm-kat/aws-vim'
@@ -177,4 +165,34 @@ repo = 'DirDiff.vim'
 
 [[plugins]]
 repo = 'vcscommand.vim'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+
+[[plugins]]
+repo = 'perlcritic-compiler-script'
+
+[[plugins]]
+repo = 'martintreurnicht/vim-gradle.git'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'petdance/vim-perl'
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+
+[[plugins]]
+repo = "Shougo/neosnippet-snippets"
+
+[[plugins]]
+repo = 'einars/js-beautify'
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
 
