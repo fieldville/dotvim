@@ -88,7 +88,7 @@ if has("autochdir")
 else
   set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
-nnoremap <C-]> g]
+"nnoremap <C-]> g]
 "}}}
 " 検索などで飛んだらそこを真ん中に {{{
 for maptype in ['n', 'N', '*', '#', 'g*', 'g#', 'G']
