@@ -733,9 +733,9 @@ nnoremap [unite]P   :<C-u>Unite process -start-insert<CR>
 nnoremap [unite]R   :<C-u>Unite -buffer-name=register register -vertical -direction=topleft<CR>
 nnoremap [unite]S   :<C-u>Unite output:scriptnames -vertical -direction=topleft<CR>
 
-" <C-r> で unite-history/command を起動
+" <C-h> で unite-history/command を起動
 " 選択するとコマンドラインに選択したコマンドが挿入される
-cnoremap <C-r> :<C-u>Unite history/command -start-insert -default-action=edit<CR>
+cnoremap <C-t> :<C-u>Unite history/command -start-insert -default-action=edit<CR>
 "}}}
 " open-browser {{{
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
