@@ -109,8 +109,8 @@ repo = 'itchyny/calendar.vim'
 [[plugins]]
 repo = 'kannokanno/previm'
 
-[[plugins]]
-repo = 'tejr/vim-tmux'
+#[[plugins]]
+#repo = 'tejr/vim-tmux'
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
@@ -119,34 +119,34 @@ repo = 'altercation/vim-colors-solarized'
 repo = 'm-kat/aws-vim'
 
 [[plugins]]
-repo = 'matchit.zip'
+repo = 'vim-scripts/matchit.zip'
 
 [[plugins]]
-repo = 'JavaDecompiler.vim'
+repo = 'vim-scripts/JavaDecompiler.vim'
 
 [[plugins]]
-repo = 'SQLUtilities'
+repo = 'vim-scripts/SQLUtilities'
 
 [[plugins]]
-repo = 'svn-diff.vim'
+repo = 'vim-scripts/svn-diff.vim'
 
 [[plugins]]
-repo = 'wombat256.vim'
+repo = 'vim-scripts/wombat256.vim'
 
 [[plugins]]
-repo = 'yanktmp.vim'
+repo = 'vim-scripts/yanktmp.vim'
 
 [[plugins]]
-repo = 'DirDiff.vim'
+repo = 'vim-scripts/DirDiff.vim'
 
 [[plugins]]
-repo = 'vcscommand.vim'
+repo = 'vim-scripts/vcscommand.vim'
 
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'
 
 [[plugins]]
-repo = 'perlcritic-compiler-script'
+repo = 'vim-scripts/perlcritic-compiler-script'
 
 [[plugins]]
 repo = 'martintreurnicht/vim-gradle.git'
