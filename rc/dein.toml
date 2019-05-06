@@ -172,3 +172,5 @@ repo = 'vim-ruby/vim-ruby'
 [[plugins]]
 repo = 'cespare/vim-toml'
 
+[[plugins]]
+repo = 'kylef/apiblueprint.vim'
