@@ -128,6 +128,9 @@ repo = 'vim-scripts/JavaDecompiler.vim'
 repo = 'vim-scripts/SQLUtilities'
 
 [[plugins]]
+repo = 'vim-scripts/Align'
+
+[[plugins]]
 repo = 'vim-scripts/svn-diff.vim'
 
 [[plugins]]
