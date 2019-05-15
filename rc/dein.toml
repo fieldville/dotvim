@@ -125,9 +125,6 @@ repo = 'vim-scripts/matchit.zip'
 repo = 'vim-scripts/JavaDecompiler.vim'
 
 [[plugins]]
-repo = 'vim-scripts/SQLUtilities'
-
-[[plugins]]
 repo = 'vim-scripts/Align'
 
 [[plugins]]

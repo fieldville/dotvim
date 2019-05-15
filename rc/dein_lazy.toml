@@ -22,6 +22,10 @@ repo = 'mattn/emmet-vim'
 on_ft = 'html'
 
 [[plugins]]
+repo = 'vim-scripts/SQLUtilities'
+on_ft = 'sql'
+
+[[plugins]]
 repo = 'mattn/vim-sqlfmt'
 on_ft = 'sql'
 
