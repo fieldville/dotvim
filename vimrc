@@ -703,7 +703,7 @@ endfor
 "}}}
 " unite.vim {{{
 let g:unite_source_grep_default_opts = '--color=never -Hn'
-call unite#custom_default_action('file', 'tabopen')
+"call unite#custom_default_action('file', 'tabopen')
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
