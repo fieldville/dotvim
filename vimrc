@@ -523,6 +523,7 @@ if &runtimepath !~# '/dein.vim'
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
   execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+  set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 endif
 
 " 設定開始
@@ -899,7 +900,7 @@ let g:calendar_google_task = 1
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+" colorscheme solarized
 "}}}
 " {{{
 " vim: foldmethod=marker:foldcolumn=3:nowrap
