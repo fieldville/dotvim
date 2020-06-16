@@ -245,6 +245,7 @@ augroup END
 " for grep {{{
 "{{{ 外部grep
 let &grepprg="find . -type f -name '*.*'
+              \ -a -not -regex '.*/HTML/.*'
               \ -a -not -regex '.*\\.swp$'
               \ -a -not -regex '.*\\.gz$'
               \ -a -not -regex '.*\\.gif$'
@@ -280,6 +281,8 @@ let &grepprg="find . -type f -name '*.*'
 "}}}
 " カーソル直下の単語(Word)
 nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
+nmap <C-g><C-g> :Gtags -g <C-R><C-W><CR>
+nmap <C-g><C-r> :Gtags -r <C-R><C-W><CR>
 " カーソル直下の単語(WORD)(C-aはscreenとバッティングするためC-eに)
 nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
 " 最後に検索した単語
@@ -901,6 +904,14 @@ syntax enable
 set background=dark
 let g:solarized_termcolors=256
 " colorscheme solarized
+"}}}
+" gtags.vim {{{
+" Note) Overriding ctags mapping
+map <C-]> :GtagsCursor<CR>
+
+" Manually set according to context
+"map <C-h> :Gtags -f %<CR>
+"map <C-j> :GtagsCursor<CR>
 "}}}
 " {{{
 " vim: foldmethod=marker:foldcolumn=3:nowrap

@@ -174,3 +174,6 @@ repo = 'cespare/vim-toml'
 
 [[plugins]]
 repo = 'kylef/apiblueprint.vim'
+
+[[plugins]]
+repo = 'vim-scripts/gtags.vim'
