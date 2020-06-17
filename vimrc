@@ -94,6 +94,15 @@ for maptype in ['n', 'N', '*', '#', 'g*', 'g#', 'G'] | execute 'nmap' maptype ma
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 "}}}
+" Mappings for command-line mode. {{{
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-a> <C-b>
+cnoremap <Up> <C-p>
+cnoremap <Down> <C-n>
+"}}}
 " fileencoding {{{
 for [enc, cmds, key] in [
   \ ['utf-8'      , ['Utf8']            , 'u'],
@@ -740,15 +749,6 @@ nnoremap [unite]M   :<C-u>Unite output:messages -vertical -direction=topleft<CR>
 nnoremap [unite]P   :<C-u>Unite process -start-insert<CR>
 nnoremap [unite]R   :<C-u>Unite -buffer-name=register register -vertical -direction=topleft<CR>
 nnoremap [unite]S   :<C-u>Unite output:scriptnames -vertical -direction=topleft<CR>
-
-" Mappings for command-line mode.
-cnoremap <C-f> <Right>
-cnoremap <C-b> <Left>
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-a> <C-b>
-cnoremap <Up> <C-p>
-cnoremap <Down> <C-n>
 
 " <C-h> で unite-history/command を起動
 " 選択するとコマンドラインに選択したコマンドが挿入される
