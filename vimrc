@@ -741,6 +741,15 @@ nnoremap [unite]P   :<C-u>Unite process -start-insert<CR>
 nnoremap [unite]R   :<C-u>Unite -buffer-name=register register -vertical -direction=topleft<CR>
 nnoremap [unite]S   :<C-u>Unite output:scriptnames -vertical -direction=topleft<CR>
 
+" Mappings for command-line mode.
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-a> <C-b>
+cnoremap <Up> <C-p>
+cnoremap <Down> <C-n>
+
 " <C-h> で unite-history/command を起動
 " 選択するとコマンドラインに選択したコマンドが挿入される
 cnoremap <C-t> :<C-u>Unite history/command -start-insert -default-action=edit<CR>
