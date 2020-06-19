@@ -476,6 +476,12 @@ augroup END
 " Map semicolon to colon {{{
 nnoremap ; :
 "}}}
+" *,#をg*,g#に入れ替え {{{
+nnoremap * g*
+nnoremap g* *
+nnoremap # g#
+nnoremap g# #
+"}}}
 " 矩形選択で行末を超えてブロックを選択できるようにする {{{
 set virtualedit+=block
 "}}}
