@@ -95,13 +95,17 @@ cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 "}}}
 " Mappings for command-line mode. {{{
-cnoremap <C-f> <Right>
+cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
-cnoremap <C-p> <Up>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
 cnoremap <C-n> <Down>
-cnoremap <C-a> <C-b>
-cnoremap <Up> <C-p>
 cnoremap <Down> <C-n>
+cnoremap <C-p> <Up>
+cnoremap <Up> <C-p>
+cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
+      \ '' : getcmdline()[:getcmdpos()-2]<CR>
 "}}}
 " fileencoding {{{
 for [enc, cmds, key] in [
