@@ -521,6 +521,9 @@ endif
 " helpをtab helpに {{{
 cabbrev help tab help
 "}}}
+" 行頭行末の連続移動 {{{
+set ww+=h,l
+"}}}
 "======================================== for plugin settings ======================================== {{{
 "}}}
 " dein.vim {{{
