@@ -107,6 +107,9 @@ cnoremap <Up> <C-p>
 cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
       \ '' : getcmdline()[:getcmdpos()-2]<CR>
 "}}}
+" vimgrep後にcwinを表示 {{{
+autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
+"}}}
 " fileencoding {{{
 for [enc, cmds, key] in [
   \ ['utf-8'      , ['Utf8']            , 'u'],
@@ -293,14 +296,14 @@ let &grepprg="find . -type f -name '*.*'
               \ -print0 \\| xargs -0 grep -nH"
 "}}}
 " カーソル直下の単語(Word)
-nmap <C-g><C-w> :grep "<C-R><C-W>" \| bot cw<CR>
+nmap <C-g><C-w> :grep "<C-R><C-W>"<CR>
 nmap <C-g><C-g> :Gtags -g <C-R><C-W><CR>
 nmap <C-g><C-r> :Gtags -r <C-R><C-W><CR>
 " カーソル直下の単語(WORD)(C-aはscreenとバッティングするためC-eに)
-nmap <C-g><C-e> :grep "<C-R><C-A>" \| bot cw<CR>
+nmap <C-g><C-e> :grep "<C-R><C-A>"<CR>
 " 最後に検索した単語
-nmap <C-g><C-h> :grep "<C-R>/" \| bot cw<CR>
-nmap <C-g><C-j> :vim /<C-R>// ## \| bot cw<CR>
+nmap <C-g><C-h> :grep "<C-R>/"<CR>
+nmap <C-g><C-j> :vim /<C-R>// ##<CR>
 
 nmap <silent> <C-n> :<C-u>cnext<CR>
 nmap <silent> <C-p> :<C-u>cprevious<CR>
