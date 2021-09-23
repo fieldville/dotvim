@@ -419,7 +419,7 @@ function! s:location_list_toggle()
     lwindow
   endif
 endfunction
-nnoremap <silent> <Space>" :call <SID>location_list_toggle()<CR>
+nnoremap <silent> <Space>; :call <SID>location_list_toggle()<CR>
 "}}}
 " ChangeCurrentDir {{{
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
